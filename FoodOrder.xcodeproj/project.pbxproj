@@ -7,21 +7,199 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1C42EF932135A05700B44F56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C42EF922135A05700B44F56 /* AppDelegate.swift */; };
-		1C42EF952135A05700B44F56 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C42EF942135A05700B44F56 /* ViewController.swift */; };
+		1C297CD5214E250400C75F24 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C297CD1214E250400C75F24 /* AppDelegate.swift */; };
+		1C297CD6214E250400C75F24 /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C297CD3214E250400C75F24 /* BaseVC.swift */; };
+		1C297CD8214E251500C75F24 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C297CD7214E251500C75F24 /* IntroViewController.swift */; };
 		1C42EF982135A05700B44F56 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C42EF962135A05700B44F56 /* Main.storyboard */; };
-		1C42EF9A2135A05900B44F56 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C42EF992135A05900B44F56 /* Assets.xcassets */; };
 		1C42EF9D2135A05900B44F56 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C42EF9B2135A05900B44F56 /* LaunchScreen.storyboard */; };
+		1CE39E5E215642A800662F8D /* RaisePlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE39E5D215642A800662F8D /* RaisePlaceholder.swift */; };
+		1CF112D3214E360100E57D69 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CF11283214E360000E57D69 /* Assets.xcassets */; };
+		1CF112D4214E360100E57D69 /* Splash.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CF11284214E360000E57D69 /* Splash.xcassets */; };
+		1CF11327214E368E00E57D69 /* LableNeueLightBlack0023.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF112D8214E368D00E57D69 /* LableNeueLightBlack0023.swift */; };
+		1CF11328214E368E00E57D69 /* LabelNeueLight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF112D9214E368D00E57D69 /* LabelNeueLight.swift */; };
+		1CF11329214E368E00E57D69 /* LabelNeueBold.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF112DA214E368D00E57D69 /* LabelNeueBold.swift */; };
+		1CF1132A214E368E00E57D69 /* LableNeueLightGray119.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF112DB214E368D00E57D69 /* LableNeueLightGray119.swift */; };
+		1CF1132B214E368E00E57D69 /* LoginTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF112DD214E368D00E57D69 /* LoginTextField.swift */; };
+		1CF1132C214E368E00E57D69 /* TextWithRightButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF112DE214E368D00E57D69 /* TextWithRightButton.swift */; };
+		1CF1132D214E368E00E57D69 /* TextFieldGray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF112DF214E368D00E57D69 /* TextFieldGray.swift */; };
+		1CF1132E214E368E00E57D69 /* TextFieldTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF112E0214E368D00E57D69 /* TextFieldTitle.swift */; };
+		1CF1132F214E368E00E57D69 /* NeueCommonButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF112E1214E368D00E57D69 /* NeueCommonButton.swift */; };
+		1CF11330214E368E00E57D69 /* NeueLightButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF112E3214E368D00E57D69 /* NeueLightButton.swift */; };
+		1CF11331214E368E00E57D69 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF112E5214E368D00E57D69 /* Constant.swift */; };
+		1CF11332214E368E00E57D69 /* AK_String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF112E6214E368D00E57D69 /* AK_String.swift */; };
+		1CF11333214E368E00E57D69 /* Tabbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF112E7214E368D00E57D69 /* Tabbar.swift */; };
+		1CF11334214E368E00E57D69 /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF112E8214E368D00E57D69 /* Label.swift */; };
+		1CF11335214E368E00E57D69 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF112E9214E368D00E57D69 /* Alert.swift */; };
+		1CF11336214E368E00E57D69 /* UserDefaultClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF112EA214E368D00E57D69 /* UserDefaultClass.swift */; };
+		1CF11337214E368E00E57D69 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF112EB214E368D00E57D69 /* CardView.swift */; };
+		1CF11338214E368E00E57D69 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF112EC214E368D00E57D69 /* NavigationBar.swift */; };
+		1CF11339214E368E00E57D69 /* AKTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF112ED214E368D00E57D69 /* AKTextField.swift */; };
+		1CF1133A214E368E00E57D69 /* AnimationClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF112EE214E368D00E57D69 /* AnimationClass.swift */; };
+		1CF1133B214E368E00E57D69 /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF112EF214E368D00E57D69 /* Globals.swift */; };
+		1CF1133C214E368E00E57D69 /* SLTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF112F0214E368D00E57D69 /* SLTextField.swift */; };
+		1CF1133D214E368E00E57D69 /* UtilityClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF112F1214E368D00E57D69 /* UtilityClass.swift */; };
+		1CF1133E214E368E00E57D69 /* StatusBarStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF112F2214E368D00E57D69 /* StatusBarStyle.swift */; };
+		1CF1133F214E368E00E57D69 /* Devices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF112F3214E368D00E57D69 /* Devices.swift */; };
+		1CF11340214E368E00E57D69 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF112F4214E368D00E57D69 /* Font.swift */; };
+		1CF11341214E368E00E57D69 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF112F5214E368D00E57D69 /* Button.swift */; };
+		1CF11342214E368E00E57D69 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF112F6214E368D00E57D69 /* Color.swift */; };
+		1CF11343214E368E00E57D69 /* GradientImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF112F7214E368D00E57D69 /* GradientImage.swift */; };
+		1CF11344214E368E00E57D69 /* HelveticaNeueLTPro-Lt.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1CF112F9214E368D00E57D69 /* HelveticaNeueLTPro-Lt.otf */; };
+		1CF11345214E368E00E57D69 /* HelveticaNeueLTPro-Bd.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1CF112FA214E368D00E57D69 /* HelveticaNeueLTPro-Bd.otf */; };
+		1CF11346214E368E00E57D69 /* RateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CF112FD214E368D00E57D69 /* RateView.m */; };
+		1CF11347214E368E00E57D69 /* JTProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CF11301214E368D00E57D69 /* JTProgressHUD.m */; };
+		1CF11348214E368E00E57D69 /* IQTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CF11304214E368D00E57D69 /* IQTextView.m */; };
+		1CF11349214E368E00E57D69 /* IQToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CF11308214E368D00E57D69 /* IQToolbar.m */; };
+		1CF1134A214E368E00E57D69 /* IQTitleBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CF1130A214E368D00E57D69 /* IQTitleBarButtonItem.m */; };
+		1CF1134B214E368E00E57D69 /* IQBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CF1130B214E368D00E57D69 /* IQBarButtonItem.m */; };
+		1CF1134C214E368E00E57D69 /* IQUIView+IQKeyboardToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CF1130C214E368D00E57D69 /* IQUIView+IQKeyboardToolbar.m */; };
+		1CF1134D214E368E00E57D69 /* IQPreviousNextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CF1130D214E368D00E57D69 /* IQPreviousNextView.m */; };
+		1CF1134E214E368E00E57D69 /* IQKeyboardManager.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1CF11315214E368E00E57D69 /* IQKeyboardManager.bundle */; };
+		1CF1134F214E368E00E57D69 /* IQKeyboardManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CF11318214E368E00E57D69 /* IQKeyboardManager.m */; };
+		1CF11350214E368E00E57D69 /* IQNSArray+Sort.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CF1131A214E368E00E57D69 /* IQNSArray+Sort.m */; };
+		1CF11351214E368E00E57D69 /* IQUIWindow+Hierarchy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CF1131B214E368E00E57D69 /* IQUIWindow+Hierarchy.m */; };
+		1CF11352214E368E00E57D69 /* IQUITextFieldView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CF1131D214E368E00E57D69 /* IQUITextFieldView+Additions.m */; };
+		1CF11353214E368E00E57D69 /* IQUIScrollView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CF1131E214E368E00E57D69 /* IQUIScrollView+Additions.m */; };
+		1CF11354214E368E00E57D69 /* IQUIView+Hierarchy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CF1131F214E368E00E57D69 /* IQUIView+Hierarchy.m */; };
+		1CF11355214E368E00E57D69 /* IQUIViewController+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CF11324214E368E00E57D69 /* IQUIViewController+Additions.m */; };
+		1CF11356214E368E00E57D69 /* IQKeyboardReturnKeyHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CF11326214E368E00E57D69 /* IQKeyboardReturnKeyHandler.m */; };
+		1CF11359214E36C400E57D69 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CF11358214E36C400E57D69 /* UIKit.framework */; };
+		1CF113A4214E563500E57D69 /* AvenirNextLTPro-HeavyIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1CF1138C214E563400E57D69 /* AvenirNextLTPro-HeavyIt.otf */; };
+		1CF113A5214E563500E57D69 /* AvenirNextLTPro-Cn.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1CF1138D214E563400E57D69 /* AvenirNextLTPro-Cn.otf */; };
+		1CF113A6214E563500E57D69 /* AvenirNextLTPro-DemiCnIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1CF1138E214E563400E57D69 /* AvenirNextLTPro-DemiCnIt.otf */; };
+		1CF113A7214E563500E57D69 /* AvenirNextLTPro-Demi.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1CF1138F214E563400E57D69 /* AvenirNextLTPro-Demi.otf */; };
+		1CF113A8214E563500E57D69 /* AvenirNextLTPro-CnIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1CF11390214E563400E57D69 /* AvenirNextLTPro-CnIt.otf */; };
+		1CF113A9214E563500E57D69 /* AvenirNextLTPro-BoldCn.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1CF11391214E563400E57D69 /* AvenirNextLTPro-BoldCn.otf */; };
+		1CF113AA214E563500E57D69 /* AvenirNextLTPro-DemiCn.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1CF11392214E563400E57D69 /* AvenirNextLTPro-DemiCn.otf */; };
+		1CF113AB214E563500E57D69 /* AvenirNextLTPro-BoldCnIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1CF11393214E563400E57D69 /* AvenirNextLTPro-BoldCnIt.otf */; };
+		1CF113AC214E563500E57D69 /* AvenirNextLTPro-MediumIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1CF11394214E563400E57D69 /* AvenirNextLTPro-MediumIt.otf */; };
+		1CF113AD214E563500E57D69 /* AvenirNextLTPro-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1CF11395214E563400E57D69 /* AvenirNextLTPro-Bold.otf */; };
+		1CF113AE214E563500E57D69 /* AvenirNextLTPro-UltLtCn.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1CF11396214E563400E57D69 /* AvenirNextLTPro-UltLtCn.otf */; };
+		1CF113AF214E563500E57D69 /* AvenirNextLTPro-UltLtCnIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1CF11397214E563400E57D69 /* AvenirNextLTPro-UltLtCnIt.otf */; };
+		1CF113B0214E563500E57D69 /* AvenirNextLTPro-It.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1CF11398214E563400E57D69 /* AvenirNextLTPro-It.otf */; };
+		1CF113B1214E563500E57D69 /* AvenirNextLTPro-MediumCnIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1CF11399214E563500E57D69 /* AvenirNextLTPro-MediumCnIt.otf */; };
+		1CF113B2214E563500E57D69 /* AvenirNextLTPro-HeavyCn.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1CF1139A214E563500E57D69 /* AvenirNextLTPro-HeavyCn.otf */; };
+		1CF113B3214E563500E57D69 /* AvenirNextLTPro-MediumCn.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1CF1139B214E563500E57D69 /* AvenirNextLTPro-MediumCn.otf */; };
+		1CF113B4214E563500E57D69 /* AvenirNextLTPro-UltLtIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1CF1139C214E563500E57D69 /* AvenirNextLTPro-UltLtIt.otf */; };
+		1CF113B5214E563500E57D69 /* AvenirNextLTPro-HeavyCnIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1CF1139D214E563500E57D69 /* AvenirNextLTPro-HeavyCnIt.otf */; };
+		1CF113B6214E563500E57D69 /* AvenirNextLTPro-UltLt.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1CF1139E214E563500E57D69 /* AvenirNextLTPro-UltLt.otf */; };
+		1CF113B7214E563500E57D69 /* AvenirNextLTPro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1CF1139F214E563500E57D69 /* AvenirNextLTPro-Regular.otf */; };
+		1CF113B8214E563500E57D69 /* AvenirNextLTPro-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1CF113A0214E563500E57D69 /* AvenirNextLTPro-Medium.otf */; };
+		1CF113B9214E563500E57D69 /* AvenirNextLTPro-DemiIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1CF113A1214E563500E57D69 /* AvenirNextLTPro-DemiIt.otf */; };
+		1CF113BA214E563500E57D69 /* AvenirNextLTPro-Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1CF113A2214E563500E57D69 /* AvenirNextLTPro-Heavy.otf */; };
+		1CF113BB214E563500E57D69 /* AvenirNextLTPro-BoldIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1CF113A3214E563500E57D69 /* AvenirNextLTPro-BoldIt.otf */; };
+		1CF52C9E21500B00008E8567 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CF52C9D21500B00008E8567 /* LoginVC.swift */; };
+		1CF52CA021500CE7008E8567 /* Login.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CF52C9F21500CE7008E8567 /* Login.xcassets */; };
+		296F4F75239A5BC893A770C6 /* Pods_FoodOrder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEA22CB78353C125D5E36E05 /* Pods_FoodOrder.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1C297CD1214E250400C75F24 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1C297CD3214E250400C75F24 /* BaseVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
+		1C297CD7214E251500C75F24 /* IntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
 		1C42EF8F2135A05700B44F56 /* FoodOrder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodOrder.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		1C42EF922135A05700B44F56 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1C42EF942135A05700B44F56 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1C42EF972135A05700B44F56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		1C42EF992135A05900B44F56 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1C42EF9C2135A05900B44F56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1C42EF9E2135A05900B44F56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1CE39E5D215642A800662F8D /* RaisePlaceholder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RaisePlaceholder.swift; sourceTree = "<group>"; };
+		1CF11283214E360000E57D69 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1CF11284214E360000E57D69 /* Splash.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Splash.xcassets; sourceTree = "<group>"; };
+		1CF112D8214E368D00E57D69 /* LableNeueLightBlack0023.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LableNeueLightBlack0023.swift; sourceTree = "<group>"; };
+		1CF112D9214E368D00E57D69 /* LabelNeueLight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelNeueLight.swift; sourceTree = "<group>"; };
+		1CF112DA214E368D00E57D69 /* LabelNeueBold.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelNeueBold.swift; sourceTree = "<group>"; };
+		1CF112DB214E368D00E57D69 /* LableNeueLightGray119.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LableNeueLightGray119.swift; sourceTree = "<group>"; };
+		1CF112DD214E368D00E57D69 /* LoginTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginTextField.swift; sourceTree = "<group>"; };
+		1CF112DE214E368D00E57D69 /* TextWithRightButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextWithRightButton.swift; sourceTree = "<group>"; };
+		1CF112DF214E368D00E57D69 /* TextFieldGray.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldGray.swift; sourceTree = "<group>"; };
+		1CF112E0214E368D00E57D69 /* TextFieldTitle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldTitle.swift; sourceTree = "<group>"; };
+		1CF112E1214E368D00E57D69 /* NeueCommonButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeueCommonButton.swift; sourceTree = "<group>"; };
+		1CF112E3214E368D00E57D69 /* NeueLightButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeueLightButton.swift; sourceTree = "<group>"; };
+		1CF112E5214E368D00E57D69 /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		1CF112E6214E368D00E57D69 /* AK_String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AK_String.swift; sourceTree = "<group>"; };
+		1CF112E7214E368D00E57D69 /* Tabbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tabbar.swift; sourceTree = "<group>"; };
+		1CF112E8214E368D00E57D69 /* Label.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
+		1CF112E9214E368D00E57D69 /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		1CF112EA214E368D00E57D69 /* UserDefaultClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultClass.swift; sourceTree = "<group>"; };
+		1CF112EB214E368D00E57D69 /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		1CF112EC214E368D00E57D69 /* NavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
+		1CF112ED214E368D00E57D69 /* AKTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AKTextField.swift; sourceTree = "<group>"; };
+		1CF112EE214E368D00E57D69 /* AnimationClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationClass.swift; sourceTree = "<group>"; };
+		1CF112EF214E368D00E57D69 /* Globals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
+		1CF112F0214E368D00E57D69 /* SLTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SLTextField.swift; sourceTree = "<group>"; };
+		1CF112F1214E368D00E57D69 /* UtilityClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilityClass.swift; sourceTree = "<group>"; };
+		1CF112F2214E368D00E57D69 /* StatusBarStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusBarStyle.swift; sourceTree = "<group>"; };
+		1CF112F3214E368D00E57D69 /* Devices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Devices.swift; sourceTree = "<group>"; };
+		1CF112F4214E368D00E57D69 /* Font.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
+		1CF112F5214E368D00E57D69 /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		1CF112F6214E368D00E57D69 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		1CF112F7214E368D00E57D69 /* GradientImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientImage.swift; sourceTree = "<group>"; };
+		1CF112F9214E368D00E57D69 /* HelveticaNeueLTPro-Lt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HelveticaNeueLTPro-Lt.otf"; sourceTree = "<group>"; };
+		1CF112FA214E368D00E57D69 /* HelveticaNeueLTPro-Bd.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HelveticaNeueLTPro-Bd.otf"; sourceTree = "<group>"; };
+		1CF112FD214E368D00E57D69 /* RateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RateView.m; sourceTree = "<group>"; };
+		1CF112FE214E368D00E57D69 /* RateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RateView.h; sourceTree = "<group>"; };
+		1CF11300214E368D00E57D69 /* JTProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTProgressHUD.h; sourceTree = "<group>"; };
+		1CF11301214E368D00E57D69 /* JTProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTProgressHUD.m; sourceTree = "<group>"; };
+		1CF11304214E368D00E57D69 /* IQTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQTextView.m; sourceTree = "<group>"; };
+		1CF11305214E368D00E57D69 /* IQTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQTextView.h; sourceTree = "<group>"; };
+		1CF11307214E368D00E57D69 /* IQUIView+IQKeyboardToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IQUIView+IQKeyboardToolbar.h"; sourceTree = "<group>"; };
+		1CF11308214E368D00E57D69 /* IQToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQToolbar.m; sourceTree = "<group>"; };
+		1CF11309214E368D00E57D69 /* IQPreviousNextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQPreviousNextView.h; sourceTree = "<group>"; };
+		1CF1130A214E368D00E57D69 /* IQTitleBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQTitleBarButtonItem.m; sourceTree = "<group>"; };
+		1CF1130B214E368D00E57D69 /* IQBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQBarButtonItem.m; sourceTree = "<group>"; };
+		1CF1130C214E368D00E57D69 /* IQUIView+IQKeyboardToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "IQUIView+IQKeyboardToolbar.m"; sourceTree = "<group>"; };
+		1CF1130D214E368D00E57D69 /* IQPreviousNextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQPreviousNextView.m; sourceTree = "<group>"; };
+		1CF1130E214E368D00E57D69 /* IQToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQToolbar.h; sourceTree = "<group>"; };
+		1CF1130F214E368D00E57D69 /* IQBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQBarButtonItem.h; sourceTree = "<group>"; };
+		1CF11310214E368D00E57D69 /* IQTitleBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQTitleBarButtonItem.h; sourceTree = "<group>"; };
+		1CF11312214E368D00E57D69 /* IQKeyboardManagerConstantsInternal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQKeyboardManagerConstantsInternal.h; sourceTree = "<group>"; };
+		1CF11313214E368E00E57D69 /* IQKeyboardManagerConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQKeyboardManagerConstants.h; sourceTree = "<group>"; };
+		1CF11315214E368E00E57D69 /* IQKeyboardManager.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = IQKeyboardManager.bundle; sourceTree = "<group>"; };
+		1CF11316214E368E00E57D69 /* IQKeyboardReturnKeyHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQKeyboardReturnKeyHandler.h; sourceTree = "<group>"; };
+		1CF11317214E368E00E57D69 /* IQKeyboardManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IQKeyboardManager.h; sourceTree = "<group>"; };
+		1CF11318214E368E00E57D69 /* IQKeyboardManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQKeyboardManager.m; sourceTree = "<group>"; };
+		1CF1131A214E368E00E57D69 /* IQNSArray+Sort.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "IQNSArray+Sort.m"; sourceTree = "<group>"; };
+		1CF1131B214E368E00E57D69 /* IQUIWindow+Hierarchy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "IQUIWindow+Hierarchy.m"; sourceTree = "<group>"; };
+		1CF1131C214E368E00E57D69 /* IQUIViewController+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IQUIViewController+Additions.h"; sourceTree = "<group>"; };
+		1CF1131D214E368E00E57D69 /* IQUITextFieldView+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "IQUITextFieldView+Additions.m"; sourceTree = "<group>"; };
+		1CF1131E214E368E00E57D69 /* IQUIScrollView+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "IQUIScrollView+Additions.m"; sourceTree = "<group>"; };
+		1CF1131F214E368E00E57D69 /* IQUIView+Hierarchy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "IQUIView+Hierarchy.m"; sourceTree = "<group>"; };
+		1CF11320214E368E00E57D69 /* IQUIWindow+Hierarchy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IQUIWindow+Hierarchy.h"; sourceTree = "<group>"; };
+		1CF11321214E368E00E57D69 /* IQNSArray+Sort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IQNSArray+Sort.h"; sourceTree = "<group>"; };
+		1CF11322214E368E00E57D69 /* IQUIScrollView+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IQUIScrollView+Additions.h"; sourceTree = "<group>"; };
+		1CF11323214E368E00E57D69 /* IQUITextFieldView+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IQUITextFieldView+Additions.h"; sourceTree = "<group>"; };
+		1CF11324214E368E00E57D69 /* IQUIViewController+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "IQUIViewController+Additions.m"; sourceTree = "<group>"; };
+		1CF11325214E368E00E57D69 /* IQUIView+Hierarchy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "IQUIView+Hierarchy.h"; sourceTree = "<group>"; };
+		1CF11326214E368E00E57D69 /* IQKeyboardReturnKeyHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IQKeyboardReturnKeyHandler.m; sourceTree = "<group>"; };
+		1CF11358214E36C400E57D69 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		1CF1138C214E563400E57D69 /* AvenirNextLTPro-HeavyIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AvenirNextLTPro-HeavyIt.otf"; sourceTree = "<group>"; };
+		1CF1138D214E563400E57D69 /* AvenirNextLTPro-Cn.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AvenirNextLTPro-Cn.otf"; sourceTree = "<group>"; };
+		1CF1138E214E563400E57D69 /* AvenirNextLTPro-DemiCnIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AvenirNextLTPro-DemiCnIt.otf"; sourceTree = "<group>"; };
+		1CF1138F214E563400E57D69 /* AvenirNextLTPro-Demi.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AvenirNextLTPro-Demi.otf"; sourceTree = "<group>"; };
+		1CF11390214E563400E57D69 /* AvenirNextLTPro-CnIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AvenirNextLTPro-CnIt.otf"; sourceTree = "<group>"; };
+		1CF11391214E563400E57D69 /* AvenirNextLTPro-BoldCn.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AvenirNextLTPro-BoldCn.otf"; sourceTree = "<group>"; };
+		1CF11392214E563400E57D69 /* AvenirNextLTPro-DemiCn.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AvenirNextLTPro-DemiCn.otf"; sourceTree = "<group>"; };
+		1CF11393214E563400E57D69 /* AvenirNextLTPro-BoldCnIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AvenirNextLTPro-BoldCnIt.otf"; sourceTree = "<group>"; };
+		1CF11394214E563400E57D69 /* AvenirNextLTPro-MediumIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AvenirNextLTPro-MediumIt.otf"; sourceTree = "<group>"; };
+		1CF11395214E563400E57D69 /* AvenirNextLTPro-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AvenirNextLTPro-Bold.otf"; sourceTree = "<group>"; };
+		1CF11396214E563400E57D69 /* AvenirNextLTPro-UltLtCn.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AvenirNextLTPro-UltLtCn.otf"; sourceTree = "<group>"; };
+		1CF11397214E563400E57D69 /* AvenirNextLTPro-UltLtCnIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AvenirNextLTPro-UltLtCnIt.otf"; sourceTree = "<group>"; };
+		1CF11398214E563400E57D69 /* AvenirNextLTPro-It.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AvenirNextLTPro-It.otf"; sourceTree = "<group>"; };
+		1CF11399214E563500E57D69 /* AvenirNextLTPro-MediumCnIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AvenirNextLTPro-MediumCnIt.otf"; sourceTree = "<group>"; };
+		1CF1139A214E563500E57D69 /* AvenirNextLTPro-HeavyCn.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AvenirNextLTPro-HeavyCn.otf"; sourceTree = "<group>"; };
+		1CF1139B214E563500E57D69 /* AvenirNextLTPro-MediumCn.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AvenirNextLTPro-MediumCn.otf"; sourceTree = "<group>"; };
+		1CF1139C214E563500E57D69 /* AvenirNextLTPro-UltLtIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AvenirNextLTPro-UltLtIt.otf"; sourceTree = "<group>"; };
+		1CF1139D214E563500E57D69 /* AvenirNextLTPro-HeavyCnIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AvenirNextLTPro-HeavyCnIt.otf"; sourceTree = "<group>"; };
+		1CF1139E214E563500E57D69 /* AvenirNextLTPro-UltLt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AvenirNextLTPro-UltLt.otf"; sourceTree = "<group>"; };
+		1CF1139F214E563500E57D69 /* AvenirNextLTPro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AvenirNextLTPro-Regular.otf"; sourceTree = "<group>"; };
+		1CF113A0214E563500E57D69 /* AvenirNextLTPro-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AvenirNextLTPro-Medium.otf"; sourceTree = "<group>"; };
+		1CF113A1214E563500E57D69 /* AvenirNextLTPro-DemiIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AvenirNextLTPro-DemiIt.otf"; sourceTree = "<group>"; };
+		1CF113A2214E563500E57D69 /* AvenirNextLTPro-Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AvenirNextLTPro-Heavy.otf"; sourceTree = "<group>"; };
+		1CF113A3214E563500E57D69 /* AvenirNextLTPro-BoldIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AvenirNextLTPro-BoldIt.otf"; sourceTree = "<group>"; };
+		1CF52C9D21500B00008E8567 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		1CF52C9F21500CE7008E8567 /* Login.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Login.xcassets; sourceTree = "<group>"; };
+		717350FE5D2AEA04649190F5 /* Pods-FoodOrder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodOrder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FoodOrder/Pods-FoodOrder.debug.xcconfig"; sourceTree = "<group>"; };
+		EEA22CB78353C125D5E36E05 /* Pods_FoodOrder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FoodOrder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9FF7BB567B37BDC5DE0F842 /* Pods-FoodOrder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodOrder.release.xcconfig"; path = "Pods/Target Support Files/Pods-FoodOrder/Pods-FoodOrder.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +207,56 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CF11359214E36C400E57D69 /* UIKit.framework in Frameworks */,
+				296F4F75239A5BC893A770C6 /* Pods_FoodOrder.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0CAC1025E4A2C9AAD773DC4A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				717350FE5D2AEA04649190F5 /* Pods-FoodOrder.debug.xcconfig */,
+				F9FF7BB567B37BDC5DE0F842 /* Pods-FoodOrder.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		1C297CD0214E250400C75F24 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				1C297CD1214E250400C75F24 /* AppDelegate.swift */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		1C297CD2214E250400C75F24 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				1C297CD3214E250400C75F24 /* BaseVC.swift */,
+				1C297CD4214E250400C75F24 /* IntroScreen */,
+				1CF52C9C21500AD4008E8567 /* LoginVC */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		1C297CD4214E250400C75F24 /* IntroScreen */ = {
+			isa = PBXGroup;
+			children = (
+				1C297CD7214E251500C75F24 /* IntroViewController.swift */,
+			);
+			path = IntroScreen;
+			sourceTree = "<group>";
+		};
 		1C42EF862135A05600B44F56 = {
 			isa = PBXGroup;
 			children = (
 				1C42EF912135A05700B44F56 /* FoodOrder */,
 				1C42EF902135A05700B44F56 /* Products */,
+				1CF11357214E36C300E57D69 /* Frameworks */,
+				0CAC1025E4A2C9AAD773DC4A /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +271,276 @@
 		1C42EF912135A05700B44F56 /* FoodOrder */ = {
 			isa = PBXGroup;
 			children = (
-				1C42EF922135A05700B44F56 /* AppDelegate.swift */,
-				1C42EF942135A05700B44F56 /* ViewController.swift */,
+				1C297CD0214E250400C75F24 /* AppDelegate */,
+				1C297CD2214E250400C75F24 /* ViewControllers */,
 				1C42EF962135A05700B44F56 /* Main.storyboard */,
-				1C42EF992135A05900B44F56 /* Assets.xcassets */,
 				1C42EF9B2135A05900B44F56 /* LaunchScreen.storyboard */,
 				1C42EF9E2135A05900B44F56 /* Info.plist */,
+				1CF1135A214E560A00E57D69 /* Fonts */,
+				1CF112D5214E368D00E57D69 /* Helper */,
+				1CF11282214E360000E57D69 /* Images */,
 			);
 			path = FoodOrder;
+			sourceTree = "<group>";
+		};
+		1CF11282214E360000E57D69 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				1CF11283214E360000E57D69 /* Assets.xcassets */,
+				1CF11284214E360000E57D69 /* Splash.xcassets */,
+				1CF52C9F21500CE7008E8567 /* Login.xcassets */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		1CF112D5214E368D00E57D69 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				1CF112D6214E368D00E57D69 /* CustomControls */,
+				1CF112E4214E368D00E57D69 /* Extensions */,
+				1CF112F8214E368D00E57D69 /* Fonts */,
+				1CF112FB214E368D00E57D69 /* ThirdParty */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		1CF112D6214E368D00E57D69 /* CustomControls */ = {
+			isa = PBXGroup;
+			children = (
+				1CF112D7214E368D00E57D69 /* TitleLabel */,
+				1CF112DC214E368D00E57D69 /* TextField */,
+				1CF112E1214E368D00E57D69 /* NeueCommonButton.swift */,
+				1CF112E2214E368D00E57D69 /* Button */,
+			);
+			path = CustomControls;
+			sourceTree = "<group>";
+		};
+		1CF112D7214E368D00E57D69 /* TitleLabel */ = {
+			isa = PBXGroup;
+			children = (
+				1CF112D8214E368D00E57D69 /* LableNeueLightBlack0023.swift */,
+				1CF112D9214E368D00E57D69 /* LabelNeueLight.swift */,
+				1CF112DA214E368D00E57D69 /* LabelNeueBold.swift */,
+				1CF112DB214E368D00E57D69 /* LableNeueLightGray119.swift */,
+			);
+			path = TitleLabel;
+			sourceTree = "<group>";
+		};
+		1CF112DC214E368D00E57D69 /* TextField */ = {
+			isa = PBXGroup;
+			children = (
+				1CE39E5D215642A800662F8D /* RaisePlaceholder.swift */,
+				1CF112DD214E368D00E57D69 /* LoginTextField.swift */,
+				1CF112DE214E368D00E57D69 /* TextWithRightButton.swift */,
+				1CF112DF214E368D00E57D69 /* TextFieldGray.swift */,
+				1CF112E0214E368D00E57D69 /* TextFieldTitle.swift */,
+			);
+			path = TextField;
+			sourceTree = "<group>";
+		};
+		1CF112E2214E368D00E57D69 /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				1CF112E3214E368D00E57D69 /* NeueLightButton.swift */,
+			);
+			path = Button;
+			sourceTree = "<group>";
+		};
+		1CF112E4214E368D00E57D69 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1CF112E5214E368D00E57D69 /* Constant.swift */,
+				1CF112E6214E368D00E57D69 /* AK_String.swift */,
+				1CF112E7214E368D00E57D69 /* Tabbar.swift */,
+				1CF112E8214E368D00E57D69 /* Label.swift */,
+				1CF112E9214E368D00E57D69 /* Alert.swift */,
+				1CF112EA214E368D00E57D69 /* UserDefaultClass.swift */,
+				1CF112EB214E368D00E57D69 /* CardView.swift */,
+				1CF112EC214E368D00E57D69 /* NavigationBar.swift */,
+				1CF112ED214E368D00E57D69 /* AKTextField.swift */,
+				1CF112EE214E368D00E57D69 /* AnimationClass.swift */,
+				1CF112EF214E368D00E57D69 /* Globals.swift */,
+				1CF112F0214E368D00E57D69 /* SLTextField.swift */,
+				1CF112F1214E368D00E57D69 /* UtilityClass.swift */,
+				1CF112F2214E368D00E57D69 /* StatusBarStyle.swift */,
+				1CF112F3214E368D00E57D69 /* Devices.swift */,
+				1CF112F4214E368D00E57D69 /* Font.swift */,
+				1CF112F5214E368D00E57D69 /* Button.swift */,
+				1CF112F6214E368D00E57D69 /* Color.swift */,
+				1CF112F7214E368D00E57D69 /* GradientImage.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		1CF112F8214E368D00E57D69 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				1CF112F9214E368D00E57D69 /* HelveticaNeueLTPro-Lt.otf */,
+				1CF112FA214E368D00E57D69 /* HelveticaNeueLTPro-Bd.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		1CF112FB214E368D00E57D69 /* ThirdParty */ = {
+			isa = PBXGroup;
+			children = (
+				1CF112FC214E368D00E57D69 /* RateView */,
+				1CF112FF214E368D00E57D69 /* JTProgressHUD */,
+				1CF11302214E368D00E57D69 /* IQKeyBoardManager */,
+			);
+			path = ThirdParty;
+			sourceTree = "<group>";
+		};
+		1CF112FC214E368D00E57D69 /* RateView */ = {
+			isa = PBXGroup;
+			children = (
+				1CF112FD214E368D00E57D69 /* RateView.m */,
+				1CF112FE214E368D00E57D69 /* RateView.h */,
+			);
+			path = RateView;
+			sourceTree = "<group>";
+		};
+		1CF112FF214E368D00E57D69 /* JTProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				1CF11300214E368D00E57D69 /* JTProgressHUD.h */,
+				1CF11301214E368D00E57D69 /* JTProgressHUD.m */,
+			);
+			path = JTProgressHUD;
+			sourceTree = "<group>";
+		};
+		1CF11302214E368D00E57D69 /* IQKeyBoardManager */ = {
+			isa = PBXGroup;
+			children = (
+				1CF11303214E368D00E57D69 /* IQTextView */,
+				1CF11306214E368D00E57D69 /* IQToolbar */,
+				1CF11311214E368D00E57D69 /* Constants */,
+				1CF11314214E368E00E57D69 /* Resources */,
+				1CF11316214E368E00E57D69 /* IQKeyboardReturnKeyHandler.h */,
+				1CF11317214E368E00E57D69 /* IQKeyboardManager.h */,
+				1CF11318214E368E00E57D69 /* IQKeyboardManager.m */,
+				1CF11319214E368E00E57D69 /* Categories */,
+				1CF11326214E368E00E57D69 /* IQKeyboardReturnKeyHandler.m */,
+			);
+			path = IQKeyBoardManager;
+			sourceTree = "<group>";
+		};
+		1CF11303214E368D00E57D69 /* IQTextView */ = {
+			isa = PBXGroup;
+			children = (
+				1CF11304214E368D00E57D69 /* IQTextView.m */,
+				1CF11305214E368D00E57D69 /* IQTextView.h */,
+			);
+			path = IQTextView;
+			sourceTree = "<group>";
+		};
+		1CF11306214E368D00E57D69 /* IQToolbar */ = {
+			isa = PBXGroup;
+			children = (
+				1CF11307214E368D00E57D69 /* IQUIView+IQKeyboardToolbar.h */,
+				1CF11308214E368D00E57D69 /* IQToolbar.m */,
+				1CF11309214E368D00E57D69 /* IQPreviousNextView.h */,
+				1CF1130A214E368D00E57D69 /* IQTitleBarButtonItem.m */,
+				1CF1130B214E368D00E57D69 /* IQBarButtonItem.m */,
+				1CF1130C214E368D00E57D69 /* IQUIView+IQKeyboardToolbar.m */,
+				1CF1130D214E368D00E57D69 /* IQPreviousNextView.m */,
+				1CF1130E214E368D00E57D69 /* IQToolbar.h */,
+				1CF1130F214E368D00E57D69 /* IQBarButtonItem.h */,
+				1CF11310214E368D00E57D69 /* IQTitleBarButtonItem.h */,
+			);
+			path = IQToolbar;
+			sourceTree = "<group>";
+		};
+		1CF11311214E368D00E57D69 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				1CF11312214E368D00E57D69 /* IQKeyboardManagerConstantsInternal.h */,
+				1CF11313214E368E00E57D69 /* IQKeyboardManagerConstants.h */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		1CF11314214E368E00E57D69 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1CF11315214E368E00E57D69 /* IQKeyboardManager.bundle */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		1CF11319214E368E00E57D69 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				1CF1131A214E368E00E57D69 /* IQNSArray+Sort.m */,
+				1CF1131B214E368E00E57D69 /* IQUIWindow+Hierarchy.m */,
+				1CF1131C214E368E00E57D69 /* IQUIViewController+Additions.h */,
+				1CF1131D214E368E00E57D69 /* IQUITextFieldView+Additions.m */,
+				1CF1131E214E368E00E57D69 /* IQUIScrollView+Additions.m */,
+				1CF1131F214E368E00E57D69 /* IQUIView+Hierarchy.m */,
+				1CF11320214E368E00E57D69 /* IQUIWindow+Hierarchy.h */,
+				1CF11321214E368E00E57D69 /* IQNSArray+Sort.h */,
+				1CF11322214E368E00E57D69 /* IQUIScrollView+Additions.h */,
+				1CF11323214E368E00E57D69 /* IQUITextFieldView+Additions.h */,
+				1CF11324214E368E00E57D69 /* IQUIViewController+Additions.m */,
+				1CF11325214E368E00E57D69 /* IQUIView+Hierarchy.h */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		1CF11357214E36C300E57D69 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1CF11358214E36C400E57D69 /* UIKit.framework */,
+				EEA22CB78353C125D5E36E05 /* Pods_FoodOrder.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1CF1135A214E560A00E57D69 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				1CF1138B214E563400E57D69 /* AveNirNextLtPro */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		1CF1138B214E563400E57D69 /* AveNirNextLtPro */ = {
+			isa = PBXGroup;
+			children = (
+				1CF1138C214E563400E57D69 /* AvenirNextLTPro-HeavyIt.otf */,
+				1CF1138D214E563400E57D69 /* AvenirNextLTPro-Cn.otf */,
+				1CF1138E214E563400E57D69 /* AvenirNextLTPro-DemiCnIt.otf */,
+				1CF1138F214E563400E57D69 /* AvenirNextLTPro-Demi.otf */,
+				1CF11390214E563400E57D69 /* AvenirNextLTPro-CnIt.otf */,
+				1CF11391214E563400E57D69 /* AvenirNextLTPro-BoldCn.otf */,
+				1CF11392214E563400E57D69 /* AvenirNextLTPro-DemiCn.otf */,
+				1CF11393214E563400E57D69 /* AvenirNextLTPro-BoldCnIt.otf */,
+				1CF11394214E563400E57D69 /* AvenirNextLTPro-MediumIt.otf */,
+				1CF11395214E563400E57D69 /* AvenirNextLTPro-Bold.otf */,
+				1CF11396214E563400E57D69 /* AvenirNextLTPro-UltLtCn.otf */,
+				1CF11397214E563400E57D69 /* AvenirNextLTPro-UltLtCnIt.otf */,
+				1CF11398214E563400E57D69 /* AvenirNextLTPro-It.otf */,
+				1CF11399214E563500E57D69 /* AvenirNextLTPro-MediumCnIt.otf */,
+				1CF1139A214E563500E57D69 /* AvenirNextLTPro-HeavyCn.otf */,
+				1CF1139B214E563500E57D69 /* AvenirNextLTPro-MediumCn.otf */,
+				1CF1139C214E563500E57D69 /* AvenirNextLTPro-UltLtIt.otf */,
+				1CF1139D214E563500E57D69 /* AvenirNextLTPro-HeavyCnIt.otf */,
+				1CF1139E214E563500E57D69 /* AvenirNextLTPro-UltLt.otf */,
+				1CF1139F214E563500E57D69 /* AvenirNextLTPro-Regular.otf */,
+				1CF113A0214E563500E57D69 /* AvenirNextLTPro-Medium.otf */,
+				1CF113A1214E563500E57D69 /* AvenirNextLTPro-DemiIt.otf */,
+				1CF113A2214E563500E57D69 /* AvenirNextLTPro-Heavy.otf */,
+				1CF113A3214E563500E57D69 /* AvenirNextLTPro-BoldIt.otf */,
+			);
+			path = AveNirNextLtPro;
+			sourceTree = "<group>";
+		};
+		1CF52C9C21500AD4008E8567 /* LoginVC */ = {
+			isa = PBXGroup;
+			children = (
+				1CF52C9D21500B00008E8567 /* LoginVC.swift */,
+			);
+			path = LoginVC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,6 +550,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1C42EFA12135A05900B44F56 /* Build configuration list for PBXNativeTarget "FoodOrder" */;
 			buildPhases = (
+				2E99468AD715E01A98F9FF7A /* [CP] Check Pods Manifest.lock */,
 				1C42EF8B2135A05700B44F56 /* Sources */,
 				1C42EF8C2135A05700B44F56 /* Frameworks */,
 				1C42EF8D2135A05700B44F56 /* Resources */,
@@ -122,21 +602,119 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CF113A9214E563500E57D69 /* AvenirNextLTPro-BoldCn.otf in Resources */,
+				1CF113BA214E563500E57D69 /* AvenirNextLTPro-Heavy.otf in Resources */,
+				1CF113A5214E563500E57D69 /* AvenirNextLTPro-Cn.otf in Resources */,
+				1CF52CA021500CE7008E8567 /* Login.xcassets in Resources */,
+				1CF11344214E368E00E57D69 /* HelveticaNeueLTPro-Lt.otf in Resources */,
+				1CF113B6214E563500E57D69 /* AvenirNextLTPro-UltLt.otf in Resources */,
+				1CF113AC214E563500E57D69 /* AvenirNextLTPro-MediumIt.otf in Resources */,
+				1CF113B0214E563500E57D69 /* AvenirNextLTPro-It.otf in Resources */,
+				1CF112D3214E360100E57D69 /* Assets.xcassets in Resources */,
+				1CF113B9214E563500E57D69 /* AvenirNextLTPro-DemiIt.otf in Resources */,
+				1CF112D4214E360100E57D69 /* Splash.xcassets in Resources */,
+				1CF113B5214E563500E57D69 /* AvenirNextLTPro-HeavyCnIt.otf in Resources */,
 				1C42EF9D2135A05900B44F56 /* LaunchScreen.storyboard in Resources */,
-				1C42EF9A2135A05900B44F56 /* Assets.xcassets in Resources */,
+				1CF113AB214E563500E57D69 /* AvenirNextLTPro-BoldCnIt.otf in Resources */,
+				1CF113A7214E563500E57D69 /* AvenirNextLTPro-Demi.otf in Resources */,
+				1CF113BB214E563500E57D69 /* AvenirNextLTPro-BoldIt.otf in Resources */,
+				1CF113B3214E563500E57D69 /* AvenirNextLTPro-MediumCn.otf in Resources */,
+				1CF113AA214E563500E57D69 /* AvenirNextLTPro-DemiCn.otf in Resources */,
+				1CF113AE214E563500E57D69 /* AvenirNextLTPro-UltLtCn.otf in Resources */,
+				1CF113B2214E563500E57D69 /* AvenirNextLTPro-HeavyCn.otf in Resources */,
+				1CF113B8214E563500E57D69 /* AvenirNextLTPro-Medium.otf in Resources */,
+				1CF113B4214E563500E57D69 /* AvenirNextLTPro-UltLtIt.otf in Resources */,
+				1CF1134E214E368E00E57D69 /* IQKeyboardManager.bundle in Resources */,
+				1CF113AF214E563500E57D69 /* AvenirNextLTPro-UltLtCnIt.otf in Resources */,
+				1CF113B7214E563500E57D69 /* AvenirNextLTPro-Regular.otf in Resources */,
+				1CF113B1214E563500E57D69 /* AvenirNextLTPro-MediumCnIt.otf in Resources */,
+				1CF11345214E368E00E57D69 /* HelveticaNeueLTPro-Bd.otf in Resources */,
+				1CF113A4214E563500E57D69 /* AvenirNextLTPro-HeavyIt.otf in Resources */,
+				1CF113A6214E563500E57D69 /* AvenirNextLTPro-DemiCnIt.otf in Resources */,
+				1CF113AD214E563500E57D69 /* AvenirNextLTPro-Bold.otf in Resources */,
 				1C42EF982135A05700B44F56 /* Main.storyboard in Resources */,
+				1CF113A8214E563500E57D69 /* AvenirNextLTPro-CnIt.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2E99468AD715E01A98F9FF7A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FoodOrder-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1C42EF8B2135A05700B44F56 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1C42EF952135A05700B44F56 /* ViewController.swift in Sources */,
-				1C42EF932135A05700B44F56 /* AppDelegate.swift in Sources */,
+				1CF1134B214E368E00E57D69 /* IQBarButtonItem.m in Sources */,
+				1CF11353214E368E00E57D69 /* IQUIScrollView+Additions.m in Sources */,
+				1CF11335214E368E00E57D69 /* Alert.swift in Sources */,
+				1CF1132B214E368E00E57D69 /* LoginTextField.swift in Sources */,
+				1CF11330214E368E00E57D69 /* NeueLightButton.swift in Sources */,
+				1C297CD8214E251500C75F24 /* IntroViewController.swift in Sources */,
+				1CF11333214E368E00E57D69 /* Tabbar.swift in Sources */,
+				1CF11355214E368E00E57D69 /* IQUIViewController+Additions.m in Sources */,
+				1CF1132E214E368E00E57D69 /* TextFieldTitle.swift in Sources */,
+				1CF1132C214E368E00E57D69 /* TextWithRightButton.swift in Sources */,
+				1CF1134D214E368E00E57D69 /* IQPreviousNextView.m in Sources */,
+				1C297CD6214E250400C75F24 /* BaseVC.swift in Sources */,
+				1CF11340214E368E00E57D69 /* Font.swift in Sources */,
+				1CF1132D214E368E00E57D69 /* TextFieldGray.swift in Sources */,
+				1CF11339214E368E00E57D69 /* AKTextField.swift in Sources */,
+				1CF11331214E368E00E57D69 /* Constant.swift in Sources */,
+				1CF1133F214E368E00E57D69 /* Devices.swift in Sources */,
+				1CF11348214E368E00E57D69 /* IQTextView.m in Sources */,
+				1CF11329214E368E00E57D69 /* LabelNeueBold.swift in Sources */,
+				1CF11351214E368E00E57D69 /* IQUIWindow+Hierarchy.m in Sources */,
+				1CF11338214E368E00E57D69 /* NavigationBar.swift in Sources */,
+				1CF1132A214E368E00E57D69 /* LableNeueLightGray119.swift in Sources */,
+				1C297CD5214E250400C75F24 /* AppDelegate.swift in Sources */,
+				1CF52C9E21500B00008E8567 /* LoginVC.swift in Sources */,
+				1CF1133E214E368E00E57D69 /* StatusBarStyle.swift in Sources */,
+				1CF11352214E368E00E57D69 /* IQUITextFieldView+Additions.m in Sources */,
+				1CF11356214E368E00E57D69 /* IQKeyboardReturnKeyHandler.m in Sources */,
+				1CF11327214E368E00E57D69 /* LableNeueLightBlack0023.swift in Sources */,
+				1CF11342214E368E00E57D69 /* Color.swift in Sources */,
+				1CF11346214E368E00E57D69 /* RateView.m in Sources */,
+				1CF11350214E368E00E57D69 /* IQNSArray+Sort.m in Sources */,
+				1CF11337214E368E00E57D69 /* CardView.swift in Sources */,
+				1CF11349214E368E00E57D69 /* IQToolbar.m in Sources */,
+				1CF11354214E368E00E57D69 /* IQUIView+Hierarchy.m in Sources */,
+				1CE39E5E215642A800662F8D /* RaisePlaceholder.swift in Sources */,
+				1CF11328214E368E00E57D69 /* LabelNeueLight.swift in Sources */,
+				1CF11334214E368E00E57D69 /* Label.swift in Sources */,
+				1CF11347214E368E00E57D69 /* JTProgressHUD.m in Sources */,
+				1CF1133D214E368E00E57D69 /* UtilityClass.swift in Sources */,
+				1CF1133A214E368E00E57D69 /* AnimationClass.swift in Sources */,
+				1CF1133C214E368E00E57D69 /* SLTextField.swift in Sources */,
+				1CF11341214E368E00E57D69 /* Button.swift in Sources */,
+				1CF1133B214E368E00E57D69 /* Globals.swift in Sources */,
+				1CF1134A214E368E00E57D69 /* IQTitleBarButtonItem.m in Sources */,
+				1CF1132F214E368E00E57D69 /* NeueCommonButton.swift in Sources */,
+				1CF11332214E368E00E57D69 /* AK_String.swift in Sources */,
+				1CF11336214E368E00E57D69 /* UserDefaultClass.swift in Sources */,
+				1CF1134F214E368E00E57D69 /* IQKeyboardManager.m in Sources */,
+				1CF1134C214E368E00E57D69 /* IQUIView+IQKeyboardToolbar.m in Sources */,
+				1CF11343214E368E00E57D69 /* GradientImage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,6 +856,7 @@
 		};
 		1C42EFA22135A05900B44F56 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 717350FE5D2AEA04649190F5 /* Pods-FoodOrder.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -295,6 +874,7 @@
 		};
 		1C42EFA32135A05900B44F56 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F9FF7BB567B37BDC5DE0F842 /* Pods-FoodOrder.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
