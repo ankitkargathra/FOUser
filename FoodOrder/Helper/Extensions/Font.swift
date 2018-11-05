@@ -25,6 +25,7 @@ enum FontType: String {
     case Light = "Light"
     case NeueLight = "Lt"
     case NeueBold = "Bd"
+    case Medium = "Medium"
     case Demi = "Demi"
 }
 
@@ -33,8 +34,8 @@ class Font {
     //MARK: ---
     //MARK: FoodOder aPP
     
-    static func setAveNirNextPro(font: FontType, size: CGFloat) -> UIFont? {
-        return Font.setFont(name: AvenirNext + font.rawValue, size: size)
+    static func setAveNirNextPro(font: FontType, size: CGFloat, isChangeAsPerDevice: Bool = true) -> UIFont? {
+        return Font.setFont(name: AvenirNext + font.rawValue, size: isChangeAsPerDevice ? getProportionalFont(size: size) : size)
     }
     
     static func getLatoFont(font: FontType, size: CGFloat) -> UIFont? {

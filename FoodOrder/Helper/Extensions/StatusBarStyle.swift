@@ -9,10 +9,11 @@
 import Foundation
 import UIKit
 
-class StatusBarStyle {
-    
-    class func setStatusBar(style: UIStatusBarStyle) {
-        UIApplication.shared.statusBarStyle = style
+var darkMode = false
+extension UIStatusBarStyle {
+
+    var preferredStatusBarStyle : UIStatusBarStyle {
+        return darkMode ? .default : .lightContent
     }
     
 }

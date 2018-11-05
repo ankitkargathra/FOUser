@@ -1,3 +1,24 @@
-PODFILE CHECKSUM: 275b640241c8ed7e1474f431570b7d717103a629
+PODS:
+  - QRCodeReader.swift (9.0.1)
+  - SJSwiftSideMenuController (1.2)
+  - ValueStepper (1.5)
 
-COCOAPODS: 1.5.3
+DEPENDENCIES:
+  - QRCodeReader.swift (~> 9.0.1)
+  - SJSwiftSideMenuController
+  - ValueStepper
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - QRCodeReader.swift
+    - SJSwiftSideMenuController
+    - ValueStepper
+
+SPEC CHECKSUMS:
+  QRCodeReader.swift: 96292a5612fbc2fd9a0b26f93fa5164c8d02f59d
+  SJSwiftSideMenuController: c28974db07aa6a9ae102df006832f5b8ca2c70e6
+  ValueStepper: e84d21a2ce62a7975df8b222c7273d6810f7e78c
+
+PODFILE CHECKSUM: 241f8a4811c6af615e5a5a99fd940bd97ebb418e
+
+COCOAPODS: 1.6.0.beta.1

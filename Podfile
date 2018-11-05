@@ -6,4 +6,8 @@ target 'FoodOrder' do
   use_frameworks!
 
   # Pods for FoodOrder
+  pod "SJSwiftSideMenuController"
+  pod 'QRCodeReader.swift', '~> 9.0.1'
+  pod 'ValueStepper'
+  pod "GMStepper"
 end

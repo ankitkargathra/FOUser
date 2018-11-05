@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SJSwiftSideMenuController
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        let mainVC = SJSwiftSideMenuController()
+        self.setSideMenuVCwithHome()
+        self.window?.rootViewController = mainVC
+        self.window?.makeKeyAndVisible()
         return true
     }
 
@@ -41,6 +46,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+    func setSideMenuVCwithHome() {
+        let sideMenuVC = MAIN_STORYBOARD.instantiateViewController(withIdentifier: "SideMenuVC") as! SideMenuVC
+        //IntroViewController
+        let homeVC = MAIN_STORYBOARD.instantiateViewController(withIdentifier: "IntroViewController")
+//        let nvc = UINavigationController.init(rootViewController: homeVC)
+        SJSwiftSideMenuController.setUpNavigation(rootController: homeVC, leftMenuController: sideMenuVC, rightMenuController: nil, leftMenuType: .SlideView, rightMenuType: .SlideView)
+//        SJSwiftSideMenuController.enableSwipeGestureWithMenuSide(menuSide: .LEFT)
+        SJSwiftSideMenuController.enableDimbackground = true
+        SJSwiftSideMenuController.leftMenuWidth = getProportionalWidth(width: 314)
+    }
+    
+    
 
 }
 

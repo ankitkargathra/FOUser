@@ -153,3 +153,14 @@ class AKTextFieldKelsonSansBoldMaroon: UITextField {
         self.textColor = UIColor.setAppTheamTextColor()
     }
 }
+
+
+class TextFieldGreenPlaceHolder: UITextField {
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        self.setValue(UIColor.setGreenColor(), forKeyPath: "_placeholderLabel.textColor")
+        self.font = Font.setAveNirNextPro(font: .Demi, size: 15.8)
+    }
+    
+}

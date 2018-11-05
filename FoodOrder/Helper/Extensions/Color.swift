@@ -44,6 +44,24 @@ extension UIColor {
         return UIColor.setColor(red: 87, green: 99, blue: 107)
     }
     
+    
+    static func colorGray() -> UIColor {
+        return UIColor.setColor(red: 96, green: 106, blue: 116)
+    }
+    
+    static func colorOrange() -> UIColor {
+        return UIColor.setColor(red: 251, green: 128, blue: 25)
+    }
+
+    
+    static func colorLightSky() -> UIColor {
+        return UIColor.setColor(red: 153, green: 166, blue: 179)
+    }
+    
+    static func colorRed() -> UIColor {
+        return UIColor.setColor(red: 231, green: 14, blue: 14)
+    }
+    
     //MARK: ---
     
     
@@ -114,8 +132,13 @@ extension UIColor {
     }
     
     static func setGreenColor() -> UIColor {
-        return UIColor.setColor(red: 10, green: 174, blue: 24)
+        return UIColor.setColor(red: 1, green: 180, blue: 96)
     }
+    
+    static func setOrderGreenColor() -> UIColor {
+        return UIColor.setColor(red: 0, green: 216, blue: 115)
+    }
+    
     static func setCustomRedColor() -> UIColor {
         return UIColor.setColor(red: 201, green: 66, blue: 46)
     }

@@ -44,7 +44,7 @@ var k_Language                          = "en"
 
 let MAIN_STORYBOARD         = UIStoryboard.init(name: "Main", bundle: nil)
 let SIDE_MENU_STORYBOARD     = UIStoryboard.init(name: "SideMenu", bundle: nil)
-let STORYBOARD_TAB     = UIStoryboard.init(name: "TabsVC", bundle: nil)
+let STORYBOARD_LOGIN     = UIStoryboard.init(name: "LoginVC", bundle: nil)
 
 //-------------------------------------------------//
 //-------#   Navigation And bottom Button   #------//

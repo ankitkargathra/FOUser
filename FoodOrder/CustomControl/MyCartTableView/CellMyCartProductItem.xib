@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellMyCartProductItem" rowHeight="152" id="KGk-i7-Jjw" customClass="CellMyCartProductItem" customModule="FoodOrder" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="66"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="65.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="non_veg" translatesAutoresizingMaskIntoConstraints="NO" id="7Cv-Ui-1YE">
+                        <rect key="frame" x="18.5" y="26" width="14" height="14"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="14" id="Qir-hp-f46"/>
+                            <constraint firstAttribute="height" constant="14" id="sAe-IW-gh7"/>
+                        </constraints>
+                    </imageView>
+                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Cth-tI-ocj">
+                        <rect key="frame" x="47" y="15" width="141" height="5.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Pepper Barbecue Chicken" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zRG-ld-BtM" customClass="LabelAveNirNextProBlackMeduim" customModule="FoodOrder" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="141" height="5.5"/>
+                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                        <real key="value" value="14.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                        </subviews>
+                    </stackView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$ 8.99" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZFY-FA-p1L" customClass="LabelAveNirNextProBlackMeduim" customModule="FoodOrder" customModuleProvider="target">
+                        <rect key="frame" x="361.5" y="0.0" width="33.5" height="65.5"/>
+                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                <real key="value" value="14.5"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ouZ-ua-ZlB" customClass="ValueStepper" customModule="ValueStepper">
+                        <rect key="frame" x="281" y="22" width="67.5" height="22"/>
+                        <color key="backgroundColor" red="0.0039215686269999999" green="0.70588235290000001" blue="0.37647058820000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" red="0.0039215686269999999" green="0.70588235290000001" blue="0.37647058820000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="67.5" id="2Vh-Kd-lQb"/>
+                            <constraint firstAttribute="height" constant="22" id="6LR-Fb-NTZ"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="enableManualEditing" value="YES"/>
+                            <userDefinedRuntimeAttribute type="color" keyPath="backgroundButtonColor">
+                                <color key="value" red="0.0039215686269999999" green="0.70588235290000001" blue="0.37647058820000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="backgroundLabelColor">
+                                <color key="value" red="0.0039215686269999999" green="0.70588235290000001" blue="0.37647058820000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="disabledBackgroundButtonColor">
+                                <color key="value" red="0.0039215686269999999" green="0.70588235290000001" blue="0.37647058820000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="disabledIconButtonColor">
+                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="minimumValue">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="maximumValue">
+                                <real key="value" value="100"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="value">
+                                <real key="value" value="2"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
+                                <color key="value" red="0.0039215686269999999" green="0.70588235290000001" blue="0.37647058820000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="labelTextColor">
+                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="stepValue">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="amB-br-kLi" customClass="ButtonAveNirNextProMediumGray" customModule="FoodOrder" customModuleProvider="target">
+                        <rect key="frame" x="47" y="36" width="73" height="14"/>
+                        <state key="normal" title="Customize"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                <real key="value" value="13.199999999999999"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </button>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="arrow_down_3" translatesAutoresizingMaskIntoConstraints="NO" id="AYb-Yw-FMI">
+                        <rect key="frame" x="123" y="40" width="9" height="8"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="8.6999999999999993" id="1MA-gu-YYL"/>
+                            <constraint firstAttribute="height" constant="4.7000000000000002" id="A1x-jh-mrd"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="amB-br-kLi" firstAttribute="leading" secondItem="zRG-ld-BtM" secondAttribute="leading" id="5ZK-tw-TGs"/>
+                    <constraint firstAttribute="bottom" secondItem="ZFY-FA-p1L" secondAttribute="bottom" id="AQu-L0-Way"/>
+                    <constraint firstItem="Cth-tI-ocj" firstAttribute="leading" secondItem="7Cv-Ui-1YE" secondAttribute="trailing" constant="14.699999999999999" id="BU5-UH-HEW"/>
+                    <constraint firstItem="AYb-Yw-FMI" firstAttribute="leading" secondItem="amB-br-kLi" secondAttribute="trailing" constant="3" id="Clg-IX-9dZ"/>
+                    <constraint firstAttribute="trailing" secondItem="ZFY-FA-p1L" secondAttribute="trailing" constant="19" id="FF0-ah-vAz"/>
+                    <constraint firstItem="amB-br-kLi" firstAttribute="top" secondItem="Cth-tI-ocj" secondAttribute="bottom" id="Rgf-Gq-CbZ"/>
+                    <constraint firstItem="ZFY-FA-p1L" firstAttribute="leading" secondItem="ouZ-ua-ZlB" secondAttribute="trailing" constant="13" id="Rm1-82-qvz"/>
+                    <constraint firstAttribute="bottom" secondItem="amB-br-kLi" secondAttribute="bottom" constant="15" id="YOc-1j-q9c"/>
+                    <constraint firstItem="Cth-tI-ocj" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="YbT-2J-sgh"/>
+                    <constraint firstItem="7Cv-Ui-1YE" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="dgl-dK-h8R"/>
+                    <constraint firstItem="ouZ-ua-ZlB" firstAttribute="centerY" secondItem="ZFY-FA-p1L" secondAttribute="centerY" id="hvE-B4-Gsm"/>
+                    <constraint firstItem="7Cv-Ui-1YE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="18.5" id="i4O-4m-ZyP"/>
+                    <constraint firstItem="AYb-Yw-FMI" firstAttribute="centerY" secondItem="amB-br-kLi" secondAttribute="centerY" id="lgF-wr-i8Q"/>
+                    <constraint firstItem="ZFY-FA-p1L" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="mRu-uI-EoZ"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <point key="canvasLocation" x="361.60000000000002" y="-150.22488755622189"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="arrow_down_3" width="31" height="17"/>
+        <image name="non_veg" width="51" height="51"/>
+    </resources>
+</document>

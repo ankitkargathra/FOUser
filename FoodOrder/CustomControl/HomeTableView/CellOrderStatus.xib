@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellOrderStatus" rowHeight="289" id="KGk-i7-Jjw" customClass="CellOrderStatus" customModule="FoodOrder" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="190"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="189.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pxJ-AC-QCk">
+                        <rect key="frame" x="18.5" y="12" width="377" height="177.5"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2r7-b0-3Ak" customClass="RoundImageView" customModule="FoodOrder" customModuleProvider="target">
+                                <rect key="frame" x="17" y="17" width="41.5" height="41.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="41.5" id="Px9-El-aFR"/>
+                                    <constraint firstAttribute="height" constant="41.5" id="vQR-ae-c9h"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="7mt-qT-jVk">
+                                <rect key="frame" x="73" y="19" width="115.5" height="37.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Domino’s Pizza" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K3L-qT-bQn" customClass="LabelAveNirNextProBoldWhite" customModule="FoodOrder" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="115.5" height="21.5"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="15.699999809265137"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                                <real key="value" value="15.699999999999999"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Ordered 20min ago" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pg1-x9-OtX" customClass="LabelAveNirNextProMediumWhite" customModule="FoodOrder" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="25.5" width="115.5" height="12"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="8.6999998092651367"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                                <real key="value" value="11.300000000000001"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uXz-74-ucj" customClass="LabelAveNirNextProBoldWhite" customModule="FoodOrder" customModuleProvider="target">
+                                <rect key="frame" x="17" y="58.5" width="172" height="75.5"/>
+                                <string key="text">Your order is readyto serve</string>
+                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="18.799999237060547"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                        <real key="value" value="18.800000000000001"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dp7-1y-fqp">
+                                <rect key="frame" x="60" y="141" width="76" height="16"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="16" id="qCU-Ey-Cic"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="13.199999809265137"/>
+                                <state key="normal" title="View Details">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BsH-bJ-ziy">
+                                <rect key="frame" x="17" y="134" width="30" height="30"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="LhX-wn-xVb"/>
+                                    <constraint firstAttribute="width" constant="30" id="kVL-mD-BEO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5.7999999999999998"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vrD-Fd-RjG">
+                                <rect key="frame" x="60" y="157" width="76" height="1"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="3js-SS-9HG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.37647058820000001" green="0.74117647060000003" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="BsH-bJ-ziy" secondAttribute="bottom" constant="13.5" id="0OL-ZD-0Ri"/>
+                            <constraint firstItem="vrD-Fd-RjG" firstAttribute="top" secondItem="Dp7-1y-fqp" secondAttribute="bottom" id="2rD-HA-xIe"/>
+                            <constraint firstItem="Dp7-1y-fqp" firstAttribute="centerY" secondItem="BsH-bJ-ziy" secondAttribute="centerY" id="4Oa-nM-Qb2"/>
+                            <constraint firstItem="7mt-qT-jVk" firstAttribute="centerY" secondItem="2r7-b0-3Ak" secondAttribute="centerY" id="5iV-1y-Of0"/>
+                            <constraint firstItem="vrD-Fd-RjG" firstAttribute="centerX" secondItem="Dp7-1y-fqp" secondAttribute="centerX" id="8FK-Gr-G50"/>
+                            <constraint firstItem="2r7-b0-3Ak" firstAttribute="leading" secondItem="pxJ-AC-QCk" secondAttribute="leading" constant="17" id="TOz-MQ-0qD"/>
+                            <constraint firstItem="Dp7-1y-fqp" firstAttribute="leading" secondItem="BsH-bJ-ziy" secondAttribute="trailing" constant="13" id="WSH-nA-vYv"/>
+                            <constraint firstItem="7mt-qT-jVk" firstAttribute="leading" secondItem="2r7-b0-3Ak" secondAttribute="trailing" constant="14.699999999999999" id="b3y-rC-LdS"/>
+                            <constraint firstItem="BsH-bJ-ziy" firstAttribute="top" secondItem="uXz-74-ucj" secondAttribute="bottom" id="bFp-YZ-zId"/>
+                            <constraint firstItem="vrD-Fd-RjG" firstAttribute="width" secondItem="Dp7-1y-fqp" secondAttribute="width" id="dwx-h9-aLb"/>
+                            <constraint firstItem="BsH-bJ-ziy" firstAttribute="leading" secondItem="uXz-74-ucj" secondAttribute="leading" id="hLe-10-hjS"/>
+                            <constraint firstItem="uXz-74-ucj" firstAttribute="top" secondItem="2r7-b0-3Ak" secondAttribute="bottom" id="jf9-RJ-4Zk"/>
+                            <constraint firstItem="uXz-74-ucj" firstAttribute="leading" secondItem="2r7-b0-3Ak" secondAttribute="leading" id="xHL-MY-GFB"/>
+                            <constraint firstItem="2r7-b0-3Ak" firstAttribute="top" secondItem="pxJ-AC-QCk" secondAttribute="top" constant="17" id="xdr-1b-H1o"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="5.7000000000000002"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chef_vector" translatesAutoresizingMaskIntoConstraints="NO" id="3VQ-mE-oz5">
+                        <rect key="frame" x="268" y="-10" width="126" height="190"/>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hot_pot" translatesAutoresizingMaskIntoConstraints="NO" id="TOC-ZU-J29">
+                        <rect key="frame" x="255" y="12" width="126" height="177.5"/>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="TOC-ZU-J29" secondAttribute="trailing" constant="33" id="1k5-qT-h4s"/>
+                    <constraint firstItem="TOC-ZU-J29" firstAttribute="centerY" secondItem="pxJ-AC-QCk" secondAttribute="centerY" id="GYH-QM-RKn"/>
+                    <constraint firstAttribute="bottom" secondItem="3VQ-mE-oz5" secondAttribute="bottom" constant="9.5" id="J3Y-g3-msD"/>
+                    <constraint firstItem="pxJ-AC-QCk" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="Sct-Zy-XBj"/>
+                    <constraint firstItem="pxJ-AC-QCk" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="377.3:414" id="ctT-Sk-Urk"/>
+                    <constraint firstAttribute="trailing" secondItem="3VQ-mE-oz5" secondAttribute="trailing" constant="20" id="dgV-dT-b48"/>
+                    <constraint firstItem="3VQ-mE-oz5" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="-10" id="lt4-44-g2u"/>
+                    <constraint firstItem="TOC-ZU-J29" firstAttribute="width" secondItem="pxJ-AC-QCk" secondAttribute="width" multiplier="126:377" id="pNE-Zp-Wj4"/>
+                    <constraint firstItem="3VQ-mE-oz5" firstAttribute="width" secondItem="pxJ-AC-QCk" secondAttribute="width" multiplier="126:377" id="rc5-MQ-UX2"/>
+                    <constraint firstItem="pxJ-AC-QCk" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="sEa-8y-Voh"/>
+                    <constraint firstAttribute="bottom" secondItem="pxJ-AC-QCk" secondAttribute="bottom" id="sWi-hf-pdu"/>
+                    <constraint firstItem="TOC-ZU-J29" firstAttribute="height" secondItem="pxJ-AC-QCk" secondAttribute="height" id="t3a-6D-RS6"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="btnViewDetails" destination="Dp7-1y-fqp" id="XN9-iP-Aao"/>
+                <outlet property="imgChef" destination="3VQ-mE-oz5" id="JNI-We-THV"/>
+                <outlet property="imgHot_pot" destination="TOC-ZU-J29" id="D8P-P9-PXo"/>
+                <outlet property="imgLogo" destination="2r7-b0-3Ak" id="1F0-c7-Od7"/>
+                <outlet property="lblNameProduct" destination="K3L-qT-bQn" id="oO6-HV-lAB"/>
+                <outlet property="lblOrderNumber" destination="BsH-bJ-ziy" id="v23-xO-BrX"/>
+                <outlet property="lblOrderStatus" destination="uXz-74-ucj" id="BZQ-Pf-Sza"/>
+                <outlet property="lblOrderTime" destination="Pg1-x9-OtX" id="neB-v4-stj"/>
+                <outlet property="viewBg" destination="pxJ-AC-QCk" id="Fi7-fd-wEL"/>
+            </connections>
+            <point key="canvasLocation" x="233.59999999999999" y="-192.50374812593705"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="chef_vector" width="301" height="388"/>
+        <image name="hot_pot" width="441" height="451"/>
+    </resources>
+</document>
