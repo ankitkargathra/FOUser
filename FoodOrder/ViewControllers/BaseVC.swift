@@ -218,6 +218,10 @@ class BaseVC: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
+    func pushTo(viewController: UIViewController) {
+        self.navigationController?.pushViewController(viewController, animated: true)
+    }
+    
     //MARK: GO To Sigin In
     
     @objc func btnSignUpPress() {
@@ -240,6 +244,11 @@ class BaseVC: UIViewController {
     @objc func btnCartPress() {
         let cartVC = MAIN_STORYBOARD.instantiateViewController(withIdentifier: "MyCartVC")
         self.navigationController?.pushViewController(cartVC, animated: true)
+    }
+    
+    
+    func dismissKeyboard() {
+        self.view.endEditing(true)
     }
     
 }

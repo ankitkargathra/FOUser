@@ -67,6 +67,10 @@ class Devices: NSObject {
         }
     }
     
+    static var uuid: String {
+        return UIDevice.current.identifierForVendor!.uuidString
+    }
+    
 }
 
 extension UIDevice {

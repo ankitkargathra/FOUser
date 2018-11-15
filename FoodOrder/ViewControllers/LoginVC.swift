@@ -33,6 +33,10 @@ class LoginVC: BaseVC {
         txtPassword.font = Font.setAveNirNextPro(font: .Medium, size: getProportionalFont(size: 15.7))
         btnSignInWithFb.titleLabel?.font = Font.setAveNirNextPro(font: .Medium, size: getProportionalFont(size: 17))
         self.setLeftBArButtonNIl()
+        #if DEBUG
+        self.txtEmail.text = "user3@gmail.com"
+        self.txtPassword.text = "123456"
+        #endif
         // Do any additional setup after loading the view.
     }
 
@@ -42,8 +46,26 @@ class LoginVC: BaseVC {
     }
     
     @IBAction func btnSignInPress() {
-        let homeVC = MAIN_STORYBOARD.instantiateViewController(withIdentifier: "HomeVC") as! HomeVC
-        self.navigationController?.pushViewController(homeVC, animated: true)
+        
+        if txtEmail.validateTextFiled(validationMesage: .invalidEmail) {
+            if txtPassword.validateTextFiled(validationMesage: .invalidPassLength) {
+                let loginUser = Login.init(email: txtEmail.text!, password: txtPassword.text!)
+                
+                UtilityClass.showHUD()
+                ApiController.shared.loginUser(login: loginUser) { (isSuccess, message, response) in
+                    UtilityClass.hideHUD()
+                    if isSuccess {
+                        LoggedinUser.shared.parseJsonDictionary(dict: response! as JSONDICTIONARY)
+                        let homeVC = MAIN_STORYBOARD.instantiateViewController(withIdentifier: "HomeVC") as! HomeVC
+                        self.navigationController?.pushViewController(homeVC, animated: true)
+                    }
+                }
+            }
+        }
+    }
+    
+    @IBAction func loginWithFbPress() {
+        LoginWithFB.shared.login(vc: self)
     }
     
 

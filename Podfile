@@ -10,4 +10,13 @@ target 'FoodOrder' do
   pod 'QRCodeReader.swift', '~> 9.0.1'
   pod 'ValueStepper'
   pod "GMStepper"
+  pod 'Alamofire'
+  pod 'Toast-Swift', '~> 4.0.0'
+  pod 'Kingfisher'
+  pod 'ReachabilitySwift'
+  pod 'FacebookCore'
+  pod 'FacebookLogin'
+  pod 'MBProgressHUD'
+  pod 'Firebase/Core'
+  pod 'Firebase/Messaging'
 end

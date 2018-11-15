@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-
+import MBProgressHUD
 
 class UtilityClass {
     
@@ -37,6 +37,20 @@ class UtilityClass {
         view.clipsToBounds = true
         view.layer.cornerRadius = view.frame.size.width / 2
     }
+    
+    public static func showHUD() {
+        MBProgressHUD.showAdded(to: (AppDel.window?.rootViewController!.view!)!, animated: true)
+    }
+    
+    public static func hideHUD() {
+        MBProgressHUD.hide(for: (AppDel.window?.rootViewController!.view!)!, animated: true)
+    }
+    
+    public static func currentVC() -> UIViewController {
+        return (AppDel.window?.rootViewController)!
+    }
+    
+    
     /*
     public static func setPushAnimation(vc: UIViewController) {
         let transition:CATransition = CATransition()

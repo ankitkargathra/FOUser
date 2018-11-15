@@ -129,6 +129,9 @@
                                                         <real key="value" value="5.7000000000000002"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="loginWithFbPress" destination="Lzt-gj-Uxy" eventType="touchUpInside" id="Xnd-GF-eIe"/>
+                                                </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="facebook_icon" translatesAutoresizingMaskIntoConstraints="NO" id="Njd-Em-wne">
                                                 <rect key="frame" x="39" y="467.33333333333337" width="24" height="24"/>
@@ -358,6 +361,9 @@
                                                 <rect key="frame" x="18.333333333333343" y="501" width="377.33333333333326" height="50"/>
                                                 <color key="backgroundColor" red="0.76862745099999996" green="0.78823529410000004" blue="0.80784313730000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <state key="normal" title="Sign up"/>
+                                                <connections>
+                                                    <action selector="btnsignupPress" destination="wgE-ez-Ziu" eventType="touchUpInside" id="9DL-cg-sXT"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dai-Fb-y7h">
                                                 <rect key="frame" x="18.333333333333343" y="570.33333333333337" width="377.33333333333326" height="50"/>
@@ -370,6 +376,9 @@
                                                         <real key="value" value="5.7000000000000002"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="loginButtonClicked" destination="wgE-ez-Ziu" eventType="touchUpInside" id="4vV-lX-gN5"/>
+                                                </connections>
                                             </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="facebook_icon" translatesAutoresizingMaskIntoConstraints="NO" id="FNO-I8-Rsw">
                                                 <rect key="frame" x="39" y="583.33333333333337" width="24" height="24"/>

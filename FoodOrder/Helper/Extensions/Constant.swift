@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-public let kAppName      = "PopTasker"
+public let kAppName      = "EPOP"
 
 let AppDel               = UIApplication.shared.delegate as! AppDelegate
 let kPresentedViewHeight = UIScreen.main.bounds.size.height
@@ -37,7 +37,7 @@ let device_id           = UIDevice.current.identifierForVendor!.uuidString
 let kYES                                = "YES"
 let kNO                                 = "NO"
 var k_Language                          = "en"
-
+let DEVICETOKEN                         = "token"
 //-------------------------------------------------//
 //-------------#   Storyboards   #-----------------//
 //-------------------------------------------------//
@@ -77,14 +77,6 @@ enum NavigationButtons {
     
 }
 
-//-------------------------------------------------//
-//--------#   ViewController identifires   #-------//
-//-------------------------------------------------//
-
-let kHomeViewController             = "HomeViewController"
-let kChatViewController             = "ChatViewController"
-let kProfileViewController          = "ProfileViewController"
-
 
 /*---------------------------------------------------------*/
 /*--------------- # Type alias # ----------------*/
@@ -109,6 +101,9 @@ let kPageSize = 10
 struct LoginKey {
     static let email                    = "email"
     static let password                 = "password"
+    static let fcm_token                = "fcm_token"
+    static let device_id                = "device_id"
+    static let usertype                 = "usertype"
     static let userId                   = "userId"
     static let userName                 = "userName"
     static let insertDate               = "insertDate"
@@ -118,5 +113,4 @@ struct LoginKey {
     static let city                     = "city"
     static let country                  = "country"
     static let phoneNumber              = "phoneNumber"
-    static let token                    = "token"
 }

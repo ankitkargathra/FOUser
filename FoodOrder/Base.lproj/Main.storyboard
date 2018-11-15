@@ -391,7 +391,7 @@ for list of shops and items</string>
         <!--LoginVC-->
         <scene sceneID="5pj-PL-fbE">
             <objects>
-                <viewControllerPlaceholder storyboardName="LoginVC" id="WfI-j1-ABR" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardIdentifier="LoginVC" storyboardName="LoginVC" id="WfI-j1-ABR" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="ayK-5z-87a"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hgK-ei-fE0" userLabel="First Responder" sceneMemberID="firstResponder"/>

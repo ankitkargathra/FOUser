@@ -17,8 +17,26 @@ class ForgotPasswordVC: BaseVC {
         super.viewDidLoad()
         txtEmail.validateTextField(type: .Email, minLength: 5, maxLength: 50, alignment: .left, placeHolder: "Email")
         // Do any additional setup after loading the view.
+        #if DEBUG
+        self.txtEmail.text = "ankitmistry7270@gmail.com"
+        #endif
     }
     
+    
+    @IBAction func btnSendPress() {
+        
+        if txtEmail.validateTextFiled(validationMesage: .invalidEmail) {
+            UtilityClass.showHUD()
+            ApiController.shared.forgotPassword(email: txtEmail.text!) { (success, message, response) in
+                UtilityClass.hideHUD()
+                TOAST.showToast(str: message)
+                if success == true {
+                    self.popTo()
+                }
+            }
+        }
+        
+    }
 
     /*
     // MARK: - Navigation

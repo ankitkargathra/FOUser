@@ -66,6 +66,7 @@ class SideMenuVC: BaseVC {
             SJSwiftSideMenuController.pushViewController(helpSupport, animated: true)
             break
         case .logout:
+            Alert.logoutAlert(message: "Are you sure to logout.?")
             break
         }
         SJSwiftSideMenuController.hideLeftMenu()

@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Toast_Swift
 
 class Alert {
     
@@ -24,7 +25,7 @@ class Alert {
     class func logoutAlert(title: String = kAppName, message: String) {
         let alertController = UIAlertController.init(title: title, message: message, preferredStyle: .alert)
         let alertActionOK = UIAlertAction.init(title: "YES", style: .default) { (action) in
-//            AppDel.setRootViewSideMenu()
+            AppDel.setSideMenuVCwithHome(identifiire: "LoginVC")
         }
         
         alertController.addAction(alertActionOK)
@@ -37,4 +38,10 @@ class Alert {
 //        Alert.showAlertWith(message: AppAlertMessages.message_InternetNotAvailable)
     }
     
+}
+
+class TOAST {
+    class func showToast(str: String) {
+        AppDel.window?.rootViewController?.view.makeToast(str)
+    }
 }
