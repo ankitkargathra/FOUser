@@ -40,12 +40,16 @@ extension UIView {
         }
     }
     
-    func dropShadow(scale: Bool = false, size:CGSize = CGSize(width: 1, height: 1), shadow:CGFloat = 0) {
+    func dropShadow(scale: Bool = true) {
+        layer.masksToBounds = false
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOpacity = 0.5
+        layer.shadowOffset = CGSize(width: 1, height: 1)
+        layer.shadowRadius = self.frame.size.width / 2
         
-        self.layer.shadowColor = UIColor.setColor(red: 0, green: 0, blue: 0, alpha: 0.12).cgColor
-        self.layer.shadowOpacity = 1
-        self.layer.shadowOffset = size
-        self.layer.shadowRadius = shadow
+        layer.shadowPath = UIBezierPath(rect: bounds).cgPath
+        layer.shouldRasterize = true
+        layer.rasterizationScale = scale ? UIScreen.main.scale : 1
     }
     
     func setCornerRadius() {
@@ -93,6 +97,28 @@ extension UIView {
         aPath.stroke()
         //If you want to fill it as well
         aPath.fill()
+    }
+    
+    func dropShadow(color: UIColor, opacity: Float = 0.5, offSet: CGSize, radius: CGFloat = 1, scale: Bool = true) {
+        layer.masksToBounds = false
+        layer.shadowColor = color.cgColor
+        layer.shadowOpacity = opacity
+        layer.shadowOffset = offSet
+        layer.shadowRadius = radius
+        
+        layer.shadowPath = UIBezierPath(rect: self.bounds).cgPath
+//        layer.shouldRasterize = true
+//        layer.rasterizationScale = scale ? UIScreen.main.scale : 1
+    }
+    
+    func drawDashLineBorder() {
+        let yourViewBorder = CAShapeLayer()
+        yourViewBorder.strokeColor = UIColor.colorOrange().cgColor
+        yourViewBorder.lineDashPattern = [2, 2]
+        yourViewBorder.frame = self.bounds
+        yourViewBorder.fillColor = nil
+        yourViewBorder.path = UIBezierPath(rect: self.bounds).cgPath
+        self.layer.addSublayer(yourViewBorder)
     }
 }
 

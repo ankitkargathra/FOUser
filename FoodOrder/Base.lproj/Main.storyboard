@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="67f-Ra-Sep">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="67f-Ra-Sep">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -40,6 +39,9 @@
                                 <state key="normal" title="Sign up">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="buttonSignUpPress" destination="pEQ-cj-AMl" eventType="touchUpInside" id="bkp-1m-iOg"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="2.2000000000000002" translatesAutoresizingMaskIntoConstraints="NO" id="x5e-uA-uXN">
                                 <rect key="frame" x="58" y="522" width="204" height="26"/>
@@ -63,7 +65,7 @@
                                             <color key="titleColor" red="0.0039215686274509803" green="0.70588235294117641" blue="0.37647058823529411" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
-                                            <segue destination="dXd-02-Giy" kind="show" id="SOC-To-OLm"/>
+                                            <segue destination="WfI-j1-ABR" kind="show" id="NDd-c2-VRX"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -76,7 +78,7 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="YBk-Gr-Utc">
-                                <rect key="frame" x="127" y="41" width="66" height="4"/>
+                                <rect key="frame" x="127" y="40.5" width="66" height="4"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nJW-Pu-qWi">
                                         <rect key="frame" x="0.0" y="0.0" width="20" height="4"/>
@@ -212,60 +214,7 @@ for list of shops and items</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iv4-Wh-5Cg" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="999" y="-6"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="Svb-SP-6Af">
-            <objects>
-                <viewController id="dXd-02-Giy" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="gve-OH-Lu3">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="O5d-rA-gyF" customClass="RaisePlaceholder" customModule="RaisePlaceholder">
-                                <rect key="frame" x="91" y="141" width="156" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="subjectColor">
-                                        <color key="value" red="0.0039215686269999999" green="0.70588235290000001" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="underLineUnSelectedColor">
-                                        <color key="value" red="0.76862745098039209" green="0.78823529411764703" blue="0.80784313725490198" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="underLineSelectedColor">
-                                        <color key="value" red="0.0039215686269999999" green="0.70588235290000001" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xfW-gP-ccE" customClass="RaisePlaceholder" customModule="RaisePlaceholder">
-                                <rect key="frame" x="91" y="198" width="156" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="subjectColor">
-                                        <color key="value" red="0.0039215686269999999" green="0.70588235290000001" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="underLineUnSelectedColor">
-                                        <color key="value" red="0.76862745098039209" green="0.78823529411764703" blue="0.80784313725490198" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="underLineSelectedColor">
-                                        <color key="value" red="0.0039215686269999999" green="0.70588235290000001" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </textField>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="Zwz-hn-i5a"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="X5u-un-5ki" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1728.75" y="-6.3380281690140849"/>
+            <point key="canvasLocation" x="398" y="52"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="LvH-Vb-gCw">
@@ -278,12 +227,176 @@ for list of shops and items</string>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="pEQ-cj-AMl" kind="relationship" relationship="rootViewController" id="ONl-Fv-wvG"/>
+                        <segue destination="pEQ-cj-AMl" kind="relationship" relationship="rootViewController" id="br1-Ic-orj"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tyV-E1-tnD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="195" y="-16.901408450704224"/>
+            <point key="canvasLocation" x="-679" y="52"/>
+        </scene>
+        <!--SideMenuVC-->
+        <scene sceneID="Drz-05-2O4">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="SideMenuVC" storyboardName="SideMenuVC" id="YhF-ow-JDq" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wYX-iO-wJl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-680" y="606"/>
+        </scene>
+        <!--NotificationVC-->
+        <scene sceneID="fGD-OI-EY7">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="NotificationVC" storyboardName="NotificationVC" id="qVH-YY-MeB" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BGy-Fh-PAG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-689" y="744"/>
+        </scene>
+        <!--MyOrderVC-->
+        <scene sceneID="XRh-DC-dyh">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="MyOrderVC" storyboardName="MyOrderVC" id="xAs-Xf-bri" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vma-8N-aPr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-280" y="605"/>
+        </scene>
+        <!--HelpAndSupportVC-->
+        <scene sceneID="rsE-Yk-QWi">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="HelpAndSupportVC" storyboardName="HelpAndSupportVC" id="Wxk-a7-6EC" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nsM-PQ-wq3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="128" y="605"/>
+        </scene>
+        <!--EditProfileVC-->
+        <scene sceneID="6IY-Cz-cr9">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="EditProfileVC" storyboardName="EditProfileVC" id="BIX-la-LVj" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="H6z-pX-SIu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="207" y="889"/>
+        </scene>
+        <!--OrderDetailVC-->
+        <scene sceneID="Sot-od-qRZ">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="OrderDetailVC" storyboardName="OrderDetailVC" id="cOc-Vw-SS8" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cdf-kE-RD4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="66" y="1013"/>
+        </scene>
+        <!--ChangePasswordVC-->
+        <scene sceneID="opj-3G-t6F">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="ChangePasswordVC" storyboardName="ChangePasswordVC" id="Lxl-Rn-zCI" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sPI-gQ-VuZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="508" y="889"/>
+        </scene>
+        <!--MyCartVC-->
+        <scene sceneID="15K-Jf-Rb7">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="MyCartVC" storyboardName="MyCartVC" id="nhz-Ne-J7D" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZqC-81-p8Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="474" y="985"/>
+        </scene>
+        <!--VauchersVC-->
+        <scene sceneID="hjg-92-3Gc">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="VauchersVC" storyboardName="VauchersVC" id="KGr-NZ-aHx" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a32-pu-WSU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-282" y="760"/>
+        </scene>
+        <!--FoodCourtVC-->
+        <scene sceneID="NJN-wv-h2y">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="FoodCourtVC" storyboardName="FoodCourtVC" id="DQu-u3-WU8" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rjr-xf-Wf8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-443" y="965"/>
+        </scene>
+        <!--ApplyVoucherVC-->
+        <scene sceneID="9Ix-2g-bAM">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="ApplyVoucherVC" storyboardName="ApplyVoucherVC" id="RTQ-dN-9g3" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YMb-pb-Clh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-416" y="1086"/>
+        </scene>
+        <!--RatePopupVC-->
+        <scene sceneID="pDU-Q3-Xt5">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="RatePopupVC" storyboardName="RatePopupVC" id="1cP-dy-xdg" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Omm-2v-tkF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-760" y="1163"/>
+        </scene>
+        <!--PaymentVC-->
+        <scene sceneID="iB3-2a-88x">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="PaymentVC" storyboardName="PaymentVC" id="4Sw-AY-GCv" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xda-pC-YQI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-291" y="1201"/>
+        </scene>
+        <!--OrderSummaryVC-->
+        <scene sceneID="oQm-EO-u3K">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="OrderSummaryVC" storyboardName="OrderSummaryVC" id="ea2-o9-Bks" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vUo-iq-xBz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="0.0" y="1287"/>
+        </scene>
+        <!--StatisticsVC-->
+        <scene sceneID="yiu-kN-5Jd">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="StatisticsVC" storyboardName="StatisticsVC" id="WTo-TC-pPY" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jXt-fG-XQq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-27" y="1388"/>
+        </scene>
+        <!--CardDetailVC-->
+        <scene sceneID="nmD-im-nlD">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="CardDetailVC" storyboardName="CardDetailVC" id="xDG-wr-Hua" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MVh-bp-zS2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-333" y="1287"/>
+        </scene>
+        <!--FoodCourtDetailVC-->
+        <scene sceneID="Sl1-88-rZ5">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="FoodCourtDetailVC" storyboardName="FoodCourtDetailVC" id="LL1-xH-58e" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yv2-w9-EZw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-362" y="1450"/>
+        </scene>
+        <!--VoucherDetailVC-->
+        <scene sceneID="rJb-yh-bHc">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="VoucherDetailVC" storyboardName="VoucherDetailVC" id="HGb-zC-Xal" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xx6-UJ-gEu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-417" y="1020"/>
+        </scene>
+        <!--HomeVC-->
+        <scene sceneID="2l0-KM-h2U">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="HomeVC" storyboardName="HomeVC" id="3ah-7G-E2t" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="i8J-XI-wwE"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="euP-qF-zY2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-53" y="72"/>
+        </scene>
+        <!--LoginVC-->
+        <scene sceneID="5pj-PL-fbE">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="LoginVC" storyboardName="LoginVC" id="WfI-j1-ABR" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="ayK-5z-87a"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hgK-ei-fE0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1037" y="52"/>
         </scene>
     </scenes>
     <resources>

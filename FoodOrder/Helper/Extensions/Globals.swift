@@ -49,16 +49,16 @@ func getModelDataFromUserDefaults(key:String) -> Any? {
 
 // MARK: - Get Proportional Type
 func getProportionalWidth(width:CGFloat) -> CGFloat {
-    return ((Devices.screenWidth * width)/750)
+    return ((Devices.screenWidth * width)/414)
 }
 func getProportionalHeight(height:CGFloat) -> CGFloat {
     let screenHeight = Devices.deviceType == .iPhoneX ? Devices.screenHeight - (44 + 34) : Devices.screenHeight
-    return ((screenHeight * height) / (2208 / 3))
+    return ((screenHeight * height) / 736)
 }
 
 func getProportionalFont(size:CGFloat) -> CGFloat {
     // As per 6 Plus
-    return ((Devices.screenHeight * size) / (2208 / 3))
+    return ((Devices.screenWidth * size) / 414)
 }
 
 

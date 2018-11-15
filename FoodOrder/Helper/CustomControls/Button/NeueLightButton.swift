@@ -24,18 +24,22 @@ class GreenBGButton: UIButton {
     func setFont() {
         self.setRadius()
         self.setTitleColor(UIColor.white, for: .normal)
-        self.titleLabel!.font = Font.setAveNirNextPro(font: .Demi, size: getProportionalFont(size: 17))
+        self.titleLabel!.font = Font.setAveNirNextPro(font: .Demi, size: getProportionalFont(size: 20.2))
 //        self.titleEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 0)
         self.backgroundColor = UIColor.appGreenColor()
+        self.setRadius(radius: 5.7)
     }
 
 }
 
-class NeueLightButton: UIButton {
+class ButtonAvenirNextLTProMedium: UIButton {
     
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    
+    @IBInspectable
+    public var fontSize: CGFloat = 15.7 {
+        didSet {
+            self.titleLabel!.font = Font.setAveNirNextPro(font: .Medium, size: getProportionalFont(size: fontSize))
+        }
+    }
     override func draw(_ rect: CGRect) {
         self.setFont()
         super.draw(rect)
@@ -48,9 +52,9 @@ class NeueLightButton: UIButton {
     
     func setFont() {
         self.setCornerRadius()
-        self.setTitleColor(UIColor.white, for: .normal)
-        self.titleLabel!.font = Font.setHelvaticaNeueLTPro(font: .NeueLight, size: getProportionalFont(size: 18.7))
-        self.titleEdgeInsets = UIEdgeInsetsMake(5, 0, 0, 0)
+        self.setTitleColor(UIColor.customBlackColor(), for: .normal)
+        self.titleLabel!.font = Font.setAveNirNextPro(font: .Medium, size: getProportionalFont(size: fontSize))
+        self.titleEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 0)
     }
     
     func setBackgroundColor(type: ColorType = ColorType.signInPurple) {

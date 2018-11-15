@@ -15,6 +15,8 @@ extension UINavigationBar {
         super.awakeFromNib()
         self.shadowImage = UIImage()
         self.setBackgroundImage(UIImage(), for: .default)
+//        self.backgroundColor = .clear
+        self.isTranslucent = true
     }
     
     

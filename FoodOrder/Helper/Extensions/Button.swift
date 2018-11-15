@@ -119,36 +119,65 @@ class LoginButton: UIButton {
  SideMenu buttons
  */
 
-class ButtonKelsonSansRegular: UIButton {
+class ButtonAveNirNextProMedium: UIButton {
+    
+    @IBInspectable
+    public var fontSize: CGFloat = 18.8 {
+        didSet {
+            self.titleLabel?.font = Font.setAveNirNextPro(font: .Medium, size: fontSize)
+        }
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.titleLabel?.font = UIFont.init(name: KelsonSans_Regular, size: 16.2)
-        self.setTitleColor(UIColor.getYellowColor(), for: UIControlState.normal)
+        self.titleLabel?.font = Font.setAveNirNextPro(font: .Medium, size: fontSize)
+        self.setTitleColor(UIColor.customBlackColor(), for: UIControlState.normal)
     }
 }
 
-class ButtonKelsonSansRegularMaroon: UIButton {
+class ButtonAveNirNextProMediumGray: UIButton {
+    
+    @IBInspectable
+    public var fontSize: CGFloat = 15.7 {
+        didSet {
+            self.titleLabel?.font = Font.setAveNirNextPro(font: .Medium, size: fontSize)
+        }
+    }
+    
+    @IBInspectable
+    public var fontColor: UIColor = UIColor.colorGray() {
+        didSet {
+            self.setTitleColor(fontColor, for: .normal)
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.titleLabel?.font = UIFont.init(name: KelsonSans_Regular, size: 12.2)
-        self.setTitleColor(UIColor.setAppTheamTextColor(), for: UIControlState.normal)
+        self.titleLabel?.font = Font.setAveNirNextPro(font: .Medium, size: fontSize)
+        self.setTitleColor(fontColor, for: .normal)
     }
 }
 
-class ButtonKelsonSansRegularBGMaroonWhiteText: UIButton {
+class ButtonAveNirNextProDemiBlack: UIButton {
+    
+    @IBInspectable
+    public var fontSize: CGFloat = 17 {
+        didSet {
+            self.titleLabel?.font = Font.setAveNirNextPro(font: .Demi, size: fontSize)
+        }
+    }
+    
+    @IBInspectable
+    public var fontColor: UIColor = UIColor.customBlackColor() {
+        didSet {
+            self.setTitleColor(fontColor, for: .normal)
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.titleLabel?.font = UIFont.init(name: KelsonSans_Regular, size: 12.2)
-        self.setTitleColor(UIColor.white, for: UIControlState.normal)
-        self.backgroundColor = UIColor.setAppTheamTextColor()
+        self.titleLabel?.font = Font.setAveNirNextPro(font: .Demi, size: fontSize)
+        self.setTitleColor(fontColor, for: .normal)
     }
 }
 
-class ButtonKelsonSansBoldMaroon: UIButton {
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        self.titleLabel?.font = UIFont.init(name: KelsonSans_Bold, size: 16.17)
-        self.setTitleColor(UIColor.setAppTheamTextColor(), for: UIControlState.normal)
-        
-    }
-}
+
