@@ -10,6 +10,9 @@ import UIKit
 
 class CellFoodCourtHeader: UITableViewCell {
 
+    @IBOutlet weak var lblCourtName: LabelAveNirNextProBoldWhite!
+    @IBOutlet weak var lblCourtAddress: LabelAveNirNextProGrayMedium!
+    @IBOutlet weak var lblStoreCount: LabelAveNirNextProGrayMedium!
     
     
     override func awakeFromNib() {
@@ -21,6 +24,12 @@ class CellFoodCourtHeader: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func setHeaderDetail(court: FoodCourtStore) {
+        self.lblCourtName.text = checkNULL(str: court.name)
+        self.lblCourtAddress.text = checkNULL(str: court.address)
+        self.lblStoreCount.text = "\(checkNULL(str: court.total_stores)) STORES"
     }
     
 }

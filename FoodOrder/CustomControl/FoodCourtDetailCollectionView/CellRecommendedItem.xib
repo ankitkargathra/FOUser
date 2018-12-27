@@ -70,6 +70,10 @@
             <viewLayoutGuide key="safeArea" id="c0C-Pf-mOe"/>
             <size key="customSize" width="177" height="105"/>
             <connections>
+                <outlet property="imgFood" destination="JxE-JK-edz" id="52B-bR-3ai"/>
+                <outlet property="lblFoodName" destination="0rT-4m-qFE" id="2ee-Bu-AWm"/>
+                <outlet property="lblFoodPrice" destination="P9i-PX-K55" id="hIt-VD-ipO"/>
+                <outlet property="lblFoodTopings" destination="fcI-VB-HOd" id="PQR-lw-EML"/>
                 <outlet property="leftConstraint" destination="h00-YP-K3d" id="CF5-Md-MII"/>
                 <outlet property="rightConstraint" destination="Yfc-Oe-QhU" id="zZN-DA-Nuk"/>
             </connections>

@@ -27,7 +27,7 @@ private enum Button: Int {
             if value > maximumValue || value < minimumValue {
                // Value is possibly out of range, it means we're setting up the values so discard any update to the UI.
             } else if oldValue != value {
-                sendActions(for: .valueChanged)
+//                sendActions(for: .valueChanged)
                 setFormattedValue(value)
                 setState()
             }
@@ -301,11 +301,15 @@ private enum Button: Int {
     @objc func decrease(_ sender: UIButton) {
         continuousTimer = nil
         decreaseValue()
+        sendActions(for: .touchDown)
+        setFormattedValue(value)
     }
 
     @objc func increase(_ sender: UIButton) {
         continuousTimer = nil
         increaseValue()
+        sendActions(for: .valueChanged)
+        setFormattedValue(value)
     }
     
     @objc func continuousIncrement(_ timer: Timer) {

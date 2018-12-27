@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hlV-Ya-faw">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="onDrag" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hlV-Ya-faw">
                                 <rect key="frame" x="0.0" y="-64" width="414" height="800"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="2" minimumInteritemSpacing="20" id="uy5-EK-ziE">
@@ -159,6 +159,7 @@
                         <outlet property="constraintHeight" destination="HFs-8S-CRB" id="Jbt-9y-WAL"/>
                         <outlet property="constraintHeightCartView" destination="Axb-Gm-OCw" id="KxN-Cy-CK4"/>
                         <outlet property="fullCatView" destination="Q2Q-nd-rgE" id="Wd5-cH-fwO"/>
+                        <outlet property="lblCartItem" destination="eQ2-QK-WJ5" id="zAY-fP-DMv"/>
                         <outlet property="tblCat" destination="pVF-dI-fHx" id="VxU-wi-Rdr"/>
                     </connections>
                 </viewController>

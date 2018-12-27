@@ -16,7 +16,7 @@ class TableViewHome: BaseTableView,UITableViewDelegate,UITableViewDataSource {
 
     var blockTableViewDidSelectAtIndexPath:((IndexPath,CellType)->Void)?
     
-    var sectionArray:[CellType] = [.Status,.Status,.Statestic,.RecentOrder,.RecentOrder,.RecentOrder,.RecentOrder]
+    var sectionArray:[CellType] = [.Statestic,.RecentOrder,.RecentOrder,.RecentOrder,.RecentOrder]
     
     override init(frame: CGRect, style: UITableViewStyle) {
         super.init(frame: frame, style: style)

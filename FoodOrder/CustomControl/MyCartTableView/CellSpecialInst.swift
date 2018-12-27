@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CellSpecialInst: UITableViewCell {
+class CellSpecialInst: UITableViewCell, UITextViewDelegate {
 
    
     @IBOutlet weak var lblSelectVoucher: LabelAveNirNextProBlackMeduim!
@@ -16,10 +16,11 @@ class CellSpecialInst: UITableViewCell {
     @IBOutlet weak var lblVoucherDetails: LabelAveNirNextProBlackMeduim!
     @IBOutlet weak var btnClose: UIButton!
     @IBOutlet weak var rightArrow: UIImageView!
-    
+    @IBOutlet weak var textview: UITextView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        textview.delegate = self
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -37,6 +38,17 @@ class CellSpecialInst: UITableViewCell {
         lblVoucherDetails.isHidden = !applyed
         btnClose.isHidden = !applyed
         
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.text == "Allergic to something? Want your food less spicy? Mention all custom requests here..." {
+            textView.text = ""
+        }
+    }
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.trim().count == 0 {
+            textView.text = "Allergic to something? Want your food less spicy? Mention all custom requests here..."
+        }
     }
     
 }

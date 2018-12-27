@@ -25,6 +25,7 @@ class Alert {
     class func logoutAlert(title: String = kAppName, message: String) {
         let alertController = UIAlertController.init(title: title, message: message, preferredStyle: .alert)
         let alertActionOK = UIAlertAction.init(title: "YES", style: .default) { (action) in
+            UserDefaults.removeUserDefultData()
             AppDel.setSideMenuVCwithHome(identifiire: "LoginVC")
         }
         

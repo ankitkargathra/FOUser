@@ -10,6 +10,9 @@ import UIKit
 
 class CellNotificaiton: BaseTableViewCell {
 
+    @IBOutlet weak var lblNotification: LabelAveNirNextProBlackDemi!
+    @IBOutlet weak var lblTime: LabelAveNirNextProGrayMedium!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -19,6 +22,11 @@ class CellNotificaiton: BaseTableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func setData(noti: Notification){
+        self.lblNotification.text = checkNULL(str: noti.notification)
+        
     }
     
 }

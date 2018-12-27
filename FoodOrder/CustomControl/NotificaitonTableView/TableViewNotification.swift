@@ -10,6 +10,9 @@ import UIKit
 
 class TableViewNotification: BaseTableView,UITableViewDelegate,UITableViewDataSource {
 
+    
+    var notificationArr = [Notification]()
+    
     var blockTableViewDidSelectAtIndexPath:((IndexPath)->Void)?
     
     override init(frame: CGRect, style: UITableViewStyle) {
@@ -52,12 +55,15 @@ class TableViewNotification: BaseTableView,UITableViewDelegate,UITableViewDataSo
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return 30
+        return notificationArr.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         let cell = self.dequeueReusableCell(withIdentifier: "CellNotificaiton") as! CellNotificaiton
+        let noti = notificationArr[indexPath.row]
+        cell.lblNotification.text = noti.notification
+        cell.lblTime.text = Date.convertDate(date: noti.notificationDate!)
         return cell
     }
     
@@ -74,6 +80,7 @@ class TableViewNotification: BaseTableView,UITableViewDelegate,UITableViewDataSo
             self.blockTableViewDidSelectAtIndexPath!(indexPath)
         }
         
+        tableView.deselectRow(at: indexPath, animated: true)
         
     }
     

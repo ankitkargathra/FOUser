@@ -49,7 +49,7 @@ class RaisePlaceholder:  UITextField, UITextFieldDelegate {
     var textType: TextFieldType!
     
     
-    var datePickerFormate: String! = "dd/MM/yyyy"
+    var datePickerFormate: String! = "dd-MM-yyyy"
     
     override public func draw(_ rect: CGRect) {
         if placeholderLabel == nil {
@@ -61,12 +61,15 @@ class RaisePlaceholder:  UITextField, UITextFieldDelegate {
         self.font = Font.setAveNirNextPro(font: .Medium, size: getProportionalFont(size: 15.7))
     }
     
-    func validateTextField(type: TextFieldType, minLength: Int, maxLength: Int, alignment: NSTextAlignment, placeHolder: String = "") {
+    func validateTextField(type: TextFieldType, minLength: Int, maxLength: Int, alignment: NSTextAlignment, placeHolder: String = "", isShowPassword: Bool = true) {
         
         textType = type
         textMaxLength = maxLength
         textMinLength = minLength
-        self.placeholder = placeHolder
+        if placeHolder.count > 0 {
+            self.placeholder = placeHolder
+        }
+        
         self.delegate = self
         self.textAlignment = alignment
         switch textType! {
@@ -77,11 +80,13 @@ class RaisePlaceholder:  UITextField, UITextFieldDelegate {
             self.isSecureTextEntry = true
             let btnShowPassword = UIButton.init(frame: CGRect.init(x: 0, y: 0, width: 30, height: 30))
             btnShowPassword.imageEdgeInsets = UIEdgeInsetsMake(8, 5, 8, 5)
-            btnShowPassword.setImage(UIImage.init(named: "eye_on"), for: .normal)
-            btnShowPassword.setImage(UIImage.init(named: "eye_off"), for: .selected)
-            self.rightViewMode = .always
-            self.rightView = btnShowPassword
-            btnShowPassword.addTarget(self, action: #selector(self.btnShowPasswordPress(button:)), for: UIControlEvents.touchUpInside)
+            if isShowPassword == true {
+                btnShowPassword.setImage(UIImage.init(named: "eye_on"), for: .normal)
+                btnShowPassword.setImage(UIImage.init(named: "eye_off"), for: .selected)
+                self.rightViewMode = .always
+                self.rightView = btnShowPassword
+                btnShowPassword.addTarget(self, action: #selector(self.btnShowPasswordPress(button:)), for: UIControlEvents.touchUpInside)
+            }
             break
         case .Mobile:
             self.keyboardType = .numberPad

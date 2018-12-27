@@ -8,12 +8,16 @@
 
 import UIKit
 import SJSwiftSideMenuController
+import Kingfisher
+
+let kUpdateUserData = NSNotification.Name(rawValue: "setUserData")
 
 class SideMenuVC: BaseVC {
     
     @IBOutlet var btnEdit: UIButton!
     @IBOutlet var btnImg: UIButton!
     
+    @IBOutlet weak var lblName: LabelAveNirNextProBlackDemi!
     
     enum SideMenuType: Int{
         case myOrder,notification,vouchers,termsOfUse,privacyPolicy,FAQa,helpAndSupport,logout
@@ -22,6 +26,27 @@ class SideMenuVC: BaseVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setEditButton()
+        setUserData()
+        NotificationCenter.default.addObserver(self, selector: #selector(self.setUserData), name: kUpdateUserData, object: nil)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+    }
+    
+    @objc func setUserData() {
+        lblName.text = checkNULL(str: LoggedinUser.shared.fullname)
+        if checkNULL(str: LoggedinUser.shared.picture) != "" {
+            btnImg.kf.setBackgroundImage(with: URL.init(string: LoggedinUser.shared.picture!), for: UIControl.State.normal)
+            btnImg.setTitle("", for: UIControlState.normal)
+        } else {
+            if checkNULL(str: lblName.text).count > 0 {
+                btnImg.setTitle("\(String.init(Array(lblName.text!)[0]))".uppercased(), for: UIControlState.normal)
+            } else {
+                btnImg.setTitle("", for: UIControlState.normal)
+            }
+        }
     }
     
     //MARK: Edit Button
@@ -90,5 +115,10 @@ class SideMenuVC: BaseVC {
         SJSwiftSideMenuController.pushViewController(helpSupport, animated: true)
         SJSwiftSideMenuController.hideLeftMenu()
         
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        self.setUserData()
     }
 }

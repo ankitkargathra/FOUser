@@ -11,7 +11,9 @@ import FacebookCore
 import FacebookLogin
 import FBSDKLoginKit
 
-class SignUpVC: BaseVC {
+class SignUpVC: BaseVC, AlertViewButtonsDelegate {
+   
+    
     
     @IBOutlet weak var txtName: RaisePlaceholder!
     @IBOutlet weak var txtEmail: RaisePlaceholder!
@@ -26,6 +28,8 @@ class SignUpVC: BaseVC {
     @IBOutlet weak var btnSignInWithFb: UIButton!
     let user = SignUp()
     var isWithBackButton: Bool = true
+    
+    var alertButtons: AlertWithButtons!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,11 +83,16 @@ class SignUpVC: BaseVC {
                     user.dob = txtDOB.text!
                     user.phone = txtMobile.text!
                     user.fullname = txtName.text!
-                    
+                    UtilityClass.showHUD()
                     ApiController.shared.registerUser(user: user) { (success, message, response) in
                         
+                        UtilityClass.hideHUD()
                         if success {
-                            self.signInPress()
+//                            LoggedinUser.shared.parseJsonDictionary(dict: response! as JSONDICTIONARY)
+//                            let homeVC = MAIN_STORYBOARD.instantiateViewController(withIdentifier: "HomeVC") as! HomeVC
+//                            self.navigationController?.pushViewController(homeVC, animated: true)
+                            TOAST.showToast(str: message)
+                            self.showAlertButtons(email: self.txtEmail.text!)
                         } else {
                             TOAST.showToast(str: message)
                         }
@@ -93,6 +102,50 @@ class SignUpVC: BaseVC {
             }
         }
         
+    }
+    
+    func showAlertButtons(email : String)
+    {
+        if alertButtons == nil{
+            alertButtons = .fromNib() as AlertWithButtons
+        }
+        alertButtons?.alertButtonDelegate = self
+        alertButtons?.lblEmail.text = email
+        alertButtons?.frame = AppDel.window!.frame
+        UIView.animate(withDuration: 0.3, delay: 0, options: .transitionCrossDissolve, animations:
+            {
+                AppDel.window?.rootViewController?.view.addSubview(self.alertButtons!)
+                
+        }, completion: nil)
+    }
+    
+    func hideAlertButtons()
+    {
+        if let alertView = alertButtons{
+            alertView.removeFromSuperview()
+        }
+        
+//        if let vw = customInfoView{
+//            vw.removeFromSuperview()
+//        }
+    }
+    
+    
+    func btnNoTapped() {
+        hideAlertButtons()
+        self.signInPress()
+    }
+    
+    func btnYesTapped() {
+        UtilityClass.showHUD()
+        ApiController.shared.resendEmail(email: self.txtEmail.text!) { (success, message, response) in
+            UtilityClass.hideHUD()
+            if success {
+                self.btnNoTapped()
+            }
+            TOAST.showToast(str: message)
+            
+        }
     }
     
     @IBAction func loginButtonClicked() {

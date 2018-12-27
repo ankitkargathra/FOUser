@@ -6,6 +6,9 @@ PODS:
   - Bolts/AppLinks (1.9.0):
     - Bolts/Tasks
   - Bolts/Tasks (1.9.0)
+  - Charts (3.2.1):
+    - Charts/Core (= 3.2.1)
+  - Charts/Core (3.2.1)
   - FacebookCore (0.5.0):
     - Bolts (~> 1.9)
     - FBSDKCoreKit (~> 4.37)
@@ -88,6 +91,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - Charts
   - FacebookCore
   - FacebookLogin
   - Firebase/Core
@@ -105,6 +109,7 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
     - Bolts
+    - Charts
     - FacebookCore
     - FacebookLogin
     - FBSDKCoreKit
@@ -130,6 +135,7 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
+  Charts: f122fb70b19847fa5817d018b77d6c5a2296ab25
   FacebookCore: 74288d0add931d361b1596beae787ab72c438249
   FacebookLogin: ebcf34714a1cb9f0759d9f071cfb01ed500996cf
   FBSDKCoreKit: fe5f3474499a81963e11e3f3a5c753d0a95ca2b4
@@ -152,6 +158,6 @@ SPEC CHECKSUMS:
   Toast-Swift: 594b5c5e5129f15438e410207e43287f027b3c00
   ValueStepper: e84d21a2ce62a7975df8b222c7273d6810f7e78c
 
-PODFILE CHECKSUM: 835a28f84fae0e555e1e06ef03d04eb8dd5775fb
+PODFILE CHECKSUM: 0dbad1c4fd3f3643f2f5571faa0c7bf362c93927
 
 COCOAPODS: 1.6.0.beta.1

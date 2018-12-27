@@ -94,14 +94,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
     func setSideMenuVCwithHome(identifiire: String = "IntroViewController") {
         
+        UserDefaults.setUserData()
+        
         var identifireVC = identifiire
         
         if UserDefaults.standard.bool(forKey: "IntroViewController") == false {
             UserDefaults.standard.set(true, forKey: "IntroViewController")
             identifireVC = "IntroViewController"
         } else {
-            identifireVC = "LoginVC"
+            
+            if LoggedinUser.shared.access_token != nil {
+                identifireVC =  "FoodCourtDetailVC"//"HomeVC"//
+            } else {
+                identifireVC = "LoginVC"
+            }            
         }
+        
         
         let mainVC = SJSwiftSideMenuController()
         let sideMenuVC = MAIN_STORYBOARD.instantiateViewController(withIdentifier: "SideMenuVC") as! SideMenuVC

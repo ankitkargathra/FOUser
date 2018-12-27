@@ -13,7 +13,7 @@ class CellApplyVaucher: BaseTableViewCell {
 
     @IBOutlet weak var lblBrandName: LabelAveNirNextProGrayMedium!
     @IBOutlet weak var lblCouponDetail: LabelAveNirNextProGrayMedium!
-    
+    @IBOutlet weak var btnApply: ButtonAveNirNextProDemiBlack!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -32,8 +32,9 @@ class CellApplyVaucher: BaseTableViewCell {
     }
     
     
-    func setCellDate() {
-//        self.lblCouponOfferDetail.attributedText = UILabel.setLineSpacing(text: self.lblCouponOfferDetail.text!, spacing:5)
+    func setCellDate(voucher: Voucher) {
+        lblBrandName.text = checkNULL(str: voucher.voucherName)
+        lblCouponDetail.text = checkNULL(str: voucher.descriptionField)
     }
 }
 

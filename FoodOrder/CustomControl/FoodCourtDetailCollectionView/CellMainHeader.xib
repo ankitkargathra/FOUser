@@ -31,6 +31,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="181"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </imageView>
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="URP-yV-HuQ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="181"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="0Kz-MB-gck">
+                            <size key="itemSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <connections>
+                            <outlet property="dataSource" destination="gTV-IL-0wX" id="QKm-hH-moY"/>
+                            <outlet property="delegate" destination="gTV-IL-0wX" id="p8L-nI-DkG"/>
+                        </connections>
+                    </collectionView>
                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vht-dJ-kf2">
                         <rect key="frame" x="18.5" y="117" width="377" height="128"/>
                         <subviews>
@@ -49,7 +63,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pizza, Pasta, Breads, Desserts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fkH-g3-a7m" customClass="LabelAveNirNextProGrayMedium" customModule="FoodOrder" customModuleProvider="target">
-                                <rect key="frame" x="24" y="85" width="232" height="21"/>
+                                <rect key="frame" x="24" y="85" width="333" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -71,6 +85,7 @@
                             <constraint firstItem="fkH-g3-a7m" firstAttribute="leading" secondItem="Vht-dJ-kf2" secondAttribute="leading" constant="24" id="aKy-6J-sff"/>
                             <constraint firstItem="gMm-8M-d7H" firstAttribute="top" secondItem="Vht-dJ-kf2" secondAttribute="top" constant="22" id="aSl-ND-3oT"/>
                             <constraint firstItem="UFB-3D-35q" firstAttribute="width" secondItem="Vht-dJ-kf2" secondAttribute="width" multiplier="330.7:377.3" id="iOp-n0-Bhj"/>
+                            <constraint firstAttribute="trailing" secondItem="fkH-g3-a7m" secondAttribute="trailing" constant="20" id="t8K-Xo-Wxl"/>
                             <constraint firstItem="fkH-g3-a7m" firstAttribute="top" secondItem="UFB-3D-35q" secondAttribute="bottom" id="z1D-ZH-vVe"/>
                         </constraints>
                     </view>
@@ -138,7 +153,11 @@
                 <constraint firstItem="J9o-Fa-zqh" firstAttribute="width" secondItem="RVc-tt-7qR" secondAttribute="width" id="QZg-qa-tMH"/>
                 <constraint firstAttribute="bottom" secondItem="RVc-tt-7qR" secondAttribute="bottom" id="S3Y-rh-WtQ"/>
                 <constraint firstItem="Vht-dJ-kf2" firstAttribute="centerX" secondItem="RVc-tt-7qR" secondAttribute="centerX" id="TZn-5X-59U"/>
+                <constraint firstItem="URP-yV-HuQ" firstAttribute="width" secondItem="Q7x-D0-awT" secondAttribute="width" id="V5o-HK-bq4"/>
                 <constraint firstItem="J9o-Fa-zqh" firstAttribute="height" secondItem="RVc-tt-7qR" secondAttribute="height" multiplier="2:1" id="Ylo-Bf-OMn"/>
+                <constraint firstItem="URP-yV-HuQ" firstAttribute="centerY" secondItem="Q7x-D0-awT" secondAttribute="centerY" id="aKy-2G-kbr"/>
+                <constraint firstItem="URP-yV-HuQ" firstAttribute="height" secondItem="Q7x-D0-awT" secondAttribute="height" id="cWo-i7-RK7"/>
+                <constraint firstItem="URP-yV-HuQ" firstAttribute="centerX" secondItem="Q7x-D0-awT" secondAttribute="centerX" id="ch1-kw-aJv"/>
                 <constraint firstAttribute="bottom" secondItem="tTy-n3-fMu" secondAttribute="bottom" id="dIO-8Z-lsf"/>
                 <constraint firstItem="Q7x-D0-awT" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="lsu-AR-RQs"/>
                 <constraint firstItem="tTy-n3-fMu" firstAttribute="top" secondItem="Vht-dJ-kf2" secondAttribute="bottom" id="pQN-Uw-DJ0"/>
@@ -150,9 +169,14 @@
             <size key="customSize" width="393" height="278"/>
             <connections>
                 <outlet property="brandView" destination="Vht-dJ-kf2" id="KML-CE-dFS"/>
+                <outlet property="collectionView" destination="URP-yV-HuQ" id="MSC-Bw-ZGg"/>
                 <outlet property="dotedLine" destination="UFB-3D-35q" id="Iju-uI-RwG"/>
+                <outlet property="lblCategories" destination="fkH-g3-a7m" id="4Gy-c9-fxr"/>
+                <outlet property="lblHeader" destination="tTy-n3-fMu" id="ZPF-wp-dgl"/>
+                <outlet property="lblRate" destination="bYY-65-BXP" id="MXz-9g-hPc"/>
+                <outlet property="lblReasturantName" destination="gMm-8M-d7H" id="U88-sw-aGl"/>
             </connections>
-            <point key="canvasLocation" x="-917" y="52"/>
+            <point key="canvasLocation" x="-1133" y="-16"/>
         </collectionViewCell>
     </objects>
     <resources>

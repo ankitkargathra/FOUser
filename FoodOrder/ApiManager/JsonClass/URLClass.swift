@@ -20,8 +20,25 @@ enum MethodType: String {
 
 
 struct URLClass {
+    
     static let kLogin                   = "\(MAINURL)login"
     static let kForgotPassword          = "\(MAINURL)forgotPassword"
     static let kregister                = "\(MAINURL)register"
     static let kloginWithFB             = "\(MAINURL)loginWithFB"
+    static let kResendMail              = "\(MAINURL)resendEmail"
+    
+    static let kgetFoodCourt            = "\(MAINURL)getFoodCourt"
+    static let kgetFoodCourtStore       = "\(MAINURL)getRestaurentsFromFoodCourt"
+    static let kgetFoodStoreMenu        = "\(MAINURL)getRestaurentMenu"
+    static let kgetNotifications        = "\(MAINURL)getNotificationList"
+    
+    static let kGetProfile              = "\(MAINURL)getUserProfile"
+    static let kUpdateProfile              = "\(MAINURL)updateUserProfile"
+    static let kUpdatePassword              = "\(MAINURL)changePassword"
+    static let kgetItemsAddOns              = "\(MAINURL)getItemsAddOns"
+    static let kgetUserVoucherList      = "\(MAINURL)getUserVoucherList"
+    
+    static let khelpSupport             = "\(MAINURL)helpSupport"
+    
+    
 }

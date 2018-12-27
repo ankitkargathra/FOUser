@@ -62,13 +62,19 @@
                                 <state key="normal" title="Take away">
                                     <color key="titleColor" red="0.37647058820000001" green="0.74117647060000003" blue="0.59607843140000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="btnTypePress:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="1NX-fZ-UGq"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1wL-YP-z7e">
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1wL-YP-z7e">
                                 <rect key="frame" x="125" y="0.0" width="125" height="30"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="14"/>
                                 <state key="normal" title="Dine in">
                                     <color key="titleColor" red="0.37647058820000001" green="0.41568627450000001" blue="0.4549019608" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="btnTypePress:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="bSg-Zc-HW2"/>
+                                </connections>
                             </button>
                         </subviews>
                         <constraints>
@@ -109,6 +115,15 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="btnDineIn" destination="1wL-YP-z7e" id="gC4-0d-Oq6"/>
+                <outlet property="btnTakeAway" destination="p4d-p9-82V" id="VIH-YA-LEQ"/>
+                <outlet property="imgDineInRadio" destination="naL-EB-Q7j" id="Tf6-qa-iD6"/>
+                <outlet property="imgTakeAwayRadio" destination="nlI-n4-NrX" id="hQV-NR-iN5"/>
+                <outlet property="imgView" destination="7Cv-Ui-1YE" id="wD3-dj-rU5"/>
+                <outlet property="lblAddress" destination="xWl-5i-8TO" id="6W1-8O-wjP"/>
+                <outlet property="lblBrandName" destination="zRG-ld-BtM" id="pjj-gX-rGi"/>
+            </connections>
             <point key="canvasLocation" x="330" y="-115"/>
         </tableViewCell>
     </objects>

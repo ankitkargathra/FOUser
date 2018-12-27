@@ -19,4 +19,5 @@ target 'FoodOrder' do
   pod 'MBProgressHUD'
   pod 'Firebase/Core'
   pod 'Firebase/Messaging'
+  pod 'Charts'
 end

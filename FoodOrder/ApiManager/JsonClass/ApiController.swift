@@ -25,7 +25,9 @@ class ApiController {
         return UIDevice.current.identifierForVendor!.uuidString
     }()
     
-    //MARK: Login with Email
+    //MARK: ----------------
+    //MARK: Login And Register
+    //MARK: ----------------
     
     func loginUser(login: Login, completionHandler:@escaping (_ result: Bool, _ message: String, _ returnData: JSONDICTIONARY?) -> Void)
     {
@@ -60,37 +62,207 @@ class ApiController {
         }
     }
     
-    //MARK: ---------------
+    func resendEmail(email: String, completionHandler:@escaping (_ result: Bool, _ message: String, _ returnData: JSONDICTIONARY?) -> Void)
+    {
+        
+        callWebservice(url: URLClass.kResendMail, methodType: .post, parameter: ["email":email], encoding: JSONEncoding.default, header: false) { (result, message, response) in
+            completionHandler(result, message, response as? JSONDICTIONARY)
+        }
+    }
+    
+    //MARK: ----------------
+    //MARK: Food court And store
+    //MARK: ----------------
+    
+    func getFoodCourt(location_id: String, completionHandler:@escaping (_ result: Bool, _ message: String, _ returnData: JSONDICTIONARY?) -> Void)
+    {
+        
+        callWebservice(url: URLClass.kgetFoodCourt, methodType: .post, parameter: ["location_id":location_id], encoding: JSONEncoding.default, header: true) { (result, message, response) in
+            completionHandler(result, message, response as? JSONDICTIONARY)
+        }
+    }
+    
+    func getFoodCourtStores(food_court_id: String, completionHandler:@escaping (_ result: Bool, _ message: String, _ returnData: JSONDICTIONARY?) -> Void)
+    {
+        
+        callWebservice(url: URLClass.kgetFoodCourtStore, methodType: .post, parameter: ["food_court_id":food_court_id], encoding: JSONEncoding.default, header: true) { (result, message, response) in
+            completionHandler(result, message, response as? JSONDICTIONARY)
+        }
+    }
+    
+    func getFoodStoreDetail(restaurant_id: String, completionHandler:@escaping (_ result: Bool, _ message: String, _ returnData: JSONDICTIONARY?) -> Void)
+    {
+        
+        callWebservice(url: URLClass.kgetFoodStoreMenu, methodType: .post, parameter: ["restaurant_id":restaurant_id], encoding: JSONEncoding.default, header: true) { (result, message, response) in
+            completionHandler(result, message, response as? JSONDICTIONARY)
+        }
+    }
+    
+    //MARK: ----------------
+    //MARK: Notifications
+    //MARK: ----------------
+    
+    func getNotifications(completionHandler:@escaping (_ result: Bool, _ message: String, _ returnData: [JSONDICTIONARY]?) -> Void)
+    {
+        
+        callWebservice(url: URLClass.kgetNotifications, methodType: .post, parameter: nil, encoding: JSONEncoding.default, header: true) { (result, message, response) in
+            completionHandler(result, message, response as? [JSONDICTIONARY])
+        }
+    }
+    
+    //MARK: ----------------
+    //MARK: get and Edit profile
+    //MARK: ----------------
+    
+    func getProfile(completionHandler:@escaping (_ result: Bool, _ message: String, _ returnData: JSONDICTIONARY?) -> Void)
+    {
+        
+        callWebservice(url: URLClass.kGetProfile, methodType: .post, parameter: nil, encoding: JSONEncoding.default, header: true) { (result, message, response) in
+            completionHandler(result, message, response as? JSONDICTIONARY)
+        }
+    }
+    
+    func updateProfile(profile:ProfileData, completionHandler:@escaping (_ result: Bool, _ message: String, _ returnData: JSONDICTIONARY?) -> Void)
+    {
+        
+        callWebservice(url: URLClass.kUpdateProfile, methodType: .post, parameter: profile.toDictionary(), encoding: JSONEncoding.default, header: true) { (result, message, response) in
+            completionHandler(result, message, response as? JSONDICTIONARY)
+        }
+    }
+    
+    func updatePassword(oldPassword: String, newPassword: String, completionHandler:@escaping (_ result: Bool, _ message: String, _ returnData: JSONDICTIONARY?) -> Void)
+    {
+        
+        callWebservice(url: URLClass.kUpdatePassword, methodType: .post, parameter: ["old_password":oldPassword,"password":newPassword], encoding: JSONEncoding.default, header: true) { (result, message, response) in
+            completionHandler(result, message, response as? JSONDICTIONARY)
+        }
+    }
+    
+    
+    //MARK: ----------------
+    //MARK: AddOnds
+    //MARK: ----------------
+    
+    func getAddOns(item_id: String, completionHandler:@escaping (_ result: Bool, _ message: String, _ returnData: JSONDICTIONARY?) -> Void)
+    {
+        
+        callWebservice(url: URLClass.kgetItemsAddOns, methodType: .post, parameter: ["item_id":item_id], encoding: JSONEncoding.default, header: true) { (result, message, response) in
+            completionHandler(result, message, response as? JSONDICTIONARY)
+        }
+    }
+    
+    //MARK: ----------------
+    //MARK: Help and support
+    //MARK: ----------------
+    
+    func getHelpAndSupport(topic: String, message: String, completionHandler:@escaping (_ result: Bool, _ message: String, _ returnData: JSONDICTIONARY?) -> Void)
+    {
+        
+        callWebservice(url: URLClass.khelpSupport, methodType: .post, parameter: ["topic":topic,"message":message], encoding: JSONEncoding.default, header: true) { (result, message, response) in
+            completionHandler(result, message, response as? JSONDICTIONARY)
+        }
+    }
+    
+    
+    //MARK: ----------------
+    //MARK: Voucher
+    //MARK: ----------------
+    
+    func getVoucers(completionHandler:@escaping (_ result: Bool, _ message: String, _ returnData: [JSONDICTIONARY]?) -> Void)
+    {
+        
+        callWebservice(url: URLClass.kgetUserVoucherList, methodType: .post, parameter: nil, encoding: JSONEncoding.default, header: true) { (result, message, response) in
+            completionHandler(result, message, response as? [JSONDICTIONARY])
+        }
+    }
+    
+    
+    //MARK: ----------------
+    //MARK: Alamofire api controls app api
+    //MARK: ----------------
 
     func callWebservice(url: String, methodType: HTTPMethod, parameter: JSONDICTIONARY?, encoding: ParameterEncoding, header: Bool = true, completion: @escaping (_ result: Bool, _ message: String, _ returnData: Any?) -> ()) {
         
-        print("Request -> \(parameter!)")
+        print("Request -> \(parameter)")
         
-        Alamofire.request(url, method: methodType, parameters: parameter, headers: header ? LoggedinUser.shared.getAuth() : nil).responseJSON { (response) in
+        Alamofire.upload(multipartFormData:{ multipartFormData in
             
-            DispatchQueue.main.async {
-                print(response.result.value)
-                if let data = response.result.value as? JSONDICTIONARY {
+            if parameter != nil{
+                for (key, value) in parameter! {
                     
-                    print("Response = \(data)")
-                    
-                    if let status = data["status"], let message = data["message"] as? String {
-                        if "\(status)" == "200" {
-                            completion(true, "\(message)" ,data)
-                        } else {
-                            completion(false, message, nil)
+                    if let img = value as? UIImage {
+                        if let imageData = UIImageJPEGRepresentation(img , 0.6) {
+                            multipartFormData.append(imageData, withName: key, fileName: "file.jpg", mimeType: "image/jpg")
                         }
                     } else {
-                        completion(false,"Something went wrong!",nil)
+                        multipartFormData.append(String.init(value as! NSString).data(using: String.Encoding.utf8)!, withName: key)
                     }
                     
-                } else {
-                    completion(false,"Something went wrong!",nil)
-                    TOAST.showToast(str: "Something went wrong!")
                 }
             }
             
-        }
+        },
+                         to:url,
+                         method:.post,
+                         headers:header ? LoggedinUser.shared.getAuth() : nil,
+                         encodingCompletion: { encodingResult in
+                            switch encodingResult {
+                            case .success(let upload, _, _):
+                                upload.responseJSON { response in
+                                    DispatchQueue.main.async {
+                                        print(response.result.value)
+                                        if let data = response.result.value as? JSONDICTIONARY {
+                                            
+                                            print("Response = \(data)")
+                                            
+                                            if let status = data["status"], let message = data["message"] as? String {
+                                                if "\(status)" == "200" {
+                                                    completion(true, "\(message)" ,data["data"])
+                                                } else {
+                                                    completion(false, message, nil)
+                                                }
+                                            } else {
+                                                completion(false,"Something went wrong!",nil)
+                                            }
+                                            
+                                        } else {
+                                            completion(false,"Something went wrong!",nil)
+                                            TOAST.showToast(str: "Something went wrong!")
+                                        }
+                                    }
+                                }
+                            case .failure(_):
+                                completion(false,"Something went wrong!",nil)
+                                TOAST.showToast(str: "Something went wrong!")
+                                break
+                            }
+        })
+            
+//        Alamofire.request(url, method: methodType, parameters: parameter, headers: header ? LoggedinUser.shared.getAuth() : nil).responseJSON { (response) in
+//
+//            DispatchQueue.main.async {
+//                print(response.result.value)
+//                if let data = response.result.value as? JSONDICTIONARY {
+//
+//                    print("Response = \(data)")
+//
+//                    if let status = data["status"], let message = data["message"] as? String {
+//                        if "\(status)" == "200" {
+//                            completion(true, "\(message)" ,data["data"])
+//                        } else {
+//                            completion(false, message, nil)
+//                        }
+//                    } else {
+//                        completion(false,"Something went wrong!",nil)
+//                    }
+//
+//                } else {
+//                    completion(false,"Something went wrong!",nil)
+//                    TOAST.showToast(str: "Something went wrong!")
+//                }
+//            }
+//
+//        }
     }
     
     //MARK: Local Api response Method
@@ -105,162 +277,6 @@ class ApiController {
             }
         }
         return nil
-    }
-    
-    /*
-     
-     //        let urlRequest = self.createRequestofType(type: .POST, url: URLClass.kLogin, bodyData: login.toJsonDictionary(), fileData: nil, isAppendDeviceData: false, auth: false)
-     //        self.callWebRequest(request: urlRequest, completion: completionHandler)
-     
-     
-    func callWebRequest(request: URLRequest, completion: @escaping (_ result: Bool, _ message: String, _ returnData: JSONDICTIONARY?) -> Void)
-    {
-        if appDelegate.reachability.connection == .none {
-            Alert.showNetworlAlert()
-        }
-        
-        let session = URLSession(configuration: URLSessionConfiguration.default)
-        session.dataTask(with: request) { (returnData, response, error) in
-            
-            DispatchQueue.main.async {
-                if let data = returnData
-                {
-                    do{
-                        
-                        let json = try JSONSerialization.jsonObject(with: data, options: []) as! JSONDICTIONARY
-                        print(json)
-                        
-                        if let httpResponse = response as? HTTPURLResponse {
-                            if httpResponse.statusCode != 200 {
-                                completion(false, "Please try again.", nil)
-                                return
-                            }
-                        }
-                        
-                        if let status = json["status"] as? String {
-                            if status == "success" {
-                                if let message = json["message"] as? String {
-                                    completion(true, message, json)
-                                } else {
-                                    completion(true, "", json)
-                                }
-                            } else {
-                                if let message = json["message"] as? String {
-                                    if message == "Unauthenticated." {
-                                        
-                                    } else {
-                                        completion(false, message, json)
-                                    }
-                                }
-                            }
-                        } else {
-                            completion(false, "", json)
-                        }
-                    }
-                    catch
-                    {
-                        let string1 = String.init(data: data, encoding: String.Encoding.utf8)
-                        print("return Response : \(String(describing: string1))")
-                        completion(false, "Something went wrong", nil)
-                    }
-                }
-                
-                if let er = error
-                {
-                    completion(false, er.localizedDescription, nil)
-                    print("Error in \(er)")
-                }
-            }
-            
-            }.resume()
-    }
- 
-    func createRequestofType(type: MethodType, url: String, bodyData: JSONDICTIONARY?, fileData: Data?, isAppendDeviceData: Bool, auth:Bool) -> URLRequest
-    {
-        
-        
-//        print("Request Date - \(bodyData)")
-        var request = URLRequest(url: URL(string: url)!)
-        request.httpMethod = type.rawValue
-        var receivedData = bodyData
-        
-        if auth == true {
-            if let token = LoggedinUser.shared.token {
-                request.addValue(token, forHTTPHeaderField: "Authorization")
-            }
-        }
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
-//        request.addValue("application/json-patch+json", forHTTPHeaderField: "Content-Type")
-        
-        if type == .GET {
-            return request
-        }
-        
-        if isAppendDeviceData
-        {
-            receivedData?["device_type"] = kDeviceType as AnyObject
-            receivedData?["device_version"] = kSystemVersion as AnyObject
-            receivedData?["app_version"] = kAppVersion as AnyObject
-            
-            if let token = UserDefaults.standard.object(forKey: "") as? String {
-                receivedData?["device_token"] = token
-            }
-        }
-        
-        //        if (receivedData != nil) || (fileData != nil)
-        //        {
-        let boundary = "Boundary-\(UUID().uuidString)"
-        
-//        request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
-        
-        
-        request.httpBody = self.createBody(parameters: receivedData,
-                                           boundary: boundary,
-                                           data: fileData,
-                                           mimeType: "image/png",
-                                           filename: "MyImage.png")
-        
-        //        }
-        return request
-    }
-    
-    func createBody(parameters: JSONDICTIONARY?, boundary: String, data: Data?, mimeType: String, filename: String) -> Data
-    {
-        let body = NSMutableData()
-        let boundaryPrefix = "--\(boundary)\r\n"
-        if parameters != nil
-        {
-            for (key, value) in parameters! {
-                if let img = value as? UIImage {
-                    body.appendString(boundaryPrefix)
-                    body.appendString("Content-Disposition: form-data; name=\"\(key)\"; filename=\"app-icon-3.png\"\r\n")
-                    body.appendString("Content-Type: \(mimeType)\r\n\r\n")
-                    body.append(UIImagePNGRepresentation(img)!)
-                    body.appendString("\r\n")
-                } else {
-                    body.appendString(boundaryPrefix)
-                    body.appendString("Content-Disposition: form-data; name=\"\(key)\"\r\n\r\n")
-                    body.appendString("\(value)\r\n")
-                }
-                
-            }
-        }
-        
-//        if let imageData = data
-//        {
-//
-//        }
-        
-        body.appendString("--".appending(boundary.appending("--")))
-        
-        return body as Data
-    }*/
-}
-
-extension NSMutableData {
-    func appendString(_ string: String) {
-        let data = string.data(using: String.Encoding.utf8, allowLossyConversion: false)
-        append(data!)
     }
 }
 

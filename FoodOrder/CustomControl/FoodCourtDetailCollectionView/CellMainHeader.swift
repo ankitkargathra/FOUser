@@ -7,15 +7,24 @@
 //
 
 import UIKit
+import Kingfisher
 
-class CellMainHeader: UICollectionViewCell {
+class CellMainHeader: UICollectionViewCell, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout  {
 
     @IBOutlet var brandView: UIView!
     @IBOutlet var dotedLine: UIView!
     
+    @IBOutlet weak var lblReasturantName: LabelAveNirNextProBoldWhite!
+    @IBOutlet weak var lblRate: LabelAveNirNextProBlackMeduim!
+    @IBOutlet weak var lblCategories: LabelAveNirNextProGrayMedium!
+    @IBOutlet weak var lblHeader: LabelAveNirNextProBlackDemi!
+    var banner = [Banner]()
+    
+    @IBOutlet var collectionView: UICollectionView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+        self.collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
     }
     
     override func layoutSubviews() {
@@ -32,4 +41,32 @@ class CellMainHeader: UICollectionViewCell {
         dotedLine.clipsToBounds = true
     }
     
+    
+    func setBannerData(baner: [Banner]) {
+        self.banner = baner
+        collectionView.reloadData()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return banner.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let bnr = banner[indexPath.row]
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+        let imgView = UIImageView()
+        if bnr.picture != nil && bnr.picture.count != 0 {
+            imgView.kf.setImage(with: URL.init(string: bnr.picture))
+        }
+        cell.backgroundView = imgView
+        return cell
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        //let cellWidth   = ((self.width - (marginVertical * 4) - marginLeftRight - marginLeftRight)/3.8) - 1
+        //        let cellWidth   =  self.frame.height
+        return CGSize(width: collectionView.frame.size.width, height: collectionView.frame.height)
+    }
 }

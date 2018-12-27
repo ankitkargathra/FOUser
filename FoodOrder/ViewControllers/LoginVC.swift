@@ -34,7 +34,7 @@ class LoginVC: BaseVC {
         btnSignInWithFb.titleLabel?.font = Font.setAveNirNextPro(font: .Medium, size: getProportionalFont(size: 17))
         self.setLeftBArButtonNIl()
         #if DEBUG
-        self.txtEmail.text = "user3@gmail.com"
+        self.txtEmail.text = "virendra.solulab@gmail.com"
         self.txtPassword.text = "123456"
         #endif
         // Do any additional setup after loading the view.
@@ -47,17 +47,22 @@ class LoginVC: BaseVC {
     
     @IBAction func btnSignInPress() {
         
+        
         if txtEmail.validateTextFiled(validationMesage: .invalidEmail) {
             if txtPassword.validateTextFiled(validationMesage: .invalidPassLength) {
+                dismissKeyboard()
                 let loginUser = Login.init(email: txtEmail.text!, password: txtPassword.text!)
-                
                 UtilityClass.showHUD()
                 ApiController.shared.loginUser(login: loginUser) { (isSuccess, message, response) in
                     UtilityClass.hideHUD()
                     if isSuccess {
+                        TOAST.showToast(str: message)
                         LoggedinUser.shared.parseJsonDictionary(dict: response! as JSONDICTIONARY)
+                        
                         let homeVC = MAIN_STORYBOARD.instantiateViewController(withIdentifier: "HomeVC") as! HomeVC
                         self.navigationController?.pushViewController(homeVC, animated: true)
+                    } else {
+                        TOAST.showToast(str: message)
                     }
                 }
             }

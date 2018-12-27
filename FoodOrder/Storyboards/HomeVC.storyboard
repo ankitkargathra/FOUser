@@ -207,6 +207,8 @@ list of shops and items</string>
                         <outlet property="QRView" destination="8BP-zM-ljq" id="Mbj-Sp-rZT"/>
                         <outlet property="btnScan" destination="pbK-22-Gtg" id="5ya-Mh-aid"/>
                         <outlet property="cameraView" destination="FTd-HW-3HF" id="oIY-w6-z0C"/>
+                        <outlet property="lblFoodCourtAddress" destination="OhZ-cd-KYE" id="KzT-Hl-w49"/>
+                        <outlet property="lblfoodCourtName" destination="raz-db-MYn" id="jqP-TY-qE5"/>
                         <outlet property="tblHome" destination="BU0-Gq-XrT" id="bJw-M7-L9o"/>
                         <outlet property="txtCode" destination="ZGU-JZ-1nX" id="cky-8g-HLi"/>
                         <outlet property="viewPopup" destination="Fx3-9Z-JlZ" id="Tsh-KS-iTF"/>
@@ -227,7 +229,7 @@ list of shops and items</string>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l3w-Ka-Dsh">
                             <rect key="frame" x="49.666666666666657" y="148.66666666666663" width="314.66666666666674" height="389"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mZL-HU-NWs" customClass="RoundImageView" customModule="FoodOrder" customModuleProvider="target">
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="foodCourtImg" translatesAutoresizingMaskIntoConstraints="NO" id="mZL-HU-NWs" customClass="RoundImageView" customModule="FoodOrder" customModuleProvider="target">
                                     <rect key="frame" x="106" y="40" width="100" height="100"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="100" id="14l-LB-W2I"/>
@@ -346,6 +348,7 @@ list of shops and items</string>
     </scenes>
     <resources>
         <image name="arrow_down" width="51" height="74"/>
+        <image name="foodCourtImg" width="361" height="358"/>
         <image name="qr_code_sticky_2" width="202" height="202"/>
         <image name="start_scan_vector" width="377" height="289"/>
     </resources>

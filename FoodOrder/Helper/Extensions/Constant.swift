@@ -114,3 +114,7 @@ struct LoginKey {
     static let country                  = "country"
     static let phoneNumber              = "phoneNumber"
 }
+
+func checkNULL(str: String?) -> String {
+    return (str == nil) ? "" : str!
+}

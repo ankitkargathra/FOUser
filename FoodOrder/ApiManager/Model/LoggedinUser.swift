@@ -40,13 +40,37 @@ class LoggedinUser {
         if let access_token = dict["access_token"] as? String {
             self.access_token = access_token
         }
+        UserDefaults.saveCurrentUserData(user: self.todictData())
+    }
+    
+    func todictData() -> JSONDICTIONARY {
+        
+        var dict:JSONDICTIONARY = [:]
+        
+        if id != nil {
+            dict["id"] = id
+        }
+        
+        if fullname != nil {
+            dict["fullname"] = fullname
+        }
+        
+        if picture != nil {
+            dict["picture"] = picture
+        }
+        
+        if access_token != nil {
+            dict["access_token"] = access_token
+        }
+        
+        return dict
         
     }
     
-    
     func getAuth() -> [String:String] {
-        return ["Authorization":"\(self.access_token!)"]
+        return ["Authorization":"bearer \(self.access_token!)"]
     }
+    
     
     func removeallData() {
         id = nil

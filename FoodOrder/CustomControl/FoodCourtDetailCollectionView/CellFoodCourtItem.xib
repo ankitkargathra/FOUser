@@ -76,7 +76,7 @@
                                 <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="number" keyPath="minimumValue">
-                                <real key="value" value="1"/>
+                                <real key="value" value="0.0"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="number" keyPath="maximumValue">
                                 <real key="value" value="100"/>
@@ -124,9 +124,12 @@
             <size key="customSize" width="379" height="56"/>
             <connections>
                 <outlet property="btnAdd" destination="KFv-Db-atc" id="vxO-MW-zPi"/>
+                <outlet property="imgVagNonVeg" destination="vX9-8d-ZbY" id="zxG-Qz-YWS"/>
+                <outlet property="lblName" destination="jQp-7x-9M7" id="eSJ-oE-rZG"/>
+                <outlet property="lblPrice" destination="1zD-H5-tJZ" id="h2a-6O-Ai8"/>
                 <outlet property="valueSteper" destination="Msh-2G-ug6" id="2zM-wl-XY5"/>
             </connections>
-            <point key="canvasLocation" x="-498" y="96"/>
+            <point key="canvasLocation" x="-1201" y="-7"/>
         </collectionViewCell>
     </objects>
     <resources>

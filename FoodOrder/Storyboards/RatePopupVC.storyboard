@@ -280,7 +280,7 @@
                                                     <constraint firstAttribute="width" constant="185" id="XL2-fb-3dy"/>
                                                 </constraints>
                                                 <connections>
-                                                    <action selector="btnDismissPress" destination="kdx-zh-yXU" eventType="touchUpInside" id="vjB-rc-fYy"/>
+                                                    <action selector="addItemPress" destination="kdx-zh-yXU" eventType="touchUpInside" id="m5r-Y7-rOh"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -341,6 +341,11 @@
                     </view>
                     <connections>
                         <outlet property="bottomConstrint" destination="kCx-kY-AjH" id="3a6-3C-Lqn"/>
+                        <outlet property="imgVeg" destination="KVE-Se-d4z" id="An6-ec-KFD"/>
+                        <outlet property="lblName" destination="OhS-xG-TSo" id="M3f-dc-iQT"/>
+                        <outlet property="lblPrice" destination="jyM-ct-zis" id="AXL-L8-H9J"/>
+                        <outlet property="lblPricePlusAddonPrice" destination="gjG-uP-9B7" id="MBu-0W-GFr"/>
+                        <outlet property="tableView" destination="Xwm-xI-vtc" id="c9Y-gK-cKh"/>
                         <outlet property="viewRate" destination="YW5-6h-Nlm" id="AIe-l0-QWr"/>
                         <outlet property="viewSize" destination="ZWJ-c6-epV" id="qPL-0f-Qcx"/>
                         <outletCollection property="btnRates" destination="bpa-QZ-DLg" collectionClass="NSMutableArray" id="2Ht-kN-Idy"/>

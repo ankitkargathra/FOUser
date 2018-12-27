@@ -12,8 +12,8 @@ class TableViewFoodSize: BaseTableView,UITableViewDelegate,UITableViewDataSource
 
     var blockTableViewDidSelectAtIndexPath:((IndexPath)->Void)?
     
-    let arrSection = ["Size", "Crust"]
-    let arrData = [["Large", "Medium", "Small"],["Hand Tossed", "Pan Pizza", "Cheese Burst"]]
+    
+    var addOn = AddOns()
     
     override init(frame: CGRect, style: UITableViewStyle) {
         super.init(frame: frame, style: style)
@@ -51,20 +51,24 @@ class TableViewFoodSize: BaseTableView,UITableViewDelegate,UITableViewDataSource
     //MARK:
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return arrSection.count
+        return addOn.header.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return arrData[section].count
+        return addOn.customizeOptions[section].count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         
         let cell = self.dequeueReusableCell(withIdentifier: "CellFoodSize") as! CellFoodSize
-        cell.lblSize.text = arrData[indexPath.section][indexPath.row]
-        cell.lblPrice.text = "$ 0.99"
+        
+        let item = addOn.customizeOptions[indexPath.section][indexPath.row]
+        cell.lblSize.text = item.title!
+        cell.lblPrice.text = "$\(item.price!)"
+        cell.imgSelection.image = item.selected == true ? UIImage.init(named: "radio_on") : UIImage.init(named: "radio_off")
+        
         return cell
         
     }
@@ -77,6 +81,14 @@ class TableViewFoodSize: BaseTableView,UITableViewDelegate,UITableViewDataSource
     //MARK:- DID SELECT
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
+        
+        for item in addOn.customizeOptions[indexPath.section] {
+            item.selected = false
+        }
+        
+        addOn.customizeOptions[indexPath.section][indexPath.row].selected = true
+        self.reloadData()
+        
 //        let cell = self.cellForRow(at: indexPath) as! CellVaucher
         if(self.blockTableViewDidSelectAtIndexPath != nil){
             self.blockTableViewDidSelectAtIndexPath!(indexPath)
@@ -86,7 +98,7 @@ class TableViewFoodSize: BaseTableView,UITableViewDelegate,UITableViewDataSource
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let cell = self.dequeueReusableCell(withIdentifier: "CellFoodSizeHeader") as! CellFoodSizeHeader
-        cell.lblTitle.text = arrSection[section]
+        cell.lblTitle.text = addOn.header[section]
         return cell
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

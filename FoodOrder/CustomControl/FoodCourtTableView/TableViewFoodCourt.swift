@@ -13,6 +13,7 @@ class FoodCourtTableView: BaseTableView,UITableViewDelegate,UITableViewDataSourc
 
     var blockTableViewDidSelectAtIndexPath:((IndexPath)->Void)?
     
+    var court = FoodCourtStore()
     
     override init(frame: CGRect, style: UITableViewStyle) {
         super.init(frame: frame, style: style)
@@ -57,12 +58,13 @@ class FoodCourtTableView: BaseTableView,UITableViewDelegate,UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-       return 6
+       return court.restaurants.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         let cell = self.dequeueReusableCell(withIdentifier: "CellFoodStall") as! CellFoodStall
+        cell.setStoreData(store: court.restaurants[indexPath.row])
         return cell
     }
     
@@ -84,6 +86,7 @@ class FoodCourtTableView: BaseTableView,UITableViewDelegate,UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let cell = self.dequeueReusableCell(withIdentifier: "CellFoodCourtHeader") as! CellFoodCourtHeader
+        cell.setHeaderDetail(court: self.court)
         return cell
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

@@ -10,7 +10,10 @@ import UIKit
 
 class TableViewApplyVaucher: BaseTableView,UITableViewDelegate,UITableViewDataSource {
 
-    var blockTableViewDidSelectAtIndexPath:((IndexPath)->Void)?
+    var blockTableViewDidSelectAtIndexPath:((Int)->Void)?
+    
+    
+    var vouchersArr = [Voucher]()
     
     override init(frame: CGRect, style: UITableViewStyle) {
         super.init(frame: frame, style: style)
@@ -53,12 +56,16 @@ class TableViewApplyVaucher: BaseTableView,UITableViewDelegate,UITableViewDataSo
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return 30
+        return vouchersArr.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         let cell = self.dequeueReusableCell(withIdentifier: "CellApplyVaucher") as! CellApplyVaucher
+        let v = vouchersArr[indexPath.row]
+        cell.setCellDate(voucher: v)
+        cell.btnApply.addTarget(self, action: #selector(self.applyBtnPress(button:)), for: UIControlEvents.touchUpInside)
+        cell.btnApply.tag = indexPath.row
         return cell
     }
     
@@ -71,9 +78,7 @@ class TableViewApplyVaucher: BaseTableView,UITableViewDelegate,UITableViewDataSo
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
 //        let cell = self.cellForRow(at: indexPath) as! CellVaucher
-        if(self.blockTableViewDidSelectAtIndexPath != nil){
-            self.blockTableViewDidSelectAtIndexPath!(indexPath)
-        }
+        
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
@@ -87,6 +92,11 @@ class TableViewApplyVaucher: BaseTableView,UITableViewDelegate,UITableViewDataSo
         return getProportionalWidth(width: 51.7)
     }
     
+    @objc func applyBtnPress(button: UIButton) {
+        if(self.blockTableViewDidSelectAtIndexPath != nil){
+            self.blockTableViewDidSelectAtIndexPath!(button.tag)
+        }
+    }
     
     
 }

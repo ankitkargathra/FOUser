@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="643-i4-NZf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="643-i4-NZf">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -122,6 +122,9 @@
                                                 <rect key="frame" x="18.666666666666657" y="433" width="377" height="48"/>
                                                 <color key="backgroundColor" red="0.76862745099999996" green="0.78823529410000004" blue="0.80784313730000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <state key="normal" title="Update"/>
+                                                <connections>
+                                                    <action selector="updateProfie" destination="643-i4-NZf" eventType="touchUpInside" id="Ub3-Pz-iQr"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2RL-11-SQ8" customClass="ButtonAveNirNextProDemiBlack" customModule="FoodOrder" customModuleProvider="target">
                                                 <rect key="frame" x="145.66666666666666" y="501" width="122.99999999999997" height="21"/>
@@ -177,7 +180,7 @@
                                             <constraint firstAttribute="width" secondItem="bWt-I9-jFV" secondAttribute="height" multiplier="1:1" id="h3R-Ta-htt"/>
                                             <constraint firstAttribute="width" constant="116" id="ztZ-25-6ff"/>
                                         </constraints>
-                                        <state key="normal" image="photo_upload"/>
+                                        <state key="normal" backgroundImage="photo_upload"/>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -210,6 +213,10 @@
                     <connections>
                         <outlet property="btnProfileImg" destination="bWt-I9-jFV" id="EL8-C3-3RU"/>
                         <outlet property="constraintWidth" destination="ztZ-25-6ff" id="8Ta-dl-css"/>
+                        <outlet property="txtDob" destination="Y4G-hS-FXg" id="NNt-lt-jJu"/>
+                        <outlet property="txtEmail" destination="g4w-M6-a5u" id="cdB-ZR-1d7"/>
+                        <outlet property="txtMobile" destination="ZEg-0w-nOa" id="fxJ-Zl-wSs"/>
+                        <outlet property="txtName" destination="ySk-MU-qFx" id="y6Q-oM-ePO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wh9-zm-cR6" userLabel="First Responder" sceneMemberID="firstResponder"/>

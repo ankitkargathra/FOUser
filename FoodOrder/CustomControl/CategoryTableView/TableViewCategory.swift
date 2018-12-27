@@ -10,14 +10,9 @@ import UIKit
 
 class TableViewCategory: BaseTableView,UITableViewDelegate,UITableViewDataSource {
 
-    var blockTableViewDidSelectAtIndexPath:((IndexPath)->Void)?
+    var blockTableViewDidSelectAtIndexPath:((IndexPath, String)->Void)?
     
-    var arrCateory = ["Pizza",
-                      "Speciality Chicken",
-                      "Pasta",
-                      "Burger",
-                      "Sides",
-                      "Beverages"]
+    var arrCateory = [Category]()
     
     override init(frame: CGRect, style: UITableViewStyle) {
         super.init(frame: frame, style: style)
@@ -44,6 +39,7 @@ class TableViewCategory: BaseTableView,UITableViewDelegate,UITableViewDataSource
         self.bounces = true
         self.separatorStyle = .none
         self.allowsSelection = true
+        self.allowsMultipleSelection = true
         self.dataSource = self
         self.delegate = self
         self.reloadData()
@@ -65,14 +61,10 @@ class TableViewCategory: BaseTableView,UITableViewDelegate,UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         let cell = self.dequeueReusableCell(withIdentifier: "CellCategory") as! CellCategory
-        if indexPath.row == 0 {
-            cell.imgDot.isHidden = false
-            cell.lblTitle.font = Font.setAveNirNextPro(font: .Demi, size: 15.7, isChangeAsPerDevice: false)
-        } else {
-            cell.imgDot.isHidden = true
-            cell.lblTitle.font = Font.setAveNirNextPro(font: .Medium, size: 15.7, isChangeAsPerDevice: false)
-        }
-        cell.lblTitle.text = arrCateory[indexPath.row]
+        
+        cell.imgDot.isHidden = !arrCateory[indexPath.row].isSelected!
+        cell.lblTitle.font = Font.setAveNirNextPro(font: .Demi, size: 15.7, isChangeAsPerDevice: false)
+        cell.lblTitle.text = arrCateory[indexPath.row].name
         return cell
     }
     
@@ -85,12 +77,24 @@ class TableViewCategory: BaseTableView,UITableViewDelegate,UITableViewDataSource
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
 //        let cell = self.cellForRow(at: indexPath) as! CellVaucher
-        if(self.blockTableViewDidSelectAtIndexPath != nil){
-            self.blockTableViewDidSelectAtIndexPath!(indexPath)
+        
+        
+        for cat in self.arrCateory {
+            cat.isSelected = false
         }
-        tableView.deselectRow(at: indexPath, animated: true)
+        
+        if(self.blockTableViewDidSelectAtIndexPath != nil){
+            self.blockTableViewDidSelectAtIndexPath!(indexPath, self.arrCateory[indexPath.row].name!)
+        }
+        //tableView.deselectRow(at: indexPath, animated: true)
     }
     
+    
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        self.arrCateory[indexPath.row].isSelected = false
+        tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
+    }
     
 }
 

@@ -21,7 +21,7 @@ extension UserDefaults {
         if let userData = UserDefaults.standard.object(forKey: "kAPPUser") as? Data {
             if let user = NSKeyedUnarchiver.unarchiveObject(with: userData) as? JSONDICTIONARY {
                 print(user)
-//                LoggedinUser.shared.parseJsonDictionary(dict: user)
+                LoggedinUser.shared.parseJsonDictionary(dict: user)
             }
         }
     }

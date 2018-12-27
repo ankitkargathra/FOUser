@@ -20,7 +20,6 @@ class HomeVC: BaseVC, QRCodeReaderViewControllerDelegate, UITextFieldDelegate {
     @IBOutlet var QRView: UIView!
     @IBOutlet var viewPopup: UIView!
     @IBOutlet var txtCode: TextFieldGreenPlaceHolder!
-    
     lazy var reader: QRCodeReader = QRCodeReader()
     
     lazy var readerVC: QRCodeReaderViewController = {
@@ -30,6 +29,12 @@ class HomeVC: BaseVC, QRCodeReaderViewControllerDelegate, UITextFieldDelegate {
         }
         return QRCodeReaderViewController(builder: builder)
     }()
+    
+    let foodCourt = FoodCourt()
+    var couponCode: String?
+    @IBOutlet weak var lblfoodCourtName: LabelAveNirNextProBlackDemi!
+    @IBOutlet weak var lblFoodCourtAddress: LabelAveNirNextProGrayMedium!
+    
     
     private func checkScanPermissions() -> Bool {
         do {
@@ -64,6 +69,7 @@ class HomeVC: BaseVC, QRCodeReaderViewControllerDelegate, UITextFieldDelegate {
     override func viewDidLoad() {
         self.setNavigationButton(type: .MenuCart)
 //        self.addTitleView(title: "Order #568", subtitle: "20 mins ago")
+        NotificationCenter.default.post(name: kUpdateUserData, object: nil)
         super.viewDidLoad()
         QRView.isHidden = true
         // Do any additional setup after loading the view.
@@ -111,9 +117,6 @@ class HomeVC: BaseVC, QRCodeReaderViewControllerDelegate, UITextFieldDelegate {
     
     @IBAction func startScanning() {
         
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1 ) {
-            self.showPopup()
-        }
         QRView.isHidden = false
         if previewView == nil {
             previewView = QRCodeReaderView()
@@ -128,22 +131,23 @@ class HomeVC: BaseVC, QRCodeReaderViewControllerDelegate, UITextFieldDelegate {
         reader.didFindCode = { result in
             let code = result.value
             DispatchQueue.main.async {
-                let alert = UIAlertController(
-                    title: kAppName,
-                    message: "",
-                    preferredStyle: .alert
-                )
-                let noAction = UIAlertAction.init(title: "NO", style: .default, handler: { (action) in
-                    self.reader.startScanning()
-                })
-                
-                let okAction = UIAlertAction.init(title: "YES", style: .default, handler: { (action) in
-//                    self.redeemCoupon(code: self.coupoCode!)
-                })
-                alert.addAction(noAction)
-                alert.addAction(okAction)
-                
-                self.present(alert, animated: true, completion: nil)
+//                let alert = UIAlertController(
+//                    title: kAppName,
+//                    message: "",
+//                    preferredStyle: .alert
+//                )
+//                let noAction = UIAlertAction.init(title: "NO", style: .default, handler: { (action) in
+//                    self.reader.startScanning()
+//                })
+//
+//                let okAction = UIAlertAction.init(title: "YES", style: .default, handler: { (action) in
+                    self.couponCode = code
+                    self.getFoodCourtDetail()
+//                })
+//                alert.addAction(noAction)
+//                alert.addAction(okAction)
+//
+//                self.present(alert, animated: true, completion: nil)
             }
             self.reader.stopScanning()
         }
@@ -171,7 +175,11 @@ class HomeVC: BaseVC, QRCodeReaderViewControllerDelegate, UITextFieldDelegate {
     
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        self.showPopup()
+        
+        if textField.text?.trim().count != 0 {
+            self.couponCode = self.txtCode.text!
+            self.getFoodCourtDetail()
+        }
     }
     
     
@@ -186,16 +194,21 @@ class HomeVC: BaseVC, QRCodeReaderViewControllerDelegate, UITextFieldDelegate {
     
     func showPopup() {
         self.viewPopup.frame = kDeviceFrame
+        self.lblfoodCourtName.text = checkNULL(str: foodCourt.name)
+        self.lblFoodCourtAddress.text = checkNULL(str: foodCourt.address)
         self.view.addSubview(self.viewPopup)
+        self.stopScanning()
     }
     
     @IBAction func hidePopup() {
+//        self.startScanning()
         self.viewPopup.removeFromSuperview()
     }
 
     
     @IBAction func btnProcessedPress() {
         let cartVC = MAIN_STORYBOARD.instantiateViewController(withIdentifier: "FoodCourtVC") as! FoodCourtVC
+        cartVC.foodCourt = self.foodCourt
         self.navigationController?.pushViewController(cartVC, animated: true)
     }
     
@@ -210,8 +223,26 @@ class HomeVC: BaseVC, QRCodeReaderViewControllerDelegate, UITextFieldDelegate {
             let orderDtl = MAIN_STORYBOARD.instantiateViewController(withIdentifier: "OrderDetailVC") as! OrderDetailVC
             self.navigationController?.pushViewController(orderDtl, animated: true)
         }
-        
-        
+    }
+    
+    func getFoodCourtDetail() {
+        UtilityClass.showHUD()
+        ApiController.shared.getFoodCourt(location_id: "\(self.couponCode!)") { (success, message, response) in
+            UtilityClass.hideHUD()
+            if success {
+                if response != nil{
+                    self.foodCourt.populateWithJson(dict: response!)
+                    self.showPopup()
+                    self.txtCode.text = ""
+                } else {
+                    self.startScanning()
+                    TOAST.showToast(str: message)
+                }
+            } else {
+                self.startScanning()
+                TOAST.showToast(str: message)
+            }
+        }
         
     }
     /*

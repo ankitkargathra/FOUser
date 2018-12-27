@@ -43,6 +43,7 @@
                 <outlet property="imgDot" destination="QTM-Ee-mVu" id="Cc1-rz-TYs"/>
                 <outlet property="lblTitle" destination="SuL-pv-zWC" id="Zea-ad-0DS"/>
             </connections>
+            <point key="canvasLocation" x="-99" y="113"/>
         </tableViewCell>
     </objects>
     <resources>

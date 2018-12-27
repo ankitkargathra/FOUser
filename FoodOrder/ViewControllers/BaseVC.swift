@@ -39,7 +39,7 @@ class BaseVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func setNavigationButton(type: ButtonType) {
+    func setNavigationButton(type: ButtonType, selector: Selector? = nil) {
         self.navigationItem.leftBarButtonItem = nil
         self.navigationItem.rightBarButtonItem = nil
         switch type {
@@ -65,11 +65,11 @@ class BaseVC: UIViewController {
             break
         case .BackSearchWhite:
             self.setLeftBackBarButtonItem(isBlack: true)
-            self.setSearchButton(isblack: false)
+            self.setSearchButton(isblack: false, selector: selector)
             break
         case .BackSearchBlack:
             self.setLeftBackBarButtonItem(isGreen: false)
-            self.setSearchButton(isblack: true)
+            self.setSearchButton(isblack: true, selector: selector)
             break
         }
         
@@ -87,14 +87,14 @@ class BaseVC: UIViewController {
         self.navigationItem.setLeftBarButton(UIBarButtonItem.init(customView: backBtn), animated: true)
     }
     
-    func setRightBarButtonItem(title: String, selector: Selector) {
+    func setRightBarButtonItem(title: String, selector: Selector?) {
         
         let btn = UIButton.init(frame: CGRect.init(x: 0, y: 0, width: 70, height: 30))
         btn.titleLabel?.font = Font.setAveNirNextPro(font: .Medium, size: getProportionalFont(size: 15.7))
         btn.titleLabel?.textAlignment = .right
         btn.setTitleColor(UIColor.setGreenColor(), for: .normal)
         btn.setTitle(title, for: .normal)
-        btn.addTarget(self, action: selector, for: UIControlEvents.touchUpInside)
+        btn.addTarget(self, action: selector!, for: UIControlEvents.touchUpInside)
         let view = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 70, height: 30))
         view.addSubview(btn)
         self.navigationItem.setRightBarButton(UIBarButtonItem.init(customView: view), animated: true)
@@ -131,7 +131,7 @@ class BaseVC: UIViewController {
         self.navigationItem.setRightBarButton(UIBarButtonItem.init(customView: backBtn), animated: true)
     }
     
-    func setSearchButton(isblack: Bool) {
+    func setSearchButton(isblack: Bool, selector: Selector?) {
         btnSearch = UIButton.init()
         btnSearch.adjustsImageSizeForAccessibilityContentSizeCategory = false
         NSLayoutConstraint.activate([
@@ -140,7 +140,7 @@ class BaseVC: UIViewController {
             ])
         btnSearch.setImage(UIImage.init(named: isblack ? "search_black" : "search_white"), for: .normal)
         btnSearch.imageEdgeInsets = UIEdgeInsetsMake(12, 8, 12, 8)
-        btnSearch.addTarget(self, action: #selector(self.btnCartPress), for: UIControlEvents.touchUpInside)
+        btnSearch.addTarget(self, action: selector!, for: UIControlEvents.touchUpInside)
         self.navigationItem.setRightBarButton(UIBarButtonItem.init(customView: btnSearch), animated: true)
     }
     
@@ -165,7 +165,6 @@ class BaseVC: UIViewController {
     //MARK: NAvigation left title with subtitle
     
     func addTitleView(title: String?, subtitle: String?, isTextField: Bool = false) {
-        
         
         if isTextField == true {
             txtField = UITextField()
