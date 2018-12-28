@@ -48,6 +48,9 @@ class CellSpecialInst: UITableViewCell, UITextViewDelegate {
     func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.trim().count == 0 {
             textView.text = "Allergic to something? Want your food less spicy? Mention all custom requests here..."
+            CartData.shared.special_cooking_instructions = ""
+        } else {
+            CartData.shared.special_cooking_instructions = textView.text!
         }
     }
     

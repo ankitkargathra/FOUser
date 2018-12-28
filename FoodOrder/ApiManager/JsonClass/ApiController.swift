@@ -176,6 +176,43 @@ class ApiController {
         }
     }
     
+    //MARK: ----------------
+    //MARK: Place Order
+    //MARK: ----------------
+    
+    func sendOrder(cart:JSONDICTIONARY,completionHandler:@escaping (_ result: Bool, _ message: String, _ returnData: JSONDICTIONARY?) -> Void)
+    {
+        
+        Alamofire.request(URLClass.korder, method: .post, parameters: cart, encoding: JSONEncoding.prettyPrinted, headers: LoggedinUser.shared.getAuth()).responseJSON { (response) in
+            DispatchQueue.main.async {
+                
+                if let data = response.result.value as? JSONDICTIONARY {
+                    
+                    print("Response = \(data)")
+                    
+                    if let status = data["status"], let message = data["message"] as? String {
+                        if "\(status)" == "200" {
+                            completionHandler(true, "\(message)" ,data["data"] as? JSONDICTIONARY)
+                        } else {
+                            completionHandler(false, message, nil)
+                        }
+                    } else {
+                        completionHandler(false,"Something went wrong!",nil)
+                    }
+                    
+                } else {
+                    completionHandler(false,"Something went wrong!",nil)
+                    TOAST.showToast(str: "Something went wrong!")
+                }
+            }
+
+        }
+        
+//        callWebservice(url: URLClass.korder, methodType: .post, parameter: cart, encoding: JSONEncoding.prettyPrinted, header: true) { (result, message, response) in
+//            completionHandler(result, message, response as? [JSONDICTIONARY])
+//        }
+    }
+    
     
     //MARK: ----------------
     //MARK: Alamofire api controls app api

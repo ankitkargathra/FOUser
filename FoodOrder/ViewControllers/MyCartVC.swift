@@ -45,6 +45,7 @@ class MyCartVC: BaseVC, ApplyVoucherDelegate {
     func getSelectedVoucher(voucher: Voucher) {
         tblMyCart.voucherApplied = true
         CartData.shared.discount = voucher.discount!
+        CartData.shared.voucher_id = voucher.giftId!
         tblMyCart.reloadData()
     }
 

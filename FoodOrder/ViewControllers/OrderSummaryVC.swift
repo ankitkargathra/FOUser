@@ -10,10 +10,16 @@ import UIKit
 
 class OrderSummaryVC: BaseVC {
 
+    @IBOutlet weak var lblOrderNumber: LabelAveNirNextProDemiWhite!
+    @IBOutlet weak var lblOrderQueue: LabelAveNirNextProBoldWhite!
+    
+    var orderNumber: String? = "0"
+    var queueNumber: String? = "0"
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+        lblOrderNumber.text = orderNumber
+        lblOrderQueue.text = "\(queueNumber!) \(queueNumber! == "1" ? "order" : "orders")"
     }
     
 

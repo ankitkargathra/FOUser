@@ -39,6 +39,7 @@ struct URLClass {
     static let kgetUserVoucherList      = "\(MAINURL)getUserVoucherList"
     
     static let khelpSupport             = "\(MAINURL)helpSupport"
+    static let korder             = "\(MAINURL)order"
     
     
 }

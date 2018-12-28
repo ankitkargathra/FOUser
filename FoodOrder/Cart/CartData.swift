@@ -29,9 +29,11 @@ class CartData {
     var table_number: String?
     var items = [MenuData]()
     var orderItems = [OrderItem]()
-    
+    var orderItemJson = [JSONDICTIONARY]()
     func toJsonDict() -> JSONDICTIONARY {
+        
         var dict: JSONDICTIONARY = [:]
+        
         if let restaurent_id = restaurent_id { dict["restaurent_id"] = restaurent_id }
         if let order_type = order_type { dict["order_type"] = order_type }
         
@@ -44,7 +46,22 @@ class CartData {
         if let table_number = table_number { dict["table_number"] = table_number }
         
         
+        var orders = [JSONDICTIONARY]()
+        for item in items {
+            let cartItem = OrderItem()
+            cartItem.item_id = item.id!
+            cartItem.quantity = "\(item.addedInCartValue!)"
+            cartItem.price = item.itemPrice!
+            orders.append(cartItem.toJsonDict())
+        }
+        dict["order_items"] = orders
+        
+        print(dict)
         return dict
+    }
+    
+    func removeCart() {
+        self.items.removeAll()
     }
 }
 

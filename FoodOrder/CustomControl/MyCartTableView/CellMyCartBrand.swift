@@ -27,9 +27,13 @@ class CellMyCartBrand: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        lblAddress.text = CartData.shared.address!
-        lblBrandName.text = CartData.shared.name!
-        imgView.kf.setImage(with: URL.init(string: CartData.shared.image!))
+        
+        lblAddress.text = checkNULL(str: CartData.shared.address)
+        lblBrandName.text = checkNULL(str: CartData.shared.name)
+        if CartData.shared.image != nil {
+            imgView.kf.setImage(with: URL.init(string: CartData.shared.image!))
+        }
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -55,6 +59,7 @@ class CellMyCartBrand: UITableViewCell {
             btnTakeAway.setTitleColor(UIColor.colorGray(), for: .normal)
             btnDineIn.setTitleColor(UIColor.setButtonColor(), for: .normal)
         }
+        CartData.shared.order_type = "\(sender.tag)"
         
     }
 }

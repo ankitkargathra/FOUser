@@ -104,7 +104,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         } else {
             
             if LoggedinUser.shared.access_token != nil {
-                identifireVC =  "FoodCourtDetailVC"//"HomeVC"//
+                identifireVC =  "HomeVC"//"FoodCourtDetailVC"//
             } else {
                 identifireVC = "LoginVC"
             }            

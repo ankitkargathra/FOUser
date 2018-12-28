@@ -146,7 +146,6 @@ class HomeVC: BaseVC, QRCodeReaderViewControllerDelegate, UITextFieldDelegate {
 //                })
 //                alert.addAction(noAction)
 //                alert.addAction(okAction)
-//
 //                self.present(alert, animated: true, completion: nil)
             }
             self.reader.stopScanning()

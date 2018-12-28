@@ -98,11 +98,11 @@ class RatePopupVC: BaseVC {
 //            CartData.shared.items.append(item)
 //        }
         
-        let itemOBj = MenuData
+        
         
         item.customizeOptions.append(addOn)
         item.addedInCartValue = item.addedInCartValue + 1
-        CartData.shared.items.append(itemOBj)
+        CartData.shared.items.append(item)
         
         self.btnDismissPress()
         

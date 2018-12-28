@@ -57,10 +57,10 @@ class CellGrandTotalCart: UITableViewCell {
             lblVoucherDiscount.isHidden = true
             lblVoucher.isHidden = true
         }
-        CartData.shared.discount = "\(voucherDiscount)"
-        CartData.shared.grand_total = "\(grandTotal)"
-        CartData.shared.sub_total = "\(grandTotal)"
-        CartData.shared.tax = "\(percValue)"
+        CartData.shared.discount = "\(String.init(format: "%.2f", voucherDiscount))"
+        CartData.shared.grand_total = "\(String.init(format: "%.2f", grandTotal))"
+        CartData.shared.sub_total = "\(String.init(format: "%.2f", grandTotalWithDisc))"
+        CartData.shared.tax = "\(String.init(format: "%.2f", percValue))"
         
         self.lblVoucherDiscount.text = "-\(String.init(format: "%.2f", voucherDiscount).add$Tag())"
         self.lblItemTotal.text = "\(String.init(format: "%.2f", itemTotal))".add$Tag()

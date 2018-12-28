@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CellPaymentSelectOrder: UITableViewCell {
+class CellPaymentSelectOrder: UITableViewCell, UITextFieldDelegate {
 
     
     @IBOutlet var txtField: TextFieldGray!
@@ -16,8 +16,8 @@ class CellPaymentSelectOrder: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        txtField.delegate = self
         
-
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -31,6 +31,15 @@ class CellPaymentSelectOrder: UITableViewCell {
         
     }
     
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if let text = textField.text,
+            let textRange = Range(range, in: text) {
+            let updatedText = text.replacingCharacters(in: textRange,
+                                                       with: string)
+            CartData.shared.table_number = "\(updatedText)"
+        }
+        return true
+    }
     
     func setCellDate() {
 //        self.lblCouponOfferDetail.attributedText = UILabel.setLineSpacing(text: self.lblCouponOfferDetail.text!, spacing:5)
