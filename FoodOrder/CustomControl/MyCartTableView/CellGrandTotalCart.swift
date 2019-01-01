@@ -43,7 +43,18 @@ class CellGrandTotalCart: UITableViewCell {
         var grandTotal = 0.0
         var voucherDiscount = 0.0
         for item in CartData.shared.items {
-            itemTotal = itemTotal + (Double.init(item.addedInCartValue!) * Double.init(item.itemPrice!)!)
+            var addonsValue: Double! = 0
+            if item.customizeOptions != nil {
+                for addONs in item.customizeOptions.customizeOptions {
+                    for addon in addONs {
+                        if addon.selected == true {
+                            addonsValue = addonsValue + (Double.init(addon.price!)! * Double.init(item.addedInCartValue))
+                        }
+                    }
+                }
+            }
+            
+            itemTotal = itemTotal + (Double.init(item.addedInCartValue!) * Double.init(item.itemPrice!)!) + addonsValue
         }
         
         percValue = (itemTotal * 7.0) / 100

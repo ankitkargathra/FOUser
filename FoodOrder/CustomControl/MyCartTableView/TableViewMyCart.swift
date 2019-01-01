@@ -109,8 +109,9 @@ class TableViewMyCart: BaseTableView,UITableViewDelegate,UITableViewDataSource {
             cell.btnCustomizePress = { (index) in
                 let rateView = MAIN_STORYBOARD.instantiateViewController(withIdentifier: "RatePopupVC") as! RatePopupVC
                 rateView.isRate = false
+                rateView.isUpdate = true
                 rateView.modalPresentationStyle = .custom
-                rateView.addOn = CartData.shared.items[indexPath.row].customizeOptions[0]
+                rateView.addOn = CartData.shared.items[indexPath.row].customizeOptions
                 rateView.item = CartData.shared.items[indexPath.row]
                 SJSwiftSideMenuController.navigationContainer.present(rateView, animated: true, completion: nil)
             }

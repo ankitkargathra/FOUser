@@ -27,10 +27,10 @@
                         </constraints>
                     </imageView>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Cth-tI-ocj">
-                        <rect key="frame" x="47" y="15" width="203" height="21.5"/>
+                        <rect key="frame" x="47" y="15" width="209.5" height="21.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pepper Barbecue Chicken" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zRG-ld-BtM" customClass="LabelAveNirNextProBlackMeduim" customModule="FoodOrder" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="203" height="21.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="209.5" height="21.5"/>
                                 <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -43,9 +43,9 @@
                         </subviews>
                     </stackView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$ 8.99" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="ZFY-FA-p1L" customClass="LabelAveNirNextProBlackMeduim" customModule="FoodOrder" customModuleProvider="target">
-                        <rect key="frame" x="360.5" y="0.0" width="43.5" height="77.5"/>
+                        <rect key="frame" x="352" y="0.0" width="55" height="77.5"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="43.5" id="DHb-6L-Hmi"/>
+                            <constraint firstAttribute="width" constant="55" id="DHb-6L-Hmi"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="12"/>
                         <nil key="textColor"/>
@@ -57,7 +57,7 @@
                         </userDefinedRuntimeAttributes>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ouZ-ua-ZlB" customClass="ValueStepper" customModule="ValueStepper">
-                        <rect key="frame" x="280" y="28" width="67.5" height="22"/>
+                        <rect key="frame" x="271.5" y="28" width="67.5" height="22"/>
                         <color key="backgroundColor" red="0.0039215686269999999" green="0.70588235290000001" blue="0.37647058820000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" red="0.0039215686269999999" green="0.70588235290000001" blue="0.37647058820000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -123,7 +123,7 @@
                     <constraint firstAttribute="bottom" secondItem="ZFY-FA-p1L" secondAttribute="bottom" id="AQu-L0-Way"/>
                     <constraint firstItem="Cth-tI-ocj" firstAttribute="leading" secondItem="7Cv-Ui-1YE" secondAttribute="trailing" constant="14.699999999999999" id="BU5-UH-HEW"/>
                     <constraint firstAttribute="bottom" secondItem="5FY-J5-Mn3" secondAttribute="bottom" constant="8" id="EW4-dA-P14"/>
-                    <constraint firstAttribute="trailing" secondItem="ZFY-FA-p1L" secondAttribute="trailing" constant="10" id="FF0-ah-vAz"/>
+                    <constraint firstAttribute="trailing" secondItem="ZFY-FA-p1L" secondAttribute="trailing" constant="7" id="FF0-ah-vAz"/>
                     <constraint firstItem="5FY-J5-Mn3" firstAttribute="leading" secondItem="7Cv-Ui-1YE" secondAttribute="trailing" constant="14.5" id="Lxt-bU-6wd"/>
                     <constraint firstItem="ZFY-FA-p1L" firstAttribute="leading" secondItem="ouZ-ua-ZlB" secondAttribute="trailing" constant="13" id="Rm1-82-qvz"/>
                     <constraint firstItem="Cth-tI-ocj" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="YbT-2J-sgh"/>
@@ -131,7 +131,7 @@
                     <constraint firstItem="ouZ-ua-ZlB" firstAttribute="centerY" secondItem="ZFY-FA-p1L" secondAttribute="centerY" id="hvE-B4-Gsm"/>
                     <constraint firstItem="7Cv-Ui-1YE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="18.5" id="i4O-4m-ZyP"/>
                     <constraint firstItem="ZFY-FA-p1L" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="mRu-uI-EoZ"/>
-                    <constraint firstItem="ouZ-ua-ZlB" firstAttribute="leading" secondItem="Cth-tI-ocj" secondAttribute="trailing" constant="30" id="qnA-w3-0Gx"/>
+                    <constraint firstItem="ouZ-ua-ZlB" firstAttribute="leading" secondItem="Cth-tI-ocj" secondAttribute="trailing" constant="15" id="qnA-w3-0Gx"/>
                     <constraint firstItem="5FY-J5-Mn3" firstAttribute="top" secondItem="Cth-tI-ocj" secondAttribute="bottom" constant="3" id="wk3-fv-dMo"/>
                 </constraints>
             </tableViewCellContentView>
@@ -144,7 +144,7 @@
                 <outlet property="lblTitle" destination="zRG-ld-BtM" id="E3w-za-iVO"/>
                 <outlet property="steperView" destination="ouZ-ua-ZlB" id="S2I-ig-ji3"/>
             </connections>
-            <point key="canvasLocation" x="221" y="-208"/>
+            <point key="canvasLocation" x="170" y="-215"/>
         </tableViewCell>
     </objects>
     <resources>

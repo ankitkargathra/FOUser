@@ -244,6 +244,7 @@ class LabelAveNirNextProBlackMeduim: UILabel {
         super.awakeFromNib()
         self.textColor = color
         self.font = Font.setAveNirNextPro(font: .Medium, size: fontSize)
+        
     }
 }
 

@@ -122,28 +122,43 @@ class FoodCourtDetailVC: BaseVC, UICollectionViewDataSource, UICollectionViewDel
                 if let itemCount = CartData.shared.items.filter({ (menuData) -> Bool in
                     return "\(menu.id!)" == "\(menuData.id!)"
                 }) as [MenuData]? {
-                    cell.valueSteper.valueLabel.text = "\(itemCount.count)"
+                    var count = 0
+                    for itemObj in itemCount{
+                            count = count + itemObj.addedInCartValue
+                    }
+                    cell.valueSteper.valueLabel.text = "\(count)"
+                    menu.addedInCartValue = count
                 } else {
-
+                    cell.valueSteper.valueLabel.text = "\(menu.addedInCartValue!)"
                 }
             } else {
-                cell.lblName.text = checkNULL(str: menu.itemName)
-                cell.valueSteper.valueLabel.text = "\(menu.addedInCartValue!)"
+                if let court = CartData.shared.items.first(where: { (dta) -> Bool in
+                    return menu.id! == dta.id!
+                }) {
+                    cell.lblName.text = checkNULL(str: court.itemName)
+                    cell.valueSteper.valueLabel.text = "\(court.addedInCartValue!)"
+                } else {
+                    cell.lblName.text = checkNULL(str: menu.itemName)
+                    cell.valueSteper.valueLabel.text = "\(menu.addedInCartValue!)"
+                }
             }
-            cell.valueSteper.valueLabel.text = "\(menu.addedInCartValue!)"
+            
             cell.lblPrice.text = checkNULL(str: menu.itemPrice).add$Tag()
             cell.imgVagNonVeg.image = menu.isVeg == "1" ? UIImage.init(named: "veg") : UIImage.init(named: "non_veg")
             
         
             if cell.valueSteper.valueLabel.text == "0" {
                 cell.btnAdd.isHidden = false
+                cell.valueSteper.value = Double.init(cell.valueSteper.valueLabel.text!)!
             } else {
                 cell.btnAdd.isHidden = true
-                cell.valueSteper.value = Double.init(menu.addedInCartValue!)
+                cell.valueSteper.value = Double.init(cell.valueSteper.valueLabel.text!)!
             }
             
             func getAddOnsData() {
+                UtilityClass.showHUD()
                 ApiController.shared.getAddOns(item_id: menu.id!, completionHandler: { (success, message, response) in
+                    UtilityClass.hideHUD()
                     if success == true {
                         if response != nil {
                             let addon = AddOns.init(fromDictionary: response!)
@@ -223,16 +238,29 @@ class FoodCourtDetailVC: BaseVC, UICollectionViewDataSource, UICollectionViewDel
             }
             
             cell.blockTableViewSteperMinusPress = { (steper) in
-                if let cItem = CartData.shared.items.first(where: { (itemOBj) -> Bool in
-                    return "\(menu.id!)" == "\(itemOBj.id!)"
-                }) {
+                
+                if let itemCount = CartData.shared.items.filter({ (menuData) -> Bool in
+                    return "\(menu.id!)" == "\(menuData.id!)"
+                }) as [MenuData]? {
                     
-                    cItem.addedInCartValue = Int.init(steper.value)
-                    if steper.value == 0 {
-                        if let index = CartData.shared.items.firstIndex(where: { (itemData) -> Bool in
-                            return "\(itemData.id!)" == "\(cItem.id!)"
+                    if itemCount.count > 1 {
+                        
+                        TOAST.showToast(str: "You have more then one item with customization. please go to cart to remove item.")
+                        
+                    } else {
+                        if let cItem = CartData.shared.items.first(where: { (itemOBj) -> Bool in
+                            return "\(menu.id!)" == "\(itemOBj.id!)"
                         }) {
-                            CartData.shared.items.remove(at: index)
+                            
+                            cItem.addedInCartValue = Int.init(steper.value)
+                            if steper.value == 0 {
+                                if let index = CartData.shared.items.firstIndex(where: { (itemData) -> Bool in
+                                    return "\(itemData.id!)" == "\(cItem.id!)"
+                                }) {
+                                    CartData.shared.items.remove(at: index)
+                                }
+                            }
+                            
                         }
                     }
                     
@@ -354,8 +382,8 @@ class FoodCourtDetailVC: BaseVC, UICollectionViewDataSource, UICollectionViewDel
     }
 
     func getFoodCourtMenu() {
-        UtilityClass.showHUD()//foodCourt.id!
-        ApiController.shared.getFoodStoreDetail(restaurant_id: "\(1)") { (success, message, response) in
+        UtilityClass.showHUD()//
+        ApiController.shared.getFoodStoreDetail(restaurant_id: "\(foodCourt.id!)") { (success, message, response) in
             UtilityClass.hideHUD()
             if success {
                 if response != nil {
@@ -416,10 +444,24 @@ class FoodCourtDetailVC: BaseVC, UICollectionViewDataSource, UICollectionViewDel
         
         var totalItem: Int! = 0
         var totalPrice: Double! = 0
+        
         for itemObj in CartData.shared.items {
             let count = itemObj.addedInCartValue!
             totalItem =  totalItem + itemObj.addedInCartValue!
-            totalPrice = totalPrice + ((Double.init(count) * Double.init(itemObj.itemPrice!)!))
+            var addonsValue: Double! = 0
+            
+            if itemObj.customizeOptions != nil {
+                for addONs in itemObj.customizeOptions.customizeOptions {
+                    for addon in addONs {
+                        if addon.selected == true {
+                            addonsValue = addonsValue + (Double.init(addon.price!)! * Double.init(itemObj.addedInCartValue))
+                        }
+                    }
+                }
+            }
+            
+            
+            totalPrice = totalPrice + ((Double.init(count) * Double.init(itemObj.itemPrice!)!)) + addonsValue
             itemObj.totalPrice = totalPrice
         }
         

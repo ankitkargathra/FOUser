@@ -81,12 +81,18 @@ class TableViewFoodSize: BaseTableView,UITableViewDelegate,UITableViewDataSource
     //MARK:- DID SELECT
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
-        
-        for item in addOn.customizeOptions[indexPath.section] {
-            item.selected = false
+     
+        let title = addOn.header[indexPath.section]
+        let option = addOn.customizeOptions[indexPath.section][indexPath.row]
+        if title == "Add Ons" || title == "add_ons" {
+            option.selected = (option.selected == nil) ? true : !option.selected
+        } else {
+            for item in addOn.customizeOptions[indexPath.section] {
+                item.selected = false
+            }
+            addOn.customizeOptions[indexPath.section][indexPath.row].selected = true
         }
         
-        addOn.customizeOptions[indexPath.section][indexPath.row].selected = true
         self.reloadData()
         
 //        let cell = self.cellForRow(at: indexPath) as! CellVaucher

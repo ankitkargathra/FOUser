@@ -17,7 +17,6 @@ class AddOns : NSObject{
     override init() {}
     
     init(fromDictionary dictionary: [String:Any]){
-
         print(dictionary)
         header = [String]()
         let tmpHeader = Array(dictionary.keys)
@@ -32,12 +31,13 @@ class AddOns : NSObject{
                     let value = CustomizeOption(fromDictionary: dic)
                     option.append(value)
                 }
-                if option.count > 0 {
-                    customizeOptions.append(option)
-                    header.append(key)
-                } else {
-                    
-                }
+                customizeOptions.append(option)
+                header.append(key)
+//                if option.count > 0 {
+//
+//                } else {
+//
+//                }
                 
             }
         }        
@@ -51,11 +51,18 @@ class AddOns : NSObject{
         var dictionary = [String:Any]()
         
         if customizeOptions != nil{
-            var dictionaryElements = [[String:Any]]()
-//            for customizeOptionsElement in customizeOptions {
-//                dictionaryElements.append(customizeOptionsElement.toDictionary())
-//            }
-            dictionary["customizeOptions"] = dictionaryElements
+            var dictionaryElements = [String:Any]()
+            
+            for i in 0..<customizeOptions.count {
+                
+                var addOnsObj = [JSONDICTIONARY]()
+                let str = header[i]
+                for obj in customizeOptions[i]{
+                    addOnsObj.append(obj.toDictionary())
+                }
+                dictionary[str] = addOnsObj
+            }
+//            dictionary["customizeOptions"] = dictionaryElements
         }
         return dictionary
     }

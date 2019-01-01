@@ -23,7 +23,7 @@ class MenuData : NSObject, NSCoding{
     var customizeOption : Bool!
     var addedInCartValue: Int! = 0
     var totalPrice: Double! = 0
-    var customizeOptions = [AddOns]()
+    var customizeOptions: AddOns!
     /**
      * Instantiate the instance using the passed dictionary values to set the properties values
      */
@@ -49,6 +49,11 @@ class MenuData : NSObject, NSCoding{
         }
         if let addedInCartValue = dictionary["addedInCartValue"] as? Int {
             self.addedInCartValue = addedInCartValue
+        }
+        
+        if let custOp = dictionary["customizeOptions"] as? JSONDICTIONARY {
+            
+            self.customizeOptions = AddOns.init(fromDictionary: custOp)
         }
         
     }
@@ -104,6 +109,11 @@ class MenuData : NSObject, NSCoding{
         if addedInCartValue != nil{
             dictionary["addedInCartValue"] = addedInCartValue
         }
+        
+        if customizeOptions != nil {
+            dictionary["customizeOptions"] = customizeOptions.toDictionary()
+        }
+        
         return dictionary
     }
 

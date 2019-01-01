@@ -26,11 +26,32 @@ class RatePopupVC: BaseVC {
     @IBOutlet var lblName: UILabel!
     @IBOutlet var lblPrice: UILabel!
     @IBOutlet var lblPricePlusAddonPrice: UILabel!
-    
+    @IBOutlet var lblAddItem: LabelAveNirNextProDemiWhite!
+    var isUpdate = false
     override func viewDidLoad() {
         self.view.backgroundColor = UIColor.clear
         super.viewDidLoad()
         self.setViewHidden(rate: !isRate)
+        
+        if isUpdate == false {
+            lblAddItem.text = "Add Item"
+            self.lblPricePlusAddonPrice.text = item.itemPrice.add$Tag()
+        } else {
+            lblAddItem.text = "Update"
+            
+            var addonsValue: Double! = 0
+            if item.customizeOptions != nil {
+                for addONs in item.customizeOptions.customizeOptions {
+                    for addon in addONs {
+                        if addon.selected == true {
+                            addonsValue = addonsValue + (Double.init(addon.price!)! * Double.init(item.addedInCartValue))
+                        }
+                    }
+                }
+            }
+            
+            self.lblPricePlusAddonPrice.text = "\(String.init(format: "%.2f", (Double.init(item.itemPrice!)! * Double.init(item.addedInCartValue)) + addonsValue))".add$Tag()
+        }
         
         if isRate == false {
             tableView.addOn = self.addOn
@@ -41,22 +62,38 @@ class RatePopupVC: BaseVC {
             
         }
         
-        self.lblPricePlusAddonPrice.text = "\(String.init(format: "%@", self.item.itemPrice!))".add$Tag()
+        
         
         self.tableView.blockTableViewDidSelectAtIndexPath = { (indexPath) in
             
-            var total: Double = Double.init(self.item.itemPrice!)!
             
-            for items in self.addOn.customizeOptions {
-                for item in items {
-                    if item.selected == true {
-                        total = total + Double.init(item.price!)!
+            
+            if self.isUpdate == true {
+                var addonsValue: Double! = 0
+                if self.item.customizeOptions != nil {
+                    for addONs in self.item.customizeOptions.customizeOptions {
+                        for addon in addONs {
+                            if addon.selected == true {
+                                addonsValue = addonsValue + (Double.init(addon.price!)! * Double.init(self.item.addedInCartValue))
+                            }
+                        }
                     }
                 }
+                
+                self.lblPricePlusAddonPrice.text = "\(String.init(format: "%.2f", (Double.init(self.item.itemPrice!)! * Double.init(self.item.addedInCartValue)) + addonsValue))".add$Tag()
+            } else {
+                var total = Double.init(self.item.itemPrice!)!
+                for items in self.addOn.customizeOptions {
+                    for item in items {
+                        if item.selected == true {
+                            total = total + Double.init(item.price!)!
+                        }
+                    }
+                }
+                self.lblPricePlusAddonPrice.text = String.init(format: "%.2f", total).add$Tag()
             }
             
-            self.lblPricePlusAddonPrice.text = "\(String.init(format: "%.2f", total))".add$Tag()
-            
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "reloadCart"), object: nil)
         }
         
     }
@@ -87,23 +124,52 @@ class RatePopupVC: BaseVC {
     
     @IBAction func addItemPress() {
         
-//        if let item  = CartData.shared.items.first(where: { (itemData) -> Bool in
-//            return "\(itemData.id!)" == self.item.id!
-//        }) {
-//            item.customizeOptions.append(addOn)
-//            self.item.addedInCartValue = self.item.addedInCartValue + 1
-//        } else {
-//            item.customizeOptions.append(addOn)
-//            item.addedInCartValue = item.addedInCartValue + 1
-//            CartData.shared.items.append(item)
-//        }
         
-        
-        
-        item.customizeOptions.append(addOn)
-        item.addedInCartValue = item.addedInCartValue + 1
-        CartData.shared.items.append(item)
-        
+        if isUpdate == false {
+            if let itemCount = CartData.shared.items.filter({ (menuData) -> Bool in
+                return "\(self.item.id!)" == "\(menuData.id!)"
+            }) as [MenuData]? {
+                
+                if itemCount.count == 0 {
+                    item.customizeOptions = addOn
+                    item.addedInCartValue = item.addedInCartValue + 1
+                    let menuData = MenuData.init(fromDictionary: item.toDictionary())
+                    CartData.shared.items.append(menuData)
+                } else {
+                    var selectedIds = ""
+                    for items in self.addOn.customizeOptions {
+                        for item in items {
+                            if item.selected == true {
+                                selectedIds.append(item.id)
+                            }
+                        }
+                    }
+                    var selectedIdsFromAlready = ""
+                    for menuItem in itemCount {
+                        for items in menuItem.customizeOptions.customizeOptions {
+                            for item in items {
+                                if item.selected == true {
+                                    selectedIdsFromAlready.append(item.id)
+                                }
+                            }
+                        }
+                        if selectedIdsFromAlready == selectedIds {
+                            print("Found Same")
+                            menuItem.addedInCartValue = menuItem.addedInCartValue + 1
+                            break
+                        }
+                    }
+                    
+                    if selectedIdsFromAlready != selectedIds {
+                        item.customizeOptions = addOn
+                        item.addedInCartValue = item.addedInCartValue + 1
+                        let menuData = MenuData.init(fromDictionary: item.toDictionary())
+                        menuData.addedInCartValue = 1
+                        CartData.shared.items.append(menuData)
+                    }
+                }
+            }
+        }
         self.btnDismissPress()
         
 //        if let cItem = CartData.shared.items.first(where: { (data) -> Bool in

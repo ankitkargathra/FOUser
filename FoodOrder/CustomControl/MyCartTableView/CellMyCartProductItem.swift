@@ -43,8 +43,25 @@ class CellMyCartProductItem: UITableViewCell {
     
     func setCellData(menu: MenuData) {
         
-        self.lblTitle.text = checkNULL(str: menu.itemName)
-        self.lblPrice.text = checkNULL(str: String.init(format: "%.2f", Double.init(menu.itemPrice)! * Double.init(menu.addedInCartValue!))).add$Tag()
+        
+        
+        if menu.customizeOptions != nil {
+            var addonsValue: Double! = 0
+            for addONs in menu.customizeOptions.customizeOptions {
+                for addon in addONs {
+                    if addon.selected == true {
+                        addonsValue = addonsValue + (Double.init(addon.price!)! * Double.init(menu.addedInCartValue))
+                    }
+                }
+            }
+            self.lblTitle.text = checkNULL(str: menu.itemName)
+            self.lblPrice.text = checkNULL(str: String.init(format: "%.2f", (Double.init(menu.itemPrice)! * Double.init(menu.addedInCartValue!) + addonsValue))).add$Tag()
+        } else {
+            self.lblTitle.text = checkNULL(str: menu.itemName)
+            self.lblPrice.text = checkNULL(str: String.init(format: "%.2f", Double.init(menu.itemPrice)! * Double.init(menu.addedInCartValue!))).add$Tag()
+        }
+    
+        
         self.imgVeg.image = menu.isVeg == "1" ? UIImage.init(named: "veg") : UIImage.init(named: "non_veg")
         
         self.steperView.valueLabel.text = "\(menu.addedInCartValue!)"

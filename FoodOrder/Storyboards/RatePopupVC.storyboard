@@ -342,6 +342,7 @@
                     <connections>
                         <outlet property="bottomConstrint" destination="kCx-kY-AjH" id="3a6-3C-Lqn"/>
                         <outlet property="imgVeg" destination="KVE-Se-d4z" id="An6-ec-KFD"/>
+                        <outlet property="lblAddItem" destination="nNh-8Q-e0G" id="li6-gV-5HH"/>
                         <outlet property="lblName" destination="OhS-xG-TSo" id="M3f-dc-iQT"/>
                         <outlet property="lblPrice" destination="jyM-ct-zis" id="AXL-L8-H9J"/>
                         <outlet property="lblPricePlusAddonPrice" destination="gjG-uP-9B7" id="MBu-0W-GFr"/>

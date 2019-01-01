@@ -34,9 +34,17 @@ class MyCartVC: BaseVC, ApplyVoucherDelegate {
             }
         }
         // Do any additional setup after loading the view.
-        self.tblMyCart.reloadData()
+        NotificationCenter.default.addObserver(self, selector: #selector(self.reloadData), name: NSNotification.Name(rawValue: "reloadCart"), object: nil)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+    }
+    
+    @objc func reloadData() {
+        self.tblMyCart.reloadData()
+    }
     @IBAction func btnProccedToPay() {
         let paymentVC = MAIN_STORYBOARD.instantiateViewController(withIdentifier: "PaymentVC") as! PaymentVC
         self.navigationController?.pushViewController(paymentVC, animated: true)
