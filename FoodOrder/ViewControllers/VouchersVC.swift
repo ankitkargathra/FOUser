@@ -1,37 +1,30 @@
 //
-//  ApplyVoucherVC.swift
+//  VauchersVC.swift
 //  FoodOrder
 //
-//  Created by Rohan on 25/10/18.
+//  Created by Rohan on 07/10/18.
 //  Copyright © 2018 Ankit Kargathra. All rights reserved.
 //
 
 import UIKit
 
-protocol ApplyVoucherDelegate {
-    func getSelectedVoucher(voucher: Voucher)
-}
+class VouchersVC: BaseVC {
 
-class ApplyVoucherVC: BaseVC {
-
-    @IBOutlet var tblApplyVoucher: TableViewApplyVaucher!
-    var delegate: ApplyVoucherDelegate!
-    var arrVoucher = [Voucher]()
+    @IBOutlet weak var tbtVaucher: TableViewVaucher!
+    
     
     override func viewDidLoad() {
         self.setNavigationButton(type: .BackBlack)
-        self.addTitleView(title: "Apply Voucher", subtitle: nil)
+        self.addTitleView(title: "My Vouchers", subtitle: nil)
         super.viewDidLoad()
-
-        tblApplyVoucher.blockTableViewDidSelectAtIndexPath = { (index) in
-            if self.delegate != nil {
-                CartData.shared.voucherDiscount! = self.arrVoucher[index].discount
-                self.delegate.getSelectedVoucher(voucher: self.arrVoucher[index])
-            }
-            self.navigationController?.popViewController(animated: true)
+        
+        tbtVaucher.blockTableViewDidSelectAtIndexPath = { (indexpath) in
+            let cartVC = MAIN_STORYBOARD.instantiateViewController(withIdentifier: "VoucherDetailVC") as! VoucherDetailVC
+            cartVC.voucher = self.tbtVaucher.arrVoucher[indexpath.row]
+            self.navigationController?.pushViewController(cartVC, animated: true)
         }
         // Do any additional setup after loading the view.
-        getvoucherData()
+        self.getvoucherData()
     }
     
     func getvoucherData() {
@@ -42,18 +35,17 @@ class ApplyVoucherVC: BaseVC {
             
             if success == true {
                 if response != nil {
-                    
+                    self.tbtVaucher.arrVoucher.removeAll()
                     for obj in response! {
                         let voucher = Voucher.init(fromDictionary: obj)
-                        if voucher.isReedem == "1"{
-                            self.arrVoucher.append(voucher)
+                        if voucher.isReedem == "0"{
+                            self.tbtVaucher.arrVoucher.append(voucher)
                         }
                     }
-                    self.tblApplyVoucher.vouchersArr = self.arrVoucher
                 }
             }
             DispatchQueue.main.async {
-                self.tblApplyVoucher.reloadData()
+                self.tbtVaucher.reloadData()
             }
         }
         

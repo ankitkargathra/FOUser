@@ -100,7 +100,7 @@
 		1C785F48216CB4E6002905CB /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C785F3F216CB4E4002905CB /* IntroViewController.swift */; };
 		1C785F49216CB4E6002905CB /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C785F40216CB4E4002905CB /* SignUpVC.swift */; };
 		1C785F4A216CB4E6002905CB /* ForgotPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C785F41216CB4E4002905CB /* ForgotPasswordVC.swift */; };
-		1C785F4B216CB4E6002905CB /* VauchersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C785F42216CB4E5002905CB /* VauchersVC.swift */; };
+		1C785F4B216CB4E6002905CB /* VouchersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C785F42216CB4E5002905CB /* VouchersVC.swift */; };
 		1C785F4C216CB4E6002905CB /* SideMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C785F43216CB4E5002905CB /* SideMenuVC.swift */; };
 		1C785F4D216CB4E6002905CB /* NotificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C785F44216CB4E5002905CB /* NotificationVC.swift */; };
 		1C785F4E216CB4E6002905CB /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C785F45216CB4E6002905CB /* HomeVC.swift */; };
@@ -347,7 +347,7 @@
 		1C785F3F216CB4E4002905CB /* IntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
 		1C785F40216CB4E4002905CB /* SignUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		1C785F41216CB4E4002905CB /* ForgotPasswordVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVC.swift; sourceTree = "<group>"; };
-		1C785F42216CB4E5002905CB /* VauchersVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VauchersVC.swift; sourceTree = "<group>"; };
+		1C785F42216CB4E5002905CB /* VouchersVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VouchersVC.swift; sourceTree = "<group>"; };
 		1C785F43216CB4E5002905CB /* SideMenuVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuVC.swift; sourceTree = "<group>"; };
 		1C785F44216CB4E5002905CB /* NotificationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationVC.swift; sourceTree = "<group>"; };
 		1C785F45216CB4E6002905CB /* HomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
@@ -642,7 +642,7 @@
 				1C785F44216CB4E5002905CB /* NotificationVC.swift */,
 				1C785F3D216CB4E3002905CB /* MyOrderVC.swift */,
 				1C785F40216CB4E4002905CB /* SignUpVC.swift */,
-				1C785F42216CB4E5002905CB /* VauchersVC.swift */,
+				1C785F42216CB4E5002905CB /* VouchersVC.swift */,
 				1CBA582E2181EAA90087385F /* VoucherDetailVC.swift */,
 				1C785F4F216CB67E002905CB /* HelpAndSupportVC.swift */,
 				1C600D682175F119001D7A37 /* EditProfileVC.swift */,
@@ -1590,7 +1590,7 @@
 				1C68E48C21A30F9E0027774C /* AlertWithButtons.swift in Sources */,
 				1CF11336214E368E00E57D69 /* UserDefaultClass.swift in Sources */,
 				1CF1134F214E368E00E57D69 /* IQKeyboardManager.m in Sources */,
-				1C785F4B216CB4E6002905CB /* VauchersVC.swift in Sources */,
+				1C785F4B216CB4E6002905CB /* VouchersVC.swift in Sources */,
 				1CF1134C214E368E00E57D69 /* IQUIView+IQKeyboardToolbar.m in Sources */,
 				1CCC91122185B3C20007212D /* CellMyCartBrand.swift in Sources */,
 				1CCC911B2185B96A0007212D /* CellApplyVoucher.swift in Sources */,

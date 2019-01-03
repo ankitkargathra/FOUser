@@ -17,6 +17,9 @@ class CellApplyVaucherDetail: BaseTableViewCell {
     @IBOutlet weak var lblCouponOfferDetail: LabelAveNirNextProBlackMeduim!
     @IBOutlet weak var viewDashLignBorder: UIView!
     @IBOutlet weak var viewLogo: UIView!
+    @IBOutlet weak var lblPerc: UILabel!
+    @IBOutlet weak var lblPercOff: LabelAveNirNextProDemiWhite!
+    @IBOutlet weak var lblPerOff2: LabelAveNirNextProDemiOrange!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -43,7 +46,14 @@ class CellApplyVaucherDetail: BaseTableViewCell {
     }
     
     
-    func setCellDate() {
+    func setCellDate(v: Voucher) {
+        self.lblCouponOfferDetail.text = checkNULL(str: v.descriptionField)
+        
+        
+        self.lblPerc.text = "\(checkNULL(str: v.discount!)) %"
+        self.lblPercOff.text = "\(checkNULL(str: v.discount!)) OFF"
+        self.lblPerOff2.text = "\(checkNULL(str: v.discount!)) OFF"
+        
 //        self.lblCouponOfferDetail.attributedText = UILabel.setLineSpacing(text: self.lblCouponOfferDetail.text!, spacing:5)
     }
 }

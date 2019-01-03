@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -70,11 +70,20 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </label>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OAT-lH-nII">
+                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OAT-lH-nII">
                         <rect key="frame" x="145" y="103" width="27" height="27"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Wb4-Ed-0d5">
+                                <rect key="frame" x="0.0" y="0.0" width="27" height="27"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" red="0.20392156862745098" green="0.45098039215686275" blue="0.63921568627450975" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Wb4-Ed-0d5" secondAttribute="trailing" id="09K-6X-k49"/>
+                            <constraint firstAttribute="bottom" secondItem="Wb4-Ed-0d5" secondAttribute="bottom" id="43J-oM-4sV"/>
+                            <constraint firstItem="Wb4-Ed-0d5" firstAttribute="leading" secondItem="OAT-lH-nII" secondAttribute="leading" id="YmL-B2-VY6"/>
                             <constraint firstAttribute="width" secondItem="OAT-lH-nII" secondAttribute="height" multiplier="1:1" id="ibd-cN-NIE"/>
+                            <constraint firstItem="Wb4-Ed-0d5" firstAttribute="top" secondItem="OAT-lH-nII" secondAttribute="top" id="xuv-Vx-1Ox"/>
                         </constraints>
                     </view>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="Bf1-YF-ImC">
@@ -163,10 +172,14 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="heightConstraint" destination="4AX-tJ-mDp" id="1U4-Ea-gQA"/>
+                <outlet property="imgLogo" destination="Wb4-Ed-0d5" id="I16-Nz-RiB"/>
                 <outlet property="lblBrandName" destination="ejw-jW-gzH" id="dw3-Rq-eSR"/>
                 <outlet property="lblCouponDetail" destination="mDd-aC-m7q" id="EZp-da-Yy1"/>
                 <outlet property="lblCouponOfferDetail" destination="uNt-8i-lLQ" id="fqq-Na-lUl"/>
                 <outlet property="lblExpireDate" destination="gZb-Gc-goI" id="1ZT-Nv-3OA"/>
+                <outlet property="lblPerOff" destination="T8f-zD-jIn" id="9JU-3g-dqn"/>
+                <outlet property="lblPerOff2" destination="Cfo-e2-0gZ" id="str-Wd-9WB"/>
+                <outlet property="lblPercentage" destination="f4o-Dw-q2N" id="f5Z-ZN-vlZ"/>
                 <outlet property="viewCenter" destination="2R8-iq-IQz" id="45S-Ht-VSm"/>
                 <outlet property="viewDashLignBorder" destination="xI5-0f-hg0" id="6md-F7-b2f"/>
                 <outlet property="viewLogo" destination="OAT-lH-nII" id="MWB-vB-pnC"/>

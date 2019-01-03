@@ -77,7 +77,7 @@ class SideMenuVC: BaseVC {
             SJSwiftSideMenuController.pushViewController(myOrderVC, animated: true)
             break
         case .vouchers:
-            let myOrderVC = MAIN_STORYBOARD.instantiateViewController(withIdentifier: "VauchersVC") as! VauchersVC
+            let myOrderVC = MAIN_STORYBOARD.instantiateViewController(withIdentifier: "VauchersVC") as! VouchersVC
             SJSwiftSideMenuController.pushViewController(myOrderVC, animated: true)
             break
         case .termsOfUse:

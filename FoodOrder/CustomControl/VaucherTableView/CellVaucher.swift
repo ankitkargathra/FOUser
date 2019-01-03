@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class CellVaucher: BaseTableViewCell {
 
@@ -20,6 +21,11 @@ class CellVaucher: BaseTableViewCell {
     @IBOutlet weak var lblExpireDate: LabelAveNirNextProGrayMedium!
     @IBOutlet weak var viewDashLignBorder: UIView!
     @IBOutlet weak var viewLogo: UIView!
+    
+    @IBOutlet weak var lblPercentage: UILabel!
+    @IBOutlet weak var lblPerOff: LabelAveNirNextProDemiWhite!
+    @IBOutlet weak var lblPerOff2: LabelAveNirNextProDemiOrange!
+    @IBOutlet weak var imgLogo: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -47,7 +53,19 @@ class CellVaucher: BaseTableViewCell {
     }
     
     
-    func setCellDate() {
+    func setCellDate(v: Voucher) {
+        self.lblCouponOfferDetail.text = checkNULL(str: v.descriptionField)
+        self.lblBrandName.text = checkNULL(str: v.restaurantName)
+        self.lblCouponDetail.text = checkNULL(str: v.restaurantAddress)
+        if let imgUrl = v.picture {
+            self.imgLogo.kf.setImage(with: URL.init(string: imgUrl))
+        }
+        self.lblPercentage.text = "\(checkNULL(str: v.discount!)) %"
+        self.lblPerOff.text = "\(checkNULL(str: v.discount!)) OFF"
+        self.lblPerOff2.text = "\(checkNULL(str: v.discount!)) OFF"
+        self.lblExpireDate.text = Date.convertDateToValidDate(date: checkNULL(str: v.endDate))
+        
+        
 //        self.lblCouponOfferDetail.attributedText = UILabel.setLineSpacing(text: self.lblCouponOfferDetail.text!, spacing:5)
     }
 }

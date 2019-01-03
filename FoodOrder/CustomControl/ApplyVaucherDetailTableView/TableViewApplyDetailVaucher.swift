@@ -12,7 +12,8 @@ class TableViewApplyDetailVaucher: BaseTableView,UITableViewDelegate,UITableView
 
     var blockTableViewDidSelectAtIndexPath:((IndexPath)->Void)?
     
-    var offerArray = ["Valid once per user.", "Valid on all modes of payment.", "Offer not valid on Pan Pizzas.", "Other T&C may apply.", "Offer valid till Aug 31, 2018 23:59 PM."]
+    var voucher: Voucher!
+    var offerArray = [String]()
     
     override init(frame: CGRect, style: UITableViewStyle) {
         super.init(frame: frame, style: style)
@@ -87,6 +88,7 @@ class TableViewApplyDetailVaucher: BaseTableView,UITableViewDelegate,UITableView
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let cell = self.dequeueReusableCell(withIdentifier: "CellApplyVaucherDetail") as! CellApplyVaucherDetail
+        cell.setCellDate(v: voucher)
 //        cell.lblTitle.text = "Your Available Vouchers".uppercased()
         return cell
     }

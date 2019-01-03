@@ -10,12 +10,26 @@ import UIKit
 
 class VoucherDetailVC: BaseVC {
 
+    var voucher: Voucher!
+    @IBOutlet var tblVoucherDtl: TableViewApplyDetailVaucher!
+    
     override func viewDidLoad() {
+        tblVoucherDtl.voucher = voucher
         self.setNavigationButton(type: .BackBlack)
-        self.addTitleView(title: "Domino’s Pizza", subtitle: "26 Clementi Loop #01-55 Clementi Camp, 129817...")
+        self.addTitleView(title: checkNULL(str: voucher.restaurantName), subtitle: checkNULL(str: voucher.restaurantAddress))
         super.viewDidLoad()
+        
+        //["Valid once per user.", "Valid on all modes of payment.", "Offer not valid on Pan Pizzas.", "Other T&C may apply.", "Offer valid till Aug 31, 2018 23:59 PM."]
 
-        // Do any additional setup after loading the view.
+        if voucher.perPersonOnce == "1" {
+            tblVoucherDtl.offerArray.append("Valid once per user.")
+        }
+        tblVoucherDtl.offerArray.append("Valid on all modes of payment.")
+        tblVoucherDtl.offerArray.append("Other T&C may apply.")
+        tblVoucherDtl.offerArray.append("Offer valid till \(Date.convertDateToValidDate(date: voucher.endDate))")
+        
+        
+        self.tblVoucherDtl.reloadData()
     }
     
 

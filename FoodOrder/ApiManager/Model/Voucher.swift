@@ -8,20 +8,21 @@ import Foundation
 
 class Voucher : NSObject, NSCoding{
 
-    var descriptionField : String!
-    var discount : String!
-    var endDate : String!
     var giftId : String!
-    var isActive : String!
-    var picture : String!
-    var restId : String!
-    var restaurantAddress : String!
-    var restaurantName : String!
-    var startDate : String!
     var voucherCode : String!
+    var discount : String!
+    var startDate : String!
+    var endDate : String!
     var voucherName : String!
-
-
+    var descriptionField : String!
+    var isActive : String!
+    var restId : String!
+    var restaurantName : String!
+    var restaurantAddress : String!
+    var picture : String!
+    var isReedem: String!
+    var perPersonOnce: String!
+    
     /**
      * Instantiate the instance using the passed dictionary values to set the properties values
      */
@@ -38,6 +39,8 @@ class Voucher : NSObject, NSCoding{
         startDate = dictionary["start_date"] as? String
         voucherCode = dictionary["voucher_code"] as? String
         voucherName = dictionary["voucher_name"] as? String
+        isReedem = dictionary["is_reedem"] as? String
+        perPersonOnce = dictionary["per_person_once"] as? String
     }
 
     /**
@@ -81,6 +84,12 @@ class Voucher : NSObject, NSCoding{
         }
         if voucherName != nil{
             dictionary["voucher_name"] = voucherName
+        }
+        if isReedem != nil{
+            dictionary["is_reedem"] = isReedem
+        }
+        if perPersonOnce != nil{
+            dictionary["per_person_once"] = perPersonOnce
         }
         return dictionary
     }

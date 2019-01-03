@@ -136,6 +136,25 @@ extension Date {
         return startDateFormater.date(from: date)!.getElapsedInterval()
     }
     
+    static func convertDateToValidDate(date: String, formater: String = "yyyy-MM-dd HH:mm:ss") -> String {
+        let startDateFormater = DateFormatter()
+        startDateFormater.dateFormat = formater
+        let dateObj = startDateFormater.date(from: date)
+        startDateFormater.dateFormat = "dd MMMM"
+        
+        return "Valid Till \(startDateFormater.string(from: dateObj!))"
+    }
+    
+    static func convertDateToValidDateDetail(date: String, formater: String = "yyyy-MM-dd HH:mm:ss") -> String {
+        let startDateFormater = DateFormatter()
+        startDateFormater.dateFormat = formater
+        let dateObj = startDateFormater.date(from: date)
+        startDateFormater.dateFormat = "MMM dd, yyyy hh:mm a"
+        
+        return "\(startDateFormater.string(from: dateObj!))"
+    }
+    //Aug 31, 2018 23:59 PM.
+    
 }
 
 extension Date {
