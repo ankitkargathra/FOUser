@@ -1,0 +1,66 @@
+Appstore detail
+
+EPOPEARTH@gmail.com
+1234HuBq6789
+
+==============================================================
+Feedback Client
+==============================================================
+
+- Statistics page not available - Done
+- Reviews and ratings not available - Done
+- Common checked box not available (eg. Less chilli flakes, more cheese packs) set by merchant - Done
+- Going to cart not functioning after adding items. - Done
+- Dine in or takeaway not available (edited)
+- Pop up screen not available - Done
+
+==============================================================
+==============================================================
+==============================================================
+
+- Login sceren
+- Remove back button.
+
+- Home screen.
+- Initial level if not any order display.
+- For bottom portion keep activity is as a label and statistic as a separate button which will navigate to new screen.
+
+- Detail screen (Restaurant)
+- Add logo Left of Header.
+- No need to use expandable list for products.
+- Display only type of product. (18-Dropbox)
+
+- Cart Screen
+- Remove cart icon from screen.
+
+- Payment screen
+- Remove saved cards section.
+- Remove net banking.
+
+- Add New card Rename to Payment
+- Remove save card option.
+- Remove cart menu from navigation.
+
+
+------------------------------------------------------------
+------------------------------------------------------------
+------------------------------------------------------------
+
+Done Screen Design
+
+1. IntroScreen
+2. Login
+3. Register
+4. Home Empty
+5. Notification
+6. Vaucher.
+7. MyOrder
+8. Edit Profile
+9. Change Password
+10. Help And Support
+11. Order Detail
+12. Home screen
+13. Apply Voucher
+14. Payment
+15. Card Details
+16. Order Summary

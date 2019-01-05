@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gJg-3g-Oru">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="AvenirNextLTPro-Demi.otf">
+            <string>AvenirNextLTPro-Demi</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Order SummaryVC-->
+        <scene sceneID="6dN-fo-W18">
+            <objects>
+                <viewController storyboardIdentifier="OrderSummaryVC" id="gJg-3g-Oru" customClass="OrderSummaryVC" customModule="FoodOrder" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tHz-cI-JwA">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Order Sent Successfully" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wfc-yv-awp" customClass="LabelAveNirNextProBlackDemi" customModule="FoodOrder" customModuleProvider="target">
+                                <rect key="frame" x="114.66666666666667" y="35" width="184.66666666666663" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                        <real key="value" value="23.199999999999999"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="order_reciept" translatesAutoresizingMaskIntoConstraints="NO" id="Zm3-cA-YKp">
+                                <rect key="frame" x="140.66666666666666" y="109" width="132.99999999999997" height="218"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Zm3-cA-YKp" secondAttribute="height" multiplier="133:218" id="0Ok-Jx-jUF"/>
+                                </constraints>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gKP-BQ-z5F">
+                                <rect key="frame" x="140.66666666666666" y="109" width="132.99999999999997" height="109"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="54" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qu5-OC-22x" customClass="LabelAveNirNextProDemiWhite" customModule="FoodOrder" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="133" height="109"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                                <color key="value" red="0.0039215686269999999" green="0.70588235290000001" blue="0.37647058820000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                                <real key="value" value="30"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="Qu5-OC-22x" firstAttribute="leading" secondItem="gKP-BQ-z5F" secondAttribute="leading" id="21q-2v-m93"/>
+                                    <constraint firstItem="Qu5-OC-22x" firstAttribute="top" secondItem="gKP-BQ-z5F" secondAttribute="top" id="bgi-B8-SLB"/>
+                                    <constraint firstAttribute="trailing" secondItem="Qu5-OC-22x" secondAttribute="trailing" id="qWY-sw-lMc"/>
+                                    <constraint firstAttribute="bottom" secondItem="Qu5-OC-22x" secondAttribute="bottom" id="x5D-0C-QH1"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RNA-Mp-4I3" customClass="LabelAveNirNextProGrayMedium" customModule="FoodOrder" customModuleProvider="target">
+                                <rect key="frame" x="30" y="349" width="354" height="61"/>
+                                <string key="text">Your order has been sent to restaurant. Please
+share your number to confirm handshake with
+restaurant and receive your order.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                        <real key="value" value="14.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ns7-mP-hsx">
+                                <rect key="frame" x="52.666666666666657" y="436" width="308.66666666666674" height="90"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your food will be ready after" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iSC-Sq-I2s" customClass="LabelAveNirNextProBlackMeduim" customModule="FoodOrder" customModuleProvider="target">
+                                        <rect key="frame" x="47" y="22" width="215" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                                <real key="value" value="15.699999999999999"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15 orders" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qDF-AM-ACc" customClass="LabelAveNirNextProBoldWhite" customModule="FoodOrder" customModuleProvider="target">
+                                        <rect key="frame" x="118.33333333333334" y="47" width="72" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                                <color key="value" red="0.98431372549999996" green="0.50196078430000002" blue="0.098039215690000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                                <real key="value" value="15.699999999999999"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.91764705882352937" green="0.94117647058823528" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="qDF-AM-ACc" firstAttribute="top" secondItem="iSC-Sq-I2s" secondAttribute="bottom" constant="4" id="3IQ-8x-uZP"/>
+                                    <constraint firstItem="iSC-Sq-I2s" firstAttribute="centerX" secondItem="ns7-mP-hsx" secondAttribute="centerX" id="9Jf-pb-meg"/>
+                                    <constraint firstItem="qDF-AM-ACc" firstAttribute="centerX" secondItem="ns7-mP-hsx" secondAttribute="centerX" id="Fjk-FQ-JIH"/>
+                                    <constraint firstAttribute="bottom" secondItem="qDF-AM-ACc" secondAttribute="bottom" constant="22" id="mwt-yd-anZ"/>
+                                    <constraint firstItem="iSC-Sq-I2s" firstAttribute="top" secondItem="ns7-mP-hsx" secondAttribute="top" constant="22" id="zET-Ng-Z1J"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="4.2999999999999998"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v7C-DG-i9f" customClass="GreenBGButton" customModule="FoodOrder" customModuleProvider="target">
+                                <rect key="frame" x="18.333333333333343" y="565" width="377.33333333333326" height="54"/>
+                                <fontDescription key="fontDescription" name="AvenirNextLTPro-Demi" family="Avenir Next LT Pro" pointSize="15"/>
+                                <state key="normal" title="Track Order">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="yVq-5V-tqA" kind="unwind" unwindAction="unwindBackToOrderDetailWithSegue:" id="0LM-wX-8UW"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TDa-H2-gQy" customClass="ButtonAveNirNextProDemiBlack" customModule="FoodOrder" customModuleProvider="target">
+                                <rect key="frame" x="18.333333333333343" y="624" width="377.33333333333326" height="54"/>
+                                <state key="normal" title="Back to Home"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                        <real key="value" value="20.199999999999999"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="yVq-5V-tqA" kind="unwind" unwindAction="unwindBackToHomeWithSegue:" id="rbV-hZ-lOX"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Zm3-cA-YKp" firstAttribute="width" secondItem="tHz-cI-JwA" secondAttribute="height" multiplier="133:736" id="0Ou-F2-rbS"/>
+                            <constraint firstItem="ns7-mP-hsx" firstAttribute="top" secondItem="RNA-Mp-4I3" secondAttribute="bottom" constant="26" id="58e-cW-MX6"/>
+                            <constraint firstItem="Zm3-cA-YKp" firstAttribute="top" secondItem="wfc-yv-awp" secondAttribute="bottom" constant="53" id="5yM-WQ-0Wj"/>
+                            <constraint firstItem="v7C-DG-i9f" firstAttribute="width" secondItem="tHz-cI-JwA" secondAttribute="width" multiplier="377.3:414" id="6Lt-wN-aXj"/>
+                            <constraint firstItem="gKP-BQ-z5F" firstAttribute="centerX" secondItem="Zm3-cA-YKp" secondAttribute="centerX" id="9GJ-Qa-tWj"/>
+                            <constraint firstItem="gKP-BQ-z5F" firstAttribute="top" secondItem="Zm3-cA-YKp" secondAttribute="top" id="Fh6-we-OVg"/>
+                            <constraint firstItem="ns7-mP-hsx" firstAttribute="width" secondItem="tHz-cI-JwA" secondAttribute="width" multiplier="308.7:414" id="GFA-XS-jZY"/>
+                            <constraint firstItem="v7C-DG-i9f" firstAttribute="centerX" secondItem="ns7-mP-hsx" secondAttribute="centerX" id="JEy-x3-DSn"/>
+                            <constraint firstItem="TDa-H2-gQy" firstAttribute="top" secondItem="v7C-DG-i9f" secondAttribute="bottom" constant="5" id="KR7-qw-yCM"/>
+                            <constraint firstItem="RNA-Mp-4I3" firstAttribute="top" secondItem="Zm3-cA-YKp" secondAttribute="bottom" constant="22" id="Obj-1L-51h"/>
+                            <constraint firstItem="wfc-yv-awp" firstAttribute="top" secondItem="Ndg-eG-TgZ" secondAttribute="top" constant="15" id="SMl-uC-9X8"/>
+                            <constraint firstItem="gKP-BQ-z5F" firstAttribute="width" secondItem="Zm3-cA-YKp" secondAttribute="width" id="VFi-fp-A2W"/>
+                            <constraint firstItem="TDa-H2-gQy" firstAttribute="width" secondItem="v7C-DG-i9f" secondAttribute="width" id="Zd7-iL-HA1"/>
+                            <constraint firstItem="TDa-H2-gQy" firstAttribute="height" secondItem="v7C-DG-i9f" secondAttribute="height" id="bOh-v8-8f6"/>
+                            <constraint firstItem="ns7-mP-hsx" firstAttribute="centerX" secondItem="RNA-Mp-4I3" secondAttribute="centerX" id="f2A-1R-fpb"/>
+                            <constraint firstItem="wfc-yv-awp" firstAttribute="centerX" secondItem="Ndg-eG-TgZ" secondAttribute="centerX" id="iEH-Sa-Yjf"/>
+                            <constraint firstItem="gKP-BQ-z5F" firstAttribute="height" secondItem="Zm3-cA-YKp" secondAttribute="height" multiplier="0.5:1" id="nbQ-Tw-J7y"/>
+                            <constraint firstItem="v7C-DG-i9f" firstAttribute="height" secondItem="tHz-cI-JwA" secondAttribute="height" multiplier="54:736" id="o7y-Cf-elI"/>
+                            <constraint firstItem="v7C-DG-i9f" firstAttribute="top" secondItem="ns7-mP-hsx" secondAttribute="bottom" constant="39" id="oiB-UQ-rWR"/>
+                            <constraint firstItem="TDa-H2-gQy" firstAttribute="centerX" secondItem="v7C-DG-i9f" secondAttribute="centerX" id="vDQ-DX-ONh"/>
+                            <constraint firstItem="Zm3-cA-YKp" firstAttribute="centerX" secondItem="wfc-yv-awp" secondAttribute="centerX" id="wNr-Ty-t7K"/>
+                            <constraint firstItem="RNA-Mp-4I3" firstAttribute="centerX" secondItem="Zm3-cA-YKp" secondAttribute="centerX" id="xbU-PY-qWl"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Ndg-eG-TgZ"/>
+                    </view>
+                    <connections>
+                        <outlet property="lblOrderNumber" destination="Qu5-OC-22x" id="zoh-8c-jFt"/>
+                        <outlet property="lblOrderQueue" destination="qDF-AM-ACc" id="fPg-Xp-a7H"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MAl-EE-o4q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="yVq-5V-tqA" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="258" y="112"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="order_reciept" width="464" height="758"/>
+    </resources>
+</document>

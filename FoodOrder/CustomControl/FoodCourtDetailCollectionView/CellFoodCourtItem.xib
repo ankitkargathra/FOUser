@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CellFoodCourtItem" id="89C-2d-rzf" customClass="CellFoodCourtItem" customModule="FoodOrder" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="379" height="56"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                <rect key="frame" x="0.0" y="0.0" width="379" height="56"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="non_veg" translatesAutoresizingMaskIntoConstraints="NO" id="vX9-8d-ZbY">
+                        <rect key="frame" x="19" y="20.5" width="15" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="15" id="f8A-Dz-9Z5"/>
+                            <constraint firstAttribute="width" constant="15" id="rt7-4Y-hmF"/>
+                        </constraints>
+                    </imageView>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="UKz-R3-ddL">
+                        <rect key="frame" x="51" y="6.5" width="132" height="43"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chicken Sausage" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jQp-7x-9M7" customClass="LabelAveNirNextProBlackMeduim" customModule="FoodOrder" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="132" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                        <real key="value" value="14.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$ 8.99" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1zD-H5-tJZ" customClass="LabelAveNirNextProGrayMedium" customModule="FoodOrder" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="22.5" width="132" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                        </subviews>
+                    </stackView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Msh-2G-ug6" customClass="ValueStepper" customModule="ValueStepper">
+                        <rect key="frame" x="292" y="17" width="67.5" height="22"/>
+                        <color key="backgroundColor" red="0.0039215686269999999" green="0.70588235290000001" blue="0.37647058820000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" red="0.0039215686269999999" green="0.70588235290000001" blue="0.37647058820000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="22" id="6WH-Un-YrT"/>
+                            <constraint firstAttribute="width" constant="67.5" id="rjk-ch-2wA"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="enableManualEditing" value="NO"/>
+                            <userDefinedRuntimeAttribute type="color" keyPath="backgroundButtonColor">
+                                <color key="value" red="0.0039215686269999999" green="0.70588235290000001" blue="0.37647058820000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="backgroundLabelColor">
+                                <color key="value" red="0.0039215686269999999" green="0.70588235290000001" blue="0.37647058820000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="disabledBackgroundButtonColor">
+                                <color key="value" red="0.0039215686269999999" green="0.70588235290000001" blue="0.37647058820000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="disabledIconButtonColor">
+                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="minimumValue">
+                                <real key="value" value="0.0"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="maximumValue">
+                                <real key="value" value="100"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="value">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="highlightedBackgroundColor">
+                                <color key="value" red="0.0039215686269999999" green="0.70588235290000001" blue="0.37647058820000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="labelTextColor">
+                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="stepValue">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KFv-Db-atc">
+                        <rect key="frame" x="292" y="17" width="67.5" height="22"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <inset key="titleEdgeInsets" minX="0.0" minY="2" maxX="0.0" maxY="0.0"/>
+                        <state key="normal" title="Add">
+                            <color key="titleColor" red="0.0039215686269999999" green="0.70588235290000001" blue="0.37647058820000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </state>
+                        <connections>
+                            <action selector="btnAddPress:" destination="89C-2d-rzf" eventType="touchUpInside" id="rPe-WQ-ZmW"/>
+                        </connections>
+                    </button>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="vX9-8d-ZbY" firstAttribute="centerY" secondItem="s2g-6C-ZBP" secondAttribute="centerY" id="12n-4G-6le"/>
+                <constraint firstItem="UKz-R3-ddL" firstAttribute="centerY" secondItem="vX9-8d-ZbY" secondAttribute="centerY" id="J2W-WK-NpR"/>
+                <constraint firstAttribute="trailing" secondItem="Msh-2G-ug6" secondAttribute="trailing" constant="19.5" id="Lqv-zQ-e68"/>
+                <constraint firstItem="KFv-Db-atc" firstAttribute="width" secondItem="Msh-2G-ug6" secondAttribute="width" id="Tbc-zn-L71"/>
+                <constraint firstItem="vX9-8d-ZbY" firstAttribute="leading" secondItem="89C-2d-rzf" secondAttribute="leading" constant="19" id="X72-LB-chb"/>
+                <constraint firstItem="UKz-R3-ddL" firstAttribute="leading" secondItem="vX9-8d-ZbY" secondAttribute="trailing" constant="17" id="bBZ-Fk-3w1"/>
+                <constraint firstItem="KFv-Db-atc" firstAttribute="centerX" secondItem="Msh-2G-ug6" secondAttribute="centerX" id="eZ7-VK-0gB"/>
+                <constraint firstItem="KFv-Db-atc" firstAttribute="height" secondItem="Msh-2G-ug6" secondAttribute="height" id="nai-nE-dOu"/>
+                <constraint firstItem="KFv-Db-atc" firstAttribute="centerY" secondItem="Msh-2G-ug6" secondAttribute="centerY" id="u3q-48-Spz"/>
+                <constraint firstItem="Msh-2G-ug6" firstAttribute="centerY" secondItem="s2g-6C-ZBP" secondAttribute="centerY" id="upG-cQ-L14"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="s2g-6C-ZBP"/>
+            <size key="customSize" width="379" height="56"/>
+            <connections>
+                <outlet property="btnAdd" destination="KFv-Db-atc" id="vxO-MW-zPi"/>
+                <outlet property="imgVagNonVeg" destination="vX9-8d-ZbY" id="zxG-Qz-YWS"/>
+                <outlet property="lblName" destination="jQp-7x-9M7" id="eSJ-oE-rZG"/>
+                <outlet property="lblPrice" destination="1zD-H5-tJZ" id="h2a-6O-Ai8"/>
+                <outlet property="valueSteper" destination="Msh-2G-ug6" id="2zM-wl-XY5"/>
+            </connections>
+            <point key="canvasLocation" x="-1201" y="-7"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="non_veg" width="51" height="51"/>
+    </resources>
+</document>

@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CellFoodStall" rowHeight="242" id="qgm-To-r5g" customClass="CellFoodStall" customModule="FoodOrder" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="89"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qgm-To-r5g" id="duX-rj-VNC">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="88.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0lX-3f-aYh" customClass="RoundImageView" customModule="FoodOrder" customModuleProvider="target">
+                        <rect key="frame" x="18.5" y="14.5" width="41.5" height="41.5"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="41.5" id="AG4-51-A9G"/>
+                            <constraint firstAttribute="width" constant="41.5" id="dvT-OK-oOb"/>
+                        </constraints>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kzC-sR-QtX">
+                        <rect key="frame" x="353" y="20" width="41" height="20.5"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star_display" translatesAutoresizingMaskIntoConstraints="NO" id="12l-N8-Dc4">
+                                <rect key="frame" x="28.5" y="3" width="12.5" height="11.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="12.5" id="QCN-jt-i9g"/>
+                                    <constraint firstAttribute="height" constant="11.5" id="Zeg-Tx-ZEG"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3.9" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JEQ-TR-yJo" customClass="LabelAveNirNextProBlackMeduim" customModule="FoodOrder" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="24.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                        <real key="value" value="12"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="12l-N8-Dc4" secondAttribute="trailing" id="9be-Wq-Ar2"/>
+                            <constraint firstItem="JEQ-TR-yJo" firstAttribute="top" secondItem="kzC-sR-QtX" secondAttribute="top" id="CcF-X6-LbB"/>
+                            <constraint firstAttribute="bottom" secondItem="JEQ-TR-yJo" secondAttribute="bottom" id="Rhb-fF-sgn"/>
+                            <constraint firstAttribute="height" constant="20.5" id="Wyu-me-LCq"/>
+                            <constraint firstItem="12l-N8-Dc4" firstAttribute="leading" secondItem="JEQ-TR-yJo" secondAttribute="trailing" constant="4" id="Xlc-LV-Mxb"/>
+                            <constraint firstItem="12l-N8-Dc4" firstAttribute="top" secondItem="kzC-sR-QtX" secondAttribute="top" constant="3" id="mHK-yT-pcK"/>
+                            <constraint firstItem="JEQ-TR-yJo" firstAttribute="leading" secondItem="kzC-sR-QtX" secondAttribute="leading" id="rdl-Va-ONy"/>
+                        </constraints>
+                    </view>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="b8q-BV-bEd">
+                        <rect key="frame" x="74.5" y="22" width="319.5" height="26.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Domino’s Pizza" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D6n-kJ-vVU" customClass="LabelAveNirNextProBlackMeduim" customModule="FoodOrder" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="319.5" height="16.5"/>
+                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                        <real key="value" value="15.699999999999999"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Pizza, Pasta, Breads, Desserts" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lDs-f6-jYc" customClass="LabelAveNirNextProGrayMedium" customModule="FoodOrder" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="20.5" width="319.5" height="6"/>
+                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="8.6999998092651367"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                        <real key="value" value="11.300000000000001"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                        </subviews>
+                    </stackView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Self Service" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9PP-Sp-mbg" customClass="LabelAveNirNextProBlackGreen" customModule="FoodOrder" customModuleProvider="target">
+                        <rect key="frame" x="331" y="58" width="63" height="16.5"/>
+                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="12"/>
+                        <color key="textColor" red="0.37647058820000001" green="0.74117647060000003" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                <real key="value" value="13.199999999999999"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iyA-VK-BkT" customClass="LabelAveNirNextProBoldWhite" customModule="FoodOrder" customModuleProvider="target">
+                        <rect key="frame" x="74.5" y="58" width="13.5" height="16.5"/>
+                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                <real key="value" value="13.199999999999999"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="waiting" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mzq-Jg-ri3" customClass="LabelAveNirNextProBlackDemi" customModule="FoodOrder" customModuleProvider="target">
+                        <rect key="frame" x="94" y="58" width="40" height="16.5"/>
+                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                <real key="value" value="13.199999999999999"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="kzC-sR-QtX" secondAttribute="trailing" constant="20" id="2ID-bc-myv"/>
+                    <constraint firstItem="0lX-3f-aYh" firstAttribute="leading" secondItem="duX-rj-VNC" secondAttribute="leading" constant="18.5" id="EyN-wD-a8Z"/>
+                    <constraint firstItem="0lX-3f-aYh" firstAttribute="top" secondItem="duX-rj-VNC" secondAttribute="top" constant="14.300000000000001" id="KI4-pO-wTr"/>
+                    <constraint firstItem="b8q-BV-bEd" firstAttribute="leading" secondItem="0lX-3f-aYh" secondAttribute="trailing" constant="14.699999999999999" id="PmR-bh-ZhH"/>
+                    <constraint firstAttribute="trailing" secondItem="b8q-BV-bEd" secondAttribute="trailing" constant="20" id="Uro-CG-4jP"/>
+                    <constraint firstItem="Mzq-Jg-ri3" firstAttribute="leading" secondItem="iyA-VK-BkT" secondAttribute="trailing" constant="6" id="WPW-c7-gbu"/>
+                    <constraint firstItem="iyA-VK-BkT" firstAttribute="leading" secondItem="lDs-f6-jYc" secondAttribute="leading" id="X2y-Hi-ZsS"/>
+                    <constraint firstItem="kzC-sR-QtX" firstAttribute="centerY" secondItem="D6n-kJ-vVU" secondAttribute="centerY" id="Yi0-qz-WKd"/>
+                    <constraint firstItem="iyA-VK-BkT" firstAttribute="top" secondItem="lDs-f6-jYc" secondAttribute="bottom" constant="9.6999999999999993" id="Yv4-wk-fu7"/>
+                    <constraint firstItem="9PP-Sp-mbg" firstAttribute="centerY" secondItem="Mzq-Jg-ri3" secondAttribute="centerY" id="nJQ-ZT-n2F"/>
+                    <constraint firstItem="b8q-BV-bEd" firstAttribute="centerY" secondItem="0lX-3f-aYh" secondAttribute="centerY" id="o8C-4n-cdh"/>
+                    <constraint firstAttribute="bottom" secondItem="iyA-VK-BkT" secondAttribute="bottom" constant="14" id="p1J-KZ-bnH"/>
+                    <constraint firstItem="Mzq-Jg-ri3" firstAttribute="centerY" secondItem="iyA-VK-BkT" secondAttribute="centerY" id="s9n-6f-4gi"/>
+                    <constraint firstItem="9PP-Sp-mbg" firstAttribute="trailing" secondItem="kzC-sR-QtX" secondAttribute="trailing" id="zeO-7H-Qcm"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="FbL-EJ-HOr"/>
+            <connections>
+                <outlet property="imgStore" destination="0lX-3f-aYh" id="oe4-Q0-nNx"/>
+                <outlet property="lblSelfService" destination="9PP-Sp-mbg" id="IHg-br-2ja"/>
+                <outlet property="lblStar" destination="JEQ-TR-yJo" id="EmJ-Fa-bph"/>
+                <outlet property="lblStoreCategories" destination="lDs-f6-jYc" id="sMw-sy-eIY"/>
+                <outlet property="lblStoreName" destination="D6n-kJ-vVU" id="hfS-f7-ZC2"/>
+                <outlet property="lblWaiting" destination="iyA-VK-BkT" id="LJe-Qk-hWK"/>
+            </connections>
+            <point key="canvasLocation" x="545.60000000000002" y="-97.601199400299862"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="star_display" width="44" height="41"/>
+    </resources>
+</document>
