@@ -23,4 +23,7 @@ class CellwillReady: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    func CellwillReady(RY:OrderDetails){
+      self.lblOrderNmber.text = RY.orderQueue + " orders"
+    }
 }

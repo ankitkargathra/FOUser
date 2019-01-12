@@ -64,6 +64,11 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="imgView" destination="Lre-AZ-ufa" id="zV1-RG-7Rs"/>
+                <outlet property="lblRestaurantAddress" destination="CEk-Gq-AT0" id="WNv-hh-BeB"/>
+                <outlet property="lblRestaurantName" destination="MRi-xj-DtU" id="1cs-i9-5wR"/>
+            </connections>
             <point key="canvasLocation" x="222" y="51"/>
         </tableViewCell>
     </objects>

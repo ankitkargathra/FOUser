@@ -9,14 +9,16 @@
 import UIKit
 
 enum CellType {
-    case Status,RecentOrder,Statestic
+    case Status,Statestic,RecentOrder
 }
 
 class TableViewHome: BaseTableView,UITableViewDelegate,UITableViewDataSource {
 
     var blockTableViewDidSelectAtIndexPath:((IndexPath,CellType)->Void)?
-    
-    var sectionArray:[CellType] = [.Statestic,.RecentOrder,.RecentOrder,.RecentOrder,.RecentOrder]
+    var arrCurrentOrder = [DSCurrentOrder]()
+    var arrActivity = [DSActivity]()
+    var arrRecentScan = [RecentScan]()
+    var sectionArray:[CellType] = []
     
     override init(frame: CGRect, style: UITableViewStyle) {
         super.init(frame: frame, style: style)
@@ -49,6 +51,7 @@ class TableViewHome: BaseTableView,UITableViewDelegate,UITableViewDataSource {
         self.allowsSelection = true
         self.dataSource = self
         self.delegate = self
+        self.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: -150, right: 0)
         self.reloadData()
         // self.setTableFooter()
     }
@@ -62,35 +65,34 @@ class TableViewHome: BaseTableView,UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-       return sectionArray.count
+        return sectionArray.count > 0 ? sectionArray.count : 0
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
-    {
-        
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
+        if self.arrActivity.count <= indexPath.row{
+            return UITableViewCell()
+        }
         switch sectionArray[indexPath.row] {
         case .Status:
-            let cell = self.dequeueReusableCell(withIdentifier: "CellOrderStatus") as! CellOrderStatus
-            if indexPath.row == 0 {
-                cell.setCellDataOrderPreparing(isPreparing: false)
-            } else if indexPath.row == 1 {
-                cell.setCellDataOrderPreparing(isPreparing: true)
+            let cell = self.dequeueReusableCell(withIdentifier: "CellOrderStatus", for:indexPath) as! CellOrderStatus
+            let data = self.arrCurrentOrder[indexPath.row].orderStatus
+            if data == "Order In Kitchen"{
+                cell.setCellDataOrderPreparing(isPreparing: true, OS: self.arrCurrentOrder[indexPath.row])
+            }else{
+                cell.setCellDataOrderPreparing(isPreparing: false, OS: self.arrCurrentOrder[indexPath.row])
             }
             return cell
-        case .RecentOrder:
-            let cell = self.dequeueReusableCell(withIdentifier: "CellMyOrder") as! CellMyOrder
-            cell.lblOrderStatus.textColor = UIColor.colorRed()
-            cell.lblOrderStatus.text = "Order is delivered"
-            cell.viewRated.isHidden = false
-            return cell
         case .Statestic:
-            let cell = self.dequeueReusableCell(withIdentifier: "CellStatistics") as! CellStatistics
+            let cell = self.dequeueReusableCell(withIdentifier: "CellStatistics", for:indexPath) as! CellStatistics
+            return cell
+        case .RecentOrder:
+            let cell = self.dequeueReusableCell(withIdentifier: "CellMyOrder", for:indexPath) as! CellMyOrder
+            cell.setCellDataRecentOrder(RO: self.arrActivity[indexPath.row])
             return cell
         }
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
-    {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat{
         switch sectionArray[indexPath.row] {
         case .Status:
             return getProportionalWidth(width: 190) + ((IS_iPHONE_4 || IS_iPHONE_5) ? 10 : 0)
@@ -99,12 +101,10 @@ class TableViewHome: BaseTableView,UITableViewDelegate,UITableViewDataSource {
         case .Statestic:
             return UITableViewAutomaticDimension
         }
-        
     }
     
     //MARK:- DID SELECT
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
-    {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         self.deselectRow(at: indexPath, animated: true)
 //        let cell = self.cellForRow(at: indexPath) as! CellVaucher
         if(self.blockTableViewDidSelectAtIndexPath != nil){

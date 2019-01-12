@@ -12,6 +12,10 @@ class CellGrandTotal: UITableViewCell {
 
     
     @IBOutlet var viewLign: UIView!
+    @IBOutlet weak var lblItemTotal: LabelAveNirNextProBlackMeduim!
+    @IBOutlet weak var lblTax: LabelAveNirNextProBlackMeduim!
+    @IBOutlet weak var lblSubTotal: LabelAveNirNextProBlackDemi!
+    @IBOutlet weak var lblPaymentMethod: LabelAveNirNextProBlackMeduim!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,6 +29,14 @@ class CellGrandTotal: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func CellGrandTotal(GT:OrderDetails){
+       
+        self.lblItemTotal.text = GT.grandTotal.add$Tag()
+        self.lblTax.text = GT.tax.add$Tag()
+        self.lblSubTotal.text = GT.subTotal.add$Tag()
+        self.lblPaymentMethod.text = GT.paymentMethod
     }
     
 }

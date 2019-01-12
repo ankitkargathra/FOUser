@@ -19,15 +19,43 @@ class MyOrderVC: BaseVC {
         self.setNavigationButton(type: .BackBlack)
         // Do any additional setup after loading the view.
         
-        tableView.blockTableViewRateNowIndexPath = {
-            let cartVC = MAIN_STORYBOARD.instantiateViewController(withIdentifier: "RatePopupVC") as! RatePopupVC
-            cartVC.isRate = true
-                    cartVC.modalPresentationStyle = .custom
-//            self.navigationController?.pushViewController(cartVC, animated: true)
-                    self.navigationController?.present(cartVC, animated: true, completion: nil)
+        tableView.blockTableViewDidSelectAtIndexPath = { (indexpath) in
+
+            let orderVC = MAIN_STORYBOARD.instantiateViewController(withIdentifier: "OrderDetailVC") as! OrderDetailVC
+            orderVC.orderId = self.tableView.arrCurrentOrder[indexpath.row].orderId
+            self.navigationController?.pushViewController(orderVC, animated: true)
         }
+//                    let cartVC = MAIN_STORYBOARD.instantiateViewController(withIdentifier: "RatePopupVC") as! RatePopupVC
+//                    cartVC.isRate = true
+//                    cartVC.modalPresentationStyle = .custom
+//                    self.navigationController?.pushViewController(cartVC, animated: true)
+//                    self.navigationController?.present(cartVC, animated: true, completion: nil)
+        self.getmyorderData()
     }
     
+    func getmyorderData() {
+        
+        UtilityClass.showHUD()
+        ApiController.shared.getmyOrders { (success, message, response) in
+            UtilityClass.hideHUD()
+            if success == true {
+                if response != nil {
+                    self.tableView.arrCurrentOrder.removeAll()
+                    self.tableView.arrPastOrder.removeAll()
+                    let myorder = MyOrder.init(fromDictionary: response!)
+                    for obj in myorder.currentOrders{
+                        self.tableView.arrCurrentOrder.append(obj)
+                    }
+                    for obj in myorder.pastOrder{
+                        self.tableView.arrPastOrder.append(obj)
+                    }
+                }
+            }
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
 
     /*
     // MARK: - Navigation

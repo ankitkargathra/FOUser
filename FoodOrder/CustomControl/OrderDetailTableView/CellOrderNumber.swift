@@ -10,6 +10,9 @@ import UIKit
 
 class CellOrderNumber: UITableViewCell {
     
+    @IBOutlet weak var lblTableNo: UILabel!
+    @IBOutlet weak var orderStatus: LabelAveNirNextProBlackGreen!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -21,5 +24,14 @@ class CellOrderNumber: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    func CellOrderNumber(ON:OrderDetails){
+     self.lblTableNo.text = ON.orderQueue
+     self.orderStatus.text = ON.orderStatus
+        if ON.orderStatus == "Order In Kitchen" || ON.orderStatus == "Order Ready to Serve"{
+            self.orderStatus.textColor = ON.orderStatus == "Order In Kitchen" ? UIColor.colorOrange() : UIColor.appGreenColor()
+        }else{
+            self.orderStatus.textColor = ON.orderStatus == "Order Delivered" ? UIColor.appGreenColor() : UIColor.colorRed()
+        }
+    }
     
 }

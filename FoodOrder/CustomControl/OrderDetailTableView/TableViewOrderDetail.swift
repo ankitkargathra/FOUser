@@ -14,12 +14,9 @@ enum OrderDetailCellType {
 
 class TableViewOrderDetail: BaseTableView,UITableViewDelegate,UITableViewDataSource {
 
+    var arrOrderDetails = [OrderDetails]()
     var blockTableViewDidSelectAtIndexPath:((IndexPath)->Void)?
-    
-    var sectionArray: [[OrderDetailCellType]] = [
-        [.OrderWillReady,.OrderNumber,.CompanyLogo],
-        [.Product,.Product,.Total]
-    ]
+    var sectionArray: [[OrderDetailCellType]] = [[.OrderWillReady,.OrderNumber,.CompanyLogo]]
     
     override init(frame: CGRect, style: UITableViewStyle) {
         super.init(frame: frame, style: style)
@@ -64,7 +61,7 @@ class TableViewOrderDetail: BaseTableView,UITableViewDelegate,UITableViewDataSou
     //MARK:
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return sectionArray.count
+        return arrOrderDetails.count == 0 ? 0 : sectionArray.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
@@ -74,23 +71,30 @@ class TableViewOrderDetail: BaseTableView,UITableViewDelegate,UITableViewDataSou
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        
         switch sectionArray[indexPath.section][indexPath.row] {
             case .OrderNumber:
-                let cell = self.dequeueReusableCell(withIdentifier: "CellOrderNumber") as! CellOrderNumber
+                let cell = self.dequeueReusableCell(withIdentifier: "CellOrderNumber", for:indexPath) as! CellOrderNumber
+                cell.CellOrderNumber(ON: self.arrOrderDetails[0])
                 return cell
             case .CompanyLogo:
-                let cell = self.dequeueReusableCell(withIdentifier: "CellProductName") as! CellProductName
+                let cell = self.dequeueReusableCell(withIdentifier: "CellProductName", for:indexPath) as! CellProductName
+                cell.CellProductName(PN: self.arrOrderDetails[0])
                 return cell
-            case .Product:
-                let cell = self.dequeueReusableCell(withIdentifier: "CellProductItem") as! CellProductItem
-                cell.setDashlign()
-                return cell
+        case .Product:
+            print(indexPath.section)
+            print(indexPath.row)
+            let cell = self.dequeueReusableCell(withIdentifier: "CellProductItem", for:indexPath) as! CellProductItem
+            cell.CellProductItem(PI: self.arrOrderDetails[0].items[indexPath.row])
+            cell.setDashlign()
+            return cell
+
             case .Total:
-                let cell = self.dequeueReusableCell(withIdentifier: "CellGrandTotal") as! CellGrandTotal
+                let cell = self.dequeueReusableCell(withIdentifier: "CellGrandTotal", for:indexPath) as! CellGrandTotal
+                cell.CellGrandTotal(GT: self.arrOrderDetails[0])
                 return cell
-        case .OrderWillReady:
-            let cell = self.dequeueReusableCell(withIdentifier: "CellwillReady") as! CellwillReady
+            case .OrderWillReady:
+                let cell = self.dequeueReusableCell(withIdentifier: "CellwillReady", for:indexPath) as! CellwillReady
+                cell.CellwillReady(RY: self.arrOrderDetails[0])
             return cell
         }
     }
@@ -117,7 +121,6 @@ class TableViewOrderDetail: BaseTableView,UITableViewDelegate,UITableViewDataSou
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
         self.deselectRow(at: indexPath, animated: true)
-//        let cell = self.cellForRow(at: indexPath) as! CellVaucher
         if(self.blockTableViewDidSelectAtIndexPath != nil){
             self.blockTableViewDidSelectAtIndexPath!(indexPath)
         }        

@@ -33,6 +33,9 @@
                         <viewLayoutGuide key="safeArea" id="af8-JN-5d3"/>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="tableView" destination="Cf3-WY-4m4" id="QZx-MY-7aA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oIo-PN-EwE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

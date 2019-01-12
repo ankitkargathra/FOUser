@@ -14,6 +14,8 @@ class TableViewMyOrder: BaseTableView,UITableViewDelegate,UITableViewDataSource 
     var blockTableViewRateNowIndexPath:(()->Void)?
     
     var sectionArray = ["Active Orders", "Past Orders"]
+    var arrCurrentOrder = [CurrentOrder]()
+    var arrPastOrder = [PastOrder]()
     
     override init(frame: CGRect, style: UITableViewStyle) {
         super.init(frame: frame, style: style)
@@ -60,21 +62,19 @@ class TableViewMyOrder: BaseTableView,UITableViewDelegate,UITableViewDataSource 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         if section == 0 {
-            return 3
+            return arrCurrentOrder.count
         }
-        return 3
+        return arrPastOrder.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        let cell = self.dequeueReusableCell(withIdentifier: "CellMyOrder") as! CellMyOrder
+        let cell = self.dequeueReusableCell(withIdentifier: "CellMyOrder", for:indexPath) as! CellMyOrder
         if indexPath.section == 0 {
-            cell.lblOrderStatus.textColor = UIColor.appGreenColor()
-            cell.viewRated.isHidden = true
+            cell.setCellDataCurrentOrder(C: self.arrCurrentOrder[indexPath.row])
             cell.btnRateNow.addTarget(self, action: #selector(self.btnRateNowPress), for: .touchUpInside)
         } else {
-            cell.lblOrderStatus.textColor = UIColor.colorRed()
-            cell.viewRated.isHidden = false
+            cell.setCellDataPastOrder(P: self.arrPastOrder[indexPath.row])
         }
         return cell
     }
@@ -88,7 +88,6 @@ class TableViewMyOrder: BaseTableView,UITableViewDelegate,UITableViewDataSource 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
         self.deselectRow(at: indexPath, animated: true)
-//        let cell = self.cellForRow(at: indexPath) as! CellVaucher
         if(self.blockTableViewDidSelectAtIndexPath != nil){
             self.blockTableViewDidSelectAtIndexPath!(indexPath)
         }        
@@ -105,9 +104,9 @@ class TableViewMyOrder: BaseTableView,UITableViewDelegate,UITableViewDataSource 
     }
     
     @objc func btnRateNowPress() {
-        if(self.blockTableViewRateNowIndexPath != nil){
-            self.blockTableViewRateNowIndexPath!()
-        }
+//        if(self.blockTableViewRateNowIndexPath != nil){
+//            self.blockTableViewRateNowIndexPath!()
+//        }
     }
     
 }

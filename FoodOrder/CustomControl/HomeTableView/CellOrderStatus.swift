@@ -22,6 +22,7 @@ class CellOrderStatus: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.selectionStyle = .none
         // Initialization code
     }
 
@@ -31,7 +32,14 @@ class CellOrderStatus: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setCellDataOrderPreparing(isPreparing: Bool) {
+    func setCellDataOrderPreparing(isPreparing: Bool, OS:DSCurrentOrder) {
+        
+        self.lblNameProduct.text = OS.restaurantName
+        self.lblOrderTime.text = Date.convertDate(date: OS.orderDate)
+        self.lblOrderNumber.text = OS.orderQueue
+        if let img = OS.picture {
+            self.imgLogo.kf.setImage(with: URL.init(string: img))
+        }
         
         viewBg.backgroundColor = isPreparing ? UIColor.colorOrange() : UIColor.setOrderGreenColor()
         imgLogo.backgroundColor = isPreparing ? UIColor.customWhiteColor() : UIColor.setBlueFbColor()

@@ -41,5 +41,7 @@ struct URLClass {
     static let khelpSupport             = "\(MAINURL)helpSupport"
     static let korder             = "\(MAINURL)order"
     
-    
+    static let kgetMyOrders           = "\(MAINURL)getMyOrders"
+    static let kgetOrderDetails       = "\(MAINURL)getOrderDetails"
+    static let kgetDashboardDetails       = "\(MAINURL)dashboard"
 }

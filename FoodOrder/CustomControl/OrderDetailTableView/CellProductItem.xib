@@ -98,7 +98,10 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="lblProductName" destination="rAs-8L-Pqu" id="IQ2-Qo-U3i"/>
+                <outlet property="lblProductPrice" destination="610-VM-6TC" id="I8Q-KK-MVp"/>
                 <outlet property="lblProductQty" destination="jRn-Je-B4f" id="Pah-CH-lSC"/>
+                <outlet property="lblProductTotal" destination="3dl-1k-m1L" id="tVw-W1-5yA"/>
             </connections>
             <point key="canvasLocation" x="238" y="51"/>
         </tableViewCell>

@@ -10,8 +10,8 @@ import UIKit
 import AVFoundation
 import QRCodeReader
 
-class HomeVC: BaseVC, QRCodeReaderViewControllerDelegate, UITextFieldDelegate {
-
+class HomeVC: BaseVC{
+    
     //MARK: Variable
     @IBOutlet var btnScan: UIButton!
     @IBOutlet var tblHome: TableViewHome!
@@ -48,8 +48,8 @@ class HomeVC: BaseVC, QRCodeReaderViewControllerDelegate, UITextFieldDelegate {
                 
                 alert.addAction(UIAlertAction(title: "Setting", style: .default, handler: { (_) in
                     DispatchQueue.main.async {
-                        if let settingsURL = URL(string: UIApplicationOpenSettingsURLString) {
-                            UIApplication.shared.openURL(settingsURL)
+                        if let settingsURL = URL(string: "\(UIApplicationOpenSettingsURLString)") {
+                            UIApplication.shared.open(settingsURL, options: [:], completionHandler: nil)
                         }
                     }
                 }))
@@ -68,35 +68,36 @@ class HomeVC: BaseVC, QRCodeReaderViewControllerDelegate, UITextFieldDelegate {
     
     override func viewDidLoad() {
         self.setNavigationButton(type: .MenuCart)
-//        self.addTitleView(title: "Order #568", subtitle: "20 mins ago")
         NotificationCenter.default.post(name: kUpdateUserData, object: nil)
         super.viewDidLoad()
         QRView.isHidden = true
         // Do any additional setup after loading the view.
         
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.init(uptimeNanoseconds: 1)) {
-//            self.pushToOrderDetailVC()
+            //            self.pushToOrderDetailVC()
         }
         DispatchQueue.main.async {
             self.btnScan.setCornerRadius()
             self.btnScan.dropShadow()
-//            self.showPopup()
+            //            self.showPopup()
         }
         txtCode.delegate = self
         
         self.tblHome.blockTableViewDidSelectAtIndexPath = { (indexpath, cellType) in
             
             switch cellType {
-            case .RecentOrder:
+            case .Status:
                 let orderDtl = MAIN_STORYBOARD.instantiateViewController(withIdentifier: "OrderDetailVC") as! OrderDetailVC
+                orderDtl.orderId = self.tblHome.arrCurrentOrder[indexpath.row].orderId
                 self.navigationController?.pushViewController(orderDtl, animated: true)
                 break
             case .Statestic:
                 let orderDtl = MAIN_STORYBOARD.instantiateViewController(withIdentifier: "StatisticsVC") as! StatisticsVC
                 self.navigationController?.pushViewController(orderDtl, animated: true)
                 break
-            case .Status:
+            case .RecentOrder:
                 let orderDtl = MAIN_STORYBOARD.instantiateViewController(withIdentifier: "OrderDetailVC") as! OrderDetailVC
+                orderDtl.orderId = self.tblHome.arrActivity[indexpath.row].orderId
                 self.navigationController?.pushViewController(orderDtl, animated: true)
                 break
             }
@@ -106,6 +107,7 @@ class HomeVC: BaseVC, QRCodeReaderViewControllerDelegate, UITextFieldDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        getDashboardDetails()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -131,22 +133,22 @@ class HomeVC: BaseVC, QRCodeReaderViewControllerDelegate, UITextFieldDelegate {
         reader.didFindCode = { result in
             let code = result.value
             DispatchQueue.main.async {
-//                let alert = UIAlertController(
-//                    title: kAppName,
-//                    message: "",
-//                    preferredStyle: .alert
-//                )
-//                let noAction = UIAlertAction.init(title: "NO", style: .default, handler: { (action) in
-//                    self.reader.startScanning()
-//                })
-//
-//                let okAction = UIAlertAction.init(title: "YES", style: .default, handler: { (action) in
-                    self.couponCode = code
-                    self.getFoodCourtDetail()
-//                })
-//                alert.addAction(noAction)
-//                alert.addAction(okAction)
-//                self.present(alert, animated: true, completion: nil)
+                //                let alert = UIAlertController(
+                //                    title: kAppName,
+                //                    message: "",
+                //                    preferredStyle: .alert
+                //                )
+                //                let noAction = UIAlertAction.init(title: "NO", style: .default, handler: { (action) in
+                //                    self.reader.startScanning()
+                //                })
+                //
+                //                let okAction = UIAlertAction.init(title: "YES", style: .default, handler: { (action) in
+                self.couponCode = code
+                self.getFoodCourtDetail()
+                //                })
+                //                alert.addAction(noAction)
+                //                alert.addAction(okAction)
+                //                self.present(alert, animated: true, completion: nil)
             }
             self.reader.stopScanning()
         }
@@ -154,56 +156,11 @@ class HomeVC: BaseVC, QRCodeReaderViewControllerDelegate, UITextFieldDelegate {
         
     }
     
-    @objc func stopScanning() {
-        reader.stopScanning()
-    }
-    
-    // MARK: - QRCodeReader Delegate Methods
-    
-    func reader(_ reader: QRCodeReaderViewController, didScanResult result: QRCodeReaderResult) {
-        reader.stopScanning()
-    }
-    
-    func reader(_ reader: QRCodeReaderViewController, didSwitchCamera newCaptureDevice: AVCaptureDeviceInput) {
-        print("Switching capturing to: \(newCaptureDevice.device.localizedName)")
-    }
-    
-    func readerDidCancel(_ reader: QRCodeReaderViewController) {
-        reader.stopScanning()
-    }
-    
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        
-        if textField.text?.trim().count != 0 {
-            self.couponCode = self.txtCode.text!
-            self.getFoodCourtDetail()
-        }
-    }
-    
-    
-    func pushToOrderDetailVC() {
-        let cartVC = MAIN_STORYBOARD.instantiateViewController(withIdentifier: "RatePopupVC")
-//        cartVC.modalPresentationStyle = .custom
-        self.navigationController?.pushViewController(cartVC, animated: true)
-//        self.navigationController?.present(cartVC, animated: true, completion: nil)
-    }
-    
-    //MARK: POPUP Method
-    
-    func showPopup() {
-        self.viewPopup.frame = kDeviceFrame
-        self.lblfoodCourtName.text = checkNULL(str: foodCourt.name)
-        self.lblFoodCourtAddress.text = checkNULL(str: foodCourt.address)
-        self.view.addSubview(self.viewPopup)
-        self.stopScanning()
-    }
-    
     @IBAction func hidePopup() {
-//        self.startScanning()
+        //        self.startScanning()
         self.viewPopup.removeFromSuperview()
     }
-
+    
     
     @IBAction func btnProcessedPress() {
         let cartVC = MAIN_STORYBOARD.instantiateViewController(withIdentifier: "FoodCourtVC") as! FoodCourtVC
@@ -223,8 +180,11 @@ class HomeVC: BaseVC, QRCodeReaderViewControllerDelegate, UITextFieldDelegate {
             self.navigationController?.pushViewController(orderDtl, animated: true)
         }
     }
-    
-    func getFoodCourtDetail() {
+}
+
+
+extension HomeVC{
+    func getFoodCourtDetail() {//dashboard
         UtilityClass.showHUD()
         ApiController.shared.getFoodCourt(location_id: "\(self.couponCode!)") { (success, message, response) in
             UtilityClass.hideHUD()
@@ -242,16 +202,113 @@ class HomeVC: BaseVC, QRCodeReaderViewControllerDelegate, UITextFieldDelegate {
                 TOAST.showToast(str: message)
             }
         }
+    }
+    
+    func getDashboardDetails() {//dashboard
+        UtilityClass.showHUD()
+        ApiController.shared.getDashBoardDetails{ (success, message, response) in
+            UtilityClass.hideHUD()
+            if success {
+                if response != nil{
+                    
+                    self.tblHome.arrActivity.removeAll()
+                    self.tblHome.arrRecentScan.removeAll()
+                    self.tblHome.arrCurrentOrder.removeAll()
+                    self.tblHome.sectionArray.removeAll()
+                    let dashboard = DashboardClass.init(fromDictionary: response!)
+                    if dashboard.currentOrders.count == 0{
+                        for obj in dashboard.recentScans{
+                            self.tblHome.arrRecentScan.append(obj)
+                            self.tblHome.sectionArray.append(.Status)
+                        }
+                    }else{
+                        for obj in dashboard.currentOrders{
+                            self.tblHome.arrCurrentOrder.append(obj)
+                            self.tblHome.sectionArray.append(.Status)
+                        }
+                    }
+                    self.tblHome.sectionArray.append(.Statestic)
+                    for obj in dashboard.activities{
+                        self.tblHome.arrActivity.append(obj)
+                        self.tblHome.sectionArray.append(.RecentOrder)
+                    }
+                    DispatchQueue.main.async {
+                        self.tblHome.reloadData()
+                    }
+                    //self.getsectionData()
+                }else{
+                    self.tblHome.arrActivity.removeAll()
+                    self.tblHome.arrRecentScan.removeAll()
+                    self.tblHome.arrCurrentOrder.removeAll()
+                    self.tblHome.sectionArray.removeAll()
+                    print("********** NIL *************")
+                }
+            }
+        }
+    }
+    
+    //    func getsectionData(){
+    //        if self.tblHome.arrCurrentOrder.count == 0{
+    //            for _ in self.tblHome.arrRecentScan{
+    //                self.tblHome.sectionArray.append(.Status)
+    //            }
+    //        }else{
+    //            for _ in self.tblHome.arrCurrentOrder{
+    //                self.tblHome.sectionArray.append(.Status)
+    //            }
+    //        }
+    //        self.tblHome.sectionArray.append(.Statestic)
+    //        for _ in self.tblHome.arrActivity{
+    //            self.tblHome.sectionArray.append(.RecentOrder)
+    //        }
+    //        DispatchQueue.main.async {
+    //            self.tblHome.reloadData()
+    //        }
+    //    }
+    
+    //MARK: POPUP Method
+    
+    func showPopup() {
+        self.viewPopup.frame = kDeviceFrame
+        self.lblfoodCourtName.text = checkNULL(str: foodCourt.name)
+        self.lblFoodCourtAddress.text = checkNULL(str: foodCourt.address)
+        self.view.addSubview(self.viewPopup)
+        self.stopScanning()
+    }
+    
+    func pushToOrderDetailVC() {
+        let cartVC = MAIN_STORYBOARD.instantiateViewController(withIdentifier: "RatePopupVC")
+        //        cartVC.modalPresentationStyle = .custom
+        self.navigationController?.pushViewController(cartVC, animated: true)
+        //        self.navigationController?.present(cartVC, animated: true, completion: nil)
+    }
+    
+    @objc func stopScanning() {
+        reader.stopScanning()
+    }
+}
+extension HomeVC:QRCodeReaderViewControllerDelegate{
+    // MARK: - QRCodeReader Delegate Methods
+    
+    func reader(_ reader: QRCodeReaderViewController, didScanResult result: QRCodeReaderResult) {
+        reader.stopScanning()
+    }
+    
+    func reader(_ reader: QRCodeReaderViewController, didSwitchCamera newCaptureDevice: AVCaptureDeviceInput) {
+        print("Switching capturing to: \(newCaptureDevice.device.localizedName)")
+    }
+    
+    func readerDidCancel(_ reader: QRCodeReaderViewController) {
+        reader.stopScanning()
+    }
+    
+}
+extension HomeVC:UITextFieldDelegate{
+    func textFieldDidEndEditing(_ textField: UITextField) {
         
+        if textField.text?.trim().count != 0 {
+            self.couponCode = self.txtCode.text!
+            self.getFoodCourtDetail()
+        }
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

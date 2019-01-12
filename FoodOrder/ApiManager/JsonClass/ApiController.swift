@@ -213,6 +213,30 @@ class ApiController {
 //        }
     }
     
+    //MARK: ----------------
+    //MARK: Order api
+    //MARK: ----------------
+
+    func getmyOrders(completionHandler:@escaping (_ result: Bool, _ message: String, _ returnData: JSONDICTIONARY?) -> Void)
+    {
+        callWebservice(url: URLClass.kgetMyOrders, methodType: .post, parameter: nil, encoding: JSONEncoding.default, header: true) { (result, message, response) in
+            completionHandler(result, message, response as? JSONDICTIONARY)
+        }
+    }
+    
+    func getOrderDetails(orderId: String, completionHandler:@escaping (_ result: Bool, _ message: String, _ returnData: JSONDICTIONARY?) -> Void)
+    {
+        callWebservice(url: URLClass.kgetOrderDetails, methodType: .post, parameter: ["order_id":orderId], encoding: JSONEncoding.default, header: true) { (result, message, response) in
+            completionHandler(result, message, response as? JSONDICTIONARY)
+        }
+    }
+    
+    func getDashBoardDetails(completionHandler:@escaping (_ result: Bool, _ message: String, _ returnData: JSONDICTIONARY?) -> Void)
+    {
+        callWebservice(url: URLClass.kgetDashboardDetails, methodType: .post, parameter: nil, encoding: JSONEncoding.default, header: true) { (result, message, response) in
+            completionHandler(result, message, response as? JSONDICTIONARY)
+        }
+    }
     
     //MARK: ----------------
     //MARK: Alamofire api controls app api

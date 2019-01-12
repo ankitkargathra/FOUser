@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0506B2D221E7E7D400779C09 /* ItemOrderDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0506B2D021E7E7D300779C09 /* ItemOrderDetails.swift */; };
+		0506B2D321E7E7D400779C09 /* OrderDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0506B2D121E7E7D400779C09 /* OrderDetails.swift */; };
+		05A9B47021EA232B00309BD4 /* RecentScan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A9B46B21EA232900309BD4 /* RecentScan.swift */; };
+		05A9B47121EA232B00309BD4 /* DSCurrentOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A9B46C21EA232900309BD4 /* DSCurrentOrder.swift */; };
+		05A9B47221EA232B00309BD4 /* DSDetailsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A9B46D21EA232A00309BD4 /* DSDetailsItem.swift */; };
+		05A9B47321EA232B00309BD4 /* DSActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A9B46E21EA232A00309BD4 /* DSActivity.swift */; };
+		05A9B47421EA232B00309BD4 /* DashBoardClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A9B46F21EA232B00309BD4 /* DashBoardClass.swift */; };
+		05E1E95D21E6649E001E2AFC /* OrderItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E1E95A21E6649D001E2AFC /* OrderItem.swift */; };
+		05E1E95E21E6649E001E2AFC /* CurrentOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E1E95B21E6649D001E2AFC /* CurrentOrder.swift */; };
+		05E1E95F21E6649E001E2AFC /* MyOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E1E95C21E6649E001E2AFC /* MyOrder.swift */; };
+		05E1E96121E66575001E2AFC /* PastOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E1E96021E66575001E2AFC /* PastOrder.swift */; };
 		1C0438BA21AAF426004529BB /* FoodCourt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C0438B921AAF426004529BB /* FoodCourt.swift */; };
 		1C0438BC21AB0581004529BB /* FoodCourtStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C0438BB21AB0580004529BB /* FoodCourtStore.swift */; };
 		1C0438C421AB0BEA004529BB /* FoodStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C0438BE21AB0BEA004529BB /* FoodStore.swift */; };
@@ -251,6 +262,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0506B2D021E7E7D300779C09 /* ItemOrderDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemOrderDetails.swift; sourceTree = "<group>"; };
+		0506B2D121E7E7D400779C09 /* OrderDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderDetails.swift; sourceTree = "<group>"; };
+		05A9B46B21EA232900309BD4 /* RecentScan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentScan.swift; sourceTree = "<group>"; };
+		05A9B46C21EA232900309BD4 /* DSCurrentOrder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DSCurrentOrder.swift; path = ../../../../../../../Downloads/Source_file_JsonCafe/DSCurrentOrder.swift; sourceTree = "<group>"; };
+		05A9B46D21EA232A00309BD4 /* DSDetailsItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DSDetailsItem.swift; sourceTree = "<group>"; };
+		05A9B46E21EA232A00309BD4 /* DSActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DSActivity.swift; sourceTree = "<group>"; };
+		05A9B46F21EA232B00309BD4 /* DashBoardClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashBoardClass.swift; sourceTree = "<group>"; };
+		05E1E95A21E6649D001E2AFC /* OrderItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderItem.swift; sourceTree = "<group>"; };
+		05E1E95B21E6649D001E2AFC /* CurrentOrder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentOrder.swift; sourceTree = "<group>"; };
+		05E1E95C21E6649E001E2AFC /* MyOrder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyOrder.swift; sourceTree = "<group>"; };
+		05E1E96021E66575001E2AFC /* PastOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastOrder.swift; sourceTree = "<group>"; };
 		1C0438B921AAF426004529BB /* FoodCourt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCourt.swift; sourceTree = "<group>"; };
 		1C0438BB21AB0580004529BB /* FoodCourtStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCourtStore.swift; sourceTree = "<group>"; };
 		1C0438BE21AB0BEA004529BB /* FoodStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodStore.swift; sourceTree = "<group>"; };
@@ -816,6 +838,17 @@
 				1C0438BB21AB0580004529BB /* FoodCourtStore.swift */,
 				1C0438CA21AC0EE8004529BB /* Notification.swift */,
 				1C24157E21D4ACBC00580BB2 /* Voucher.swift */,
+				05E1E95B21E6649D001E2AFC /* CurrentOrder.swift */,
+				05E1E96021E66575001E2AFC /* PastOrder.swift */,
+				05E1E95C21E6649E001E2AFC /* MyOrder.swift */,
+				05E1E95A21E6649D001E2AFC /* OrderItem.swift */,
+				0506B2D021E7E7D300779C09 /* ItemOrderDetails.swift */,
+				0506B2D121E7E7D400779C09 /* OrderDetails.swift */,
+				05A9B46C21EA232900309BD4 /* DSCurrentOrder.swift */,
+				05A9B46F21EA232B00309BD4 /* DashBoardClass.swift */,
+				05A9B46D21EA232A00309BD4 /* DSDetailsItem.swift */,
+				05A9B46B21EA232900309BD4 /* RecentScan.swift */,
+				05A9B46E21EA232A00309BD4 /* DSActivity.swift */,
 				1C24156D21D25BF100580BB2 /* AddOns */,
 				1C0438BD21AB0BEA004529BB /* FoodStore */,
 			);
@@ -1461,6 +1494,7 @@
 				1CBA582F2181EAA90087385F /* VoucherDetailVC.swift in Sources */,
 				1CF1134B214E368E00E57D69 /* IQBarButtonItem.m in Sources */,
 				1CF11353214E368E00E57D69 /* IQUIScrollView+Additions.m in Sources */,
+				05A9B47421EA232B00309BD4 /* DashBoardClass.swift in Sources */,
 				1C6A37C521722C6A002450F5 /* TableViewHome.swift in Sources */,
 				1C8A4451217A22DD00BAFF24 /* CellHeader.swift in Sources */,
 				1C785F4C216CB4E6002905CB /* SideMenuVC.swift in Sources */,
@@ -1470,6 +1504,8 @@
 				1C785F47216CB4E6002905CB /* LoginVC.swift in Sources */,
 				1CF11335214E368E00E57D69 /* Alert.swift in Sources */,
 				1C4E3796219D410900389AE7 /* LoginWithFB.swift in Sources */,
+				05E1E96121E66575001E2AFC /* PastOrder.swift in Sources */,
+				05E1E95F21E6649E001E2AFC /* MyOrder.swift in Sources */,
 				1CF1132B214E368E00E57D69 /* LoginTextField.swift in Sources */,
 				1CBA58362181EC330087385F /* CellApplyVaucherDetail.swift in Sources */,
 				1CCC90FF21857D970007212D /* CellPaymentType.swift in Sources */,
@@ -1507,6 +1543,7 @@
 				1CF11339214E368E00E57D69 /* AKTextField.swift in Sources */,
 				1C24157321D25BF200580BB2 /* AddOns.swift in Sources */,
 				1C7CF155219B2DC200DF9296 /* LoggedinUser.swift in Sources */,
+				05A9B47321EA232B00309BD4 /* DSActivity.swift in Sources */,
 				1CF11331214E368E00E57D69 /* Constant.swift in Sources */,
 				1CF1133F214E368E00E57D69 /* Devices.swift in Sources */,
 				1C785F46216CB4E6002905CB /* MyOrderVC.swift in Sources */,
@@ -1529,6 +1566,7 @@
 				1C297CD5214E250400C75F24 /* AppDelegate.swift in Sources */,
 				1C6A37BE21720975002450F5 /* HeaderCell.swift in Sources */,
 				1C130023216B834000E9766E /* CellNotificaiton.swift in Sources */,
+				05A9B47121EA232B00309BD4 /* DSCurrentOrder.swift in Sources */,
 				1C3CDCD4218A26560072A24E /* StatisticsVC.swift in Sources */,
 				1CF1133E214E368E00E57D69 /* StatusBarStyle.swift in Sources */,
 				1C785F57216D26C6002905CB /* CellMyOrder.swift in Sources */,
@@ -1553,14 +1591,17 @@
 				1CF11337214E368E00E57D69 /* CardView.swift in Sources */,
 				1CBA582B2181DA740087385F /* CellApplyVaucher.swift in Sources */,
 				1CF11349214E368E00E57D69 /* IQToolbar.m in Sources */,
+				0506B2D321E7E7D400779C09 /* OrderDetails.swift in Sources */,
 				1C6A37B62171FE20002450F5 /* RoundImageView.swift in Sources */,
 				1CF11354214E368E00E57D69 /* IQUIView+Hierarchy.m in Sources */,
 				1C0438C621AB0BEA004529BB /* MenuData.swift in Sources */,
 				1CE39E5E215642A800662F8D /* RaisePlaceholder.swift in Sources */,
 				1C4A1018217CB0F000746266 /* FoodCourtVC.swift in Sources */,
 				1CF11328214E368E00E57D69 /* LabelNeueLight.swift in Sources */,
+				05E1E95D21E6649E001E2AFC /* OrderItem.swift in Sources */,
 				1C8A443A217A032200BAFF24 /* CellStatistics.swift in Sources */,
 				1CF11334214E368E00E57D69 /* Label.swift in Sources */,
+				05E1E95E21E6649E001E2AFC /* CurrentOrder.swift in Sources */,
 				1C6A7BB9219050A200537651 /* CellFoodSize.swift in Sources */,
 				1CF11347214E368E00E57D69 /* JTProgressHUD.m in Sources */,
 				1C4A1023217CB1DB00746266 /* CellFoodCourtHeader.swift in Sources */,
@@ -1584,17 +1625,20 @@
 				1CE9C77D218A311B00DDBA98 /* CellDateSelect.swift in Sources */,
 				1C785F4E216CB4E6002905CB /* HomeVC.swift in Sources */,
 				1C6A7BBA219050A200537651 /* TableViewFoodSize.swift in Sources */,
+				0506B2D221E7E7D400779C09 /* ItemOrderDetails.swift in Sources */,
 				1C48254C21AFEAC0000802E9 /* ProfileData.swift in Sources */,
 				1CCC911E2185D69F0007212D /* CellSpecialInst.swift in Sources */,
 				1C4A0FF3217AF09200746266 /* CellwillReady.swift in Sources */,
 				1C68E48C21A30F9E0027774C /* AlertWithButtons.swift in Sources */,
 				1CF11336214E368E00E57D69 /* UserDefaultClass.swift in Sources */,
+				05A9B47221EA232B00309BD4 /* DSDetailsItem.swift in Sources */,
 				1CF1134F214E368E00E57D69 /* IQKeyboardManager.m in Sources */,
 				1C785F4B216CB4E6002905CB /* VouchersVC.swift in Sources */,
 				1CF1134C214E368E00E57D69 /* IQUIView+IQKeyboardToolbar.m in Sources */,
 				1CCC91122185B3C20007212D /* CellMyCartBrand.swift in Sources */,
 				1CCC911B2185B96A0007212D /* CellApplyVoucher.swift in Sources */,
 				1CF11343214E368E00E57D69 /* GradientImage.swift in Sources */,
+				05A9B47021EA232B00309BD4 /* RecentScan.swift in Sources */,
 				1C24157F21D4ACBC00580BB2 /* Voucher.swift in Sources */,
 				1C8A444D217A22DD00BAFF24 /* CellOrderNumber.swift in Sources */,
 				1CCC91222185D9750007212D /* CellGrandTotalCart.swift in Sources */,

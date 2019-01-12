@@ -11,19 +11,30 @@ import UIKit
 class CellProductItem: UITableViewCell {
 
     @IBOutlet weak var lblProductQty: LabelAveNirNextProBlackMeduim!
+    @IBOutlet weak var lblProductPrice: LabelAveNirNextProBlackMeduim!
+    @IBOutlet weak var lblProductName: LabelAveNirNextProBlackMeduim!
+    @IBOutlet weak var lblProductTotal: LabelAveNirNextProBlackMeduim!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         lblProductQty.layer.borderColor = UIColor.colorGray().cgColor
         lblProductQty.layer.borderWidth = 0.5;
         lblProductQty.clipsToBounds = true;
-        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func CellProductItem(PI:ItemOrderDetails){
+    
+        self.lblProductName.text = PI.itemName
+        self.lblProductQty.text = PI.quantity
+        self.lblProductPrice.text = PI.itemPrice.add$Tag()
+        self.lblProductTotal.text = "\(Double(PI.quantity)! * Double(PI.itemPrice)!)".add$Tag()
     }
     
     func setDashlign() {

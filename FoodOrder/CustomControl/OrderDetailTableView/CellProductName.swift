@@ -10,7 +10,9 @@ import UIKit
 
 class CellProductName: UITableViewCell {
 
-    
+    @IBOutlet weak var lblRestaurantName: LabelAveNirNextProBlackMeduim!
+    @IBOutlet weak var lblRestaurantAddress: LabelAveNirNextProGrayMedium!
+    @IBOutlet weak var imgView: RoundImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,4 +25,11 @@ class CellProductName: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    func CellProductName(PN:OrderDetails){
+        self.lblRestaurantName.text = PN.restaurantName
+        self.lblRestaurantAddress.text = PN.restaurantAddress
+        if let img = PN.picture {
+            self.imgView.kf.setImage(with: URL.init(string: img))
+        }
+    }
 }
