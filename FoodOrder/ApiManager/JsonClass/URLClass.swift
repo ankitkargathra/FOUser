@@ -44,4 +44,6 @@ struct URLClass {
     static let kgetMyOrders           = "\(MAINURL)getMyOrders"
     static let kgetOrderDetails       = "\(MAINURL)getOrderDetails"
     static let kgetDashboardDetails       = "\(MAINURL)dashboard"
+    static let kratingreview           = "\(MAINURL)review"
+    static let kgetStatistics           = "\(MAINURL)statistics"
 }

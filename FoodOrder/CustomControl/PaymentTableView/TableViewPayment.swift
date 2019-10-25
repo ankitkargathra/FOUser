@@ -18,7 +18,7 @@ class TableViewPayment: BaseTableView,UITableViewDelegate,UITableViewDataSource 
     
     var arrSection = ["Table NUmber","Payment Mathod"]
     var arrCelltype:[[PaymentcellType]] = [[.CellSelectOrder],[.CellPayment,.CellPayment]]
-    var arrTitle = ["Credit / Debit Card","Cash On Delivery"]
+    var arrTitle = ["Credit / Debit Card","Cash on Delivery"]
     var arrSubTitle = ["Enter card details to pay with your card","Please keep excat change handy to help us serve you better"]
     var arrImg = ["card.pdf","cash.pdf"]
     

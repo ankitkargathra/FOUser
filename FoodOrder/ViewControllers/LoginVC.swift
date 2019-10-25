@@ -47,7 +47,6 @@ class LoginVC: BaseVC {
     
     @IBAction func btnSignInPress() {
         
-        
         if txtEmail.validateTextFiled(validationMesage: .invalidEmail) {
             if txtPassword.validateTextFiled(validationMesage: .invalidPassLength) {
                 dismissKeyboard()

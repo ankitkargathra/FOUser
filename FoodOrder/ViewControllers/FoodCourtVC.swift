@@ -12,6 +12,7 @@ class FoodCourtVC: BaseVC {
 
     @IBOutlet var tblFoodCourtList: FoodCourtTableView!
     var foodCourt: FoodCourt!
+    var foodCourtId:String!
     override func viewDidLoad() {
         self.setNavigationButton(type: .BackCart)
         super.viewDidLoad()
@@ -25,11 +26,10 @@ class FoodCourtVC: BaseVC {
         self.getCourtDetail()
     }
     
-    
     func getCourtDetail() {
-        
+
         UtilityClass.showHUD()
-        ApiController.shared.getFoodCourtStores(food_court_id: foodCourt.id!) { (success, message, response) in
+        ApiController.shared.getFoodCourtStores(food_court_id: foodCourtId) { (success, message, response) in
             UtilityClass.hideHUD()
             if success {
                 if response != nil {
@@ -42,7 +42,6 @@ class FoodCourtVC: BaseVC {
         }
     }
     
-
     /*
     // MARK: - Navigation
 

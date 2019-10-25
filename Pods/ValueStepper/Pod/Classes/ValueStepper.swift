@@ -226,7 +226,8 @@ private enum Button: Int {
         let sliceHeight = bounds.height
         let thickness = 1.0 as CGFloat
         let iconSize: CGFloat = sliceHeight * 0.4
-
+        
+        valueLabel.font = UIFont(name:"AvenirNext-Bold" , size: 13)
         valueLabel.backgroundColor = backgroundLabelColor
         valueLabel.textColor = labelTextColor
         

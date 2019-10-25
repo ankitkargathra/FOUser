@@ -84,6 +84,7 @@ class HomeVC: BaseVC{
         txtCode.delegate = self
         
         self.tblHome.blockTableViewDidSelectAtIndexPath = { (indexpath, cellType) in
+
             
             switch cellType {
             case .Status:
@@ -92,17 +93,37 @@ class HomeVC: BaseVC{
                 self.navigationController?.pushViewController(orderDtl, animated: true)
                 break
             case .Statestic:
-                let orderDtl = MAIN_STORYBOARD.instantiateViewController(withIdentifier: "StatisticsVC") as! StatisticsVC
-                self.navigationController?.pushViewController(orderDtl, animated: true)
+                let statasticvc = MAIN_STORYBOARD.instantiateViewController(withIdentifier: "StatisticsVC") as! StatisticsVC
+                self.navigationController?.pushViewController(statasticvc, animated: true)
                 break
             case .RecentOrder:
                 let orderDtl = MAIN_STORYBOARD.instantiateViewController(withIdentifier: "OrderDetailVC") as! OrderDetailVC
-                orderDtl.orderId = self.tblHome.arrActivity[indexpath.row].orderId
+                if self.tblHome.arrCurrentOrder.count == 0{
+                 orderDtl.orderId = self.tblHome.arrActivity[indexpath.row-2].orderId
+                }else{
+                 orderDtl.orderId = self.tblHome.arrActivity[indexpath.row-self.tblHome.arrCurrentOrder.count-1].orderId
+                }
                 self.navigationController?.pushViewController(orderDtl, animated: true)
                 break
             }
-            
         }
+        
+        self.tblHome.blockTableViewRateNowIndexPath = { (sender) in
+            let cartVC = MAIN_STORYBOARD.instantiateViewController(withIdentifier: "RatePopupVC") as! RatePopupVC
+            cartVC.isRate = true
+            cartVC.isUpdate = true
+            cartVC.isFromList = true
+            cartVC.orderId = self.tblHome.arrActivity[sender].orderId
+            cartVC.restautantId = self.tblHome.arrActivity[sender].restaurentId
+            cartVC.restautantName = self.tblHome.arrActivity[sender].restaurantName
+            cartVC.restaurantAddress = self.tblHome.arrActivity[sender].restaurantAddress
+            cartVC.picture = self.tblHome.arrActivity[sender].picture
+            cartVC.delegatemyHome = self
+            cartVC.modalPresentationStyle = .custom
+            self.navigationController?.present(cartVC, animated: true, completion: nil)
+        }
+        NotificationCenter.default.removeObserver(self, name:NSNotification.Name(rawValue: "getorderNow"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(OrderNow), name: NSNotification.Name(rawValue: "getorderNow"), object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -164,7 +185,8 @@ class HomeVC: BaseVC{
     
     @IBAction func btnProcessedPress() {
         let cartVC = MAIN_STORYBOARD.instantiateViewController(withIdentifier: "FoodCourtVC") as! FoodCourtVC
-        cartVC.foodCourt = self.foodCourt
+        cartVC.foodCourtId = self.foodCourt.id!
+//        cartVC.foodCourt = self.foodCourt
         self.navigationController?.pushViewController(cartVC, animated: true)
     }
     
@@ -210,17 +232,20 @@ extension HomeVC{
             UtilityClass.hideHUD()
             if success {
                 if response != nil{
-                    
                     self.tblHome.arrActivity.removeAll()
                     self.tblHome.arrRecentScan.removeAll()
                     self.tblHome.arrCurrentOrder.removeAll()
                     self.tblHome.sectionArray.removeAll()
                     let dashboard = DashboardClass.init(fromDictionary: response!)
+                    if dashboard.currentOrders.count == 0 && dashboard.activities.count == 0 && dashboard.recentScans.count == 0{
+                        self.tblHome.isHidden = true
+                        return
+                    }
                     if dashboard.currentOrders.count == 0{
                         for obj in dashboard.recentScans{
                             self.tblHome.arrRecentScan.append(obj)
-                            self.tblHome.sectionArray.append(.Status)
                         }
+                        self.tblHome.sectionArray.append(.Status)
                     }else{
                         for obj in dashboard.currentOrders{
                             self.tblHome.arrCurrentOrder.append(obj)
@@ -237,34 +262,19 @@ extension HomeVC{
                     }
                     //self.getsectionData()
                 }else{
-                    self.tblHome.arrActivity.removeAll()
-                    self.tblHome.arrRecentScan.removeAll()
-                    self.tblHome.arrCurrentOrder.removeAll()
-                    self.tblHome.sectionArray.removeAll()
-                    print("********** NIL *************")
+                    self.tblHome.isHidden = true
                 }
+            }else{
+                self.tblHome.isHidden = true
             }
         }
     }
     
-    //    func getsectionData(){
-    //        if self.tblHome.arrCurrentOrder.count == 0{
-    //            for _ in self.tblHome.arrRecentScan{
-    //                self.tblHome.sectionArray.append(.Status)
-    //            }
-    //        }else{
-    //            for _ in self.tblHome.arrCurrentOrder{
-    //                self.tblHome.sectionArray.append(.Status)
-    //            }
-    //        }
-    //        self.tblHome.sectionArray.append(.Statestic)
-    //        for _ in self.tblHome.arrActivity{
-    //            self.tblHome.sectionArray.append(.RecentOrder)
-    //        }
-    //        DispatchQueue.main.async {
-    //            self.tblHome.reloadData()
-    //        }
-    //    }
+    @objc func OrderNow(){
+        let cartVC = MAIN_STORYBOARD.instantiateViewController(withIdentifier: "FoodCourtVC") as! FoodCourtVC
+        cartVC.foodCourtId = self.tblHome.arrRecentScan[AppDel.FoodCourtId].foodCourtId
+        self.navigationController?.pushViewController(cartVC, animated: true)
+    }
     
     //MARK: POPUP Method
     
@@ -287,6 +297,7 @@ extension HomeVC{
         reader.stopScanning()
     }
 }
+
 extension HomeVC:QRCodeReaderViewControllerDelegate{
     // MARK: - QRCodeReader Delegate Methods
     
@@ -301,8 +312,8 @@ extension HomeVC:QRCodeReaderViewControllerDelegate{
     func readerDidCancel(_ reader: QRCodeReaderViewController) {
         reader.stopScanning()
     }
-    
 }
+
 extension HomeVC:UITextFieldDelegate{
     func textFieldDidEndEditing(_ textField: UITextField) {
         

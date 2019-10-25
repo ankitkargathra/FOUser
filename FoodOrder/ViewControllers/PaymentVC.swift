@@ -23,12 +23,14 @@ class PaymentVC: BaseVC {
                     let cardVC = MAIN_STORYBOARD.instantiateViewController(withIdentifier: "CardDetailVC") as! CardDetailVC
                     self.navigationController?.pushViewController(cardVC, animated: true)
                 } else {
-                    
-                    if CartData.shared.table_number == nil || CartData.shared.table_number?.trim().count == 0 {
-                        Alert.showAlertWith(message: "Please enter table number.")
-                        return
+                    if CartData.shared.order_type == "1"{
+                        if CartData.shared.table_number == nil || CartData.shared.table_number?.trim().count == 0 {
+                            Alert.showAlertWith(message: "Please enter table number.")
+                            return
+                        }
+                        CartData.shared.table_number = CartData.shared.table_number!.trim()
                     }
-                    CartData.shared.table_number = CartData.shared.table_number!.trim()
+                    CartData.shared.payment_method = "Cash on Delivery"
                     let alertController = UIAlertController.init(title: kAppName, message: "Are you sure you want to confirm your order.", preferredStyle: .alert)
                     let cancelAction = UIAlertAction.init(title: "NO", style: UIAlertActionStyle.cancel, handler: nil)
                     let okAction = UIAlertAction.init(title: "YES", style: UIAlertActionStyle.default, handler: { (action) in

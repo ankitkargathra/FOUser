@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kdx-zh-yXU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kdx-zh-yXU">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -144,14 +144,14 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Your &amp; review review will impact the restaurant's overall rating and will help others make better choice." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ua5-wK-Mtk">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Your review will impact the restaurant's overall rating and will help others make better choice." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ua5-wK-Mtk">
                                         <rect key="frame" x="20" y="247" width="372" height="53"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="53" id="Yiv-dV-TlV"/>
                                         </constraints>
                                         <color key="textColor" red="0.37647058820000001" green="0.41568627450000001" blue="0.4549019608" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="11"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="13"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jsk-ju-XoE">
@@ -170,6 +170,9 @@
                                         <state key="normal" title="Submit">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="btnSubmitPress:" destination="kdx-zh-yXU" eventType="touchUpInside" id="Aeg-7Y-ITT"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -341,12 +344,16 @@
                     </view>
                     <connections>
                         <outlet property="bottomConstrint" destination="kCx-kY-AjH" id="3a6-3C-Lqn"/>
+                        <outlet property="imgRestautant" destination="RFa-L9-5xo" id="lmR-LM-AY1"/>
                         <outlet property="imgVeg" destination="KVE-Se-d4z" id="An6-ec-KFD"/>
                         <outlet property="lblAddItem" destination="nNh-8Q-e0G" id="li6-gV-5HH"/>
                         <outlet property="lblName" destination="OhS-xG-TSo" id="M3f-dc-iQT"/>
                         <outlet property="lblPrice" destination="jyM-ct-zis" id="AXL-L8-H9J"/>
                         <outlet property="lblPricePlusAddonPrice" destination="gjG-uP-9B7" id="MBu-0W-GFr"/>
+                        <outlet property="lblRestautantAddress" destination="0j7-dm-d8y" id="GfD-bX-ePD"/>
+                        <outlet property="lblRestautantName" destination="LHf-1l-nA8" id="wGj-nG-83y"/>
                         <outlet property="tableView" destination="Xwm-xI-vtc" id="c9Y-gK-cKh"/>
+                        <outlet property="txtViewReview" destination="ua5-wK-Mtk" id="LFN-Oq-J1k"/>
                         <outlet property="viewRate" destination="YW5-6h-Nlm" id="AIe-l0-QWr"/>
                         <outlet property="viewSize" destination="ZWJ-c6-epV" id="qPL-0f-Qcx"/>
                         <outletCollection property="btnRates" destination="bpa-QZ-DLg" collectionClass="NSMutableArray" id="2Ht-kN-Idy"/>

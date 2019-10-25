@@ -19,6 +19,16 @@
                 <rect key="frame" x="0.0" y="0.0" width="414" height="189.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="BBj-23-rIj">
+                        <rect key="frame" x="19" y="11" width="376" height="178.5"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="4wg-pz-c44">
+                            <size key="itemSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                    </collectionView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pxJ-AC-QCk">
                         <rect key="frame" x="18.5" y="12" width="377" height="177.5"/>
                         <subviews>
@@ -58,7 +68,8 @@
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uXz-74-ucj" customClass="LabelAveNirNextProBoldWhite" customModule="FoodOrder" customModuleProvider="target">
                                 <rect key="frame" x="17" y="58.5" width="172" height="75.5"/>
-                                <string key="text">Your order is readyto serve</string>
+                                <string key="text">Your order is ready
+to serve</string>
                                 <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="18.799999237060547"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -136,10 +147,14 @@
                     </imageView>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="BBj-23-rIj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="19" id="0Ds-kP-Y1L"/>
                     <constraint firstAttribute="trailing" secondItem="TOC-ZU-J29" secondAttribute="trailing" constant="33" id="1k5-qT-h4s"/>
+                    <constraint firstItem="BBj-23-rIj" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="1mo-ub-RZS"/>
                     <constraint firstItem="TOC-ZU-J29" firstAttribute="centerY" secondItem="pxJ-AC-QCk" secondAttribute="centerY" id="GYH-QM-RKn"/>
                     <constraint firstAttribute="bottom" secondItem="3VQ-mE-oz5" secondAttribute="bottom" constant="9.5" id="J3Y-g3-msD"/>
+                    <constraint firstAttribute="trailing" secondItem="BBj-23-rIj" secondAttribute="trailing" constant="19" id="Nsr-I5-xod"/>
                     <constraint firstItem="pxJ-AC-QCk" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="Sct-Zy-XBj"/>
+                    <constraint firstAttribute="bottom" secondItem="BBj-23-rIj" secondAttribute="bottom" id="ZIR-rV-e1F"/>
                     <constraint firstItem="pxJ-AC-QCk" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="377.3:414" id="ctT-Sk-Urk"/>
                     <constraint firstAttribute="trailing" secondItem="3VQ-mE-oz5" secondAttribute="trailing" constant="20" id="dgV-dT-b48"/>
                     <constraint firstItem="3VQ-mE-oz5" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="-10" id="lt4-44-g2u"/>
@@ -153,6 +168,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="btnViewDetails" destination="Dp7-1y-fqp" id="XN9-iP-Aao"/>
+                <outlet property="collectionView" destination="BBj-23-rIj" id="dsJ-Ar-dJb"/>
                 <outlet property="imgChef" destination="3VQ-mE-oz5" id="JNI-We-THV"/>
                 <outlet property="imgHot_pot" destination="TOC-ZU-J29" id="D8P-P9-PXo"/>
                 <outlet property="imgLogo" destination="2r7-b0-3Ak" id="1F0-c7-Od7"/>

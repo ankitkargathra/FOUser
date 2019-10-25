@@ -16,8 +16,13 @@ enum CellStatistic {
 class TableViewStatestic: BaseTableView,UITableViewDelegate,UITableViewDataSource {
 
     var blockTableViewDidSelectAtIndexPath:((IndexPath)->Void)?
+    var blockTableViebtnNextPreviousAtIndexPath:((Int)->Void)?
     
-    var arrCateory:[[CellStatistic]] = [[.Chart],[.StoreSpending,.StoreSpending,.StoreSpending]]
+    var arrOrderStatistics = [RestaurentWise]()
+    var arrCateory:[[CellStatistic]] = []
+    var TotalAmount:Double!
+    var arrAmount:[Int] = []
+    var date = Date()
     
     override init(frame: CGRect, style: UITableViewStyle) {
         super.init(frame: frame, style: style)
@@ -65,38 +70,41 @@ class TableViewStatestic: BaseTableView,UITableViewDelegate,UITableViewDataSourc
         return arrCateory[section].count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
-    {
-        
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         switch arrCateory[indexPath.section][indexPath.row] {
         case .Chart:
             let cell = self.dequeueReusableCell(withIdentifier: "CellDateSelect") as! CellDateSelect
+            cell.btnPrevious.tag = 1
+            cell.btnNext.tag = 2
+            cell.btnPrevious.addTarget(self, action: #selector(self.btnNextPreviousPress(sender:)), for: .touchUpInside)
+            cell.btnNext.addTarget(self, action: #selector(self.btnNextPreviousPress(sender:)), for: .touchUpInside)
+            if(self.arrOrderStatistics.count == 0){
+                cell.removeStaticsData(date: date)
+                return cell
+            }
+            let dataEntries = cell.generateDataEntries(index:indexPath.row, RO: self.arrOrderStatistics[indexPath.row], amount:String(TotalAmount), max:self.arrAmount.max()!, date:date)
+            cell.basicBarChart.dataEntries = dataEntries
             return cell
-            
         case .StoreSpending:
             let cell = self.dequeueReusableCell(withIdentifier: "CellTotalSpending") as! CellTotalSpending
+            cell.cellTotalSpendingData(RW: self.arrOrderStatistics[indexPath.row-5])
             return cell
         }
-        
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
-    {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat{
         if indexPath.section == 0 {
-            return getProportionalWidth(width: 493)
+            return getProportionalWidth(width: 530)
         } else {
             return getProportionalWidth(width: 58.3)
         }
     }
     
     //MARK:- DID SELECT
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
-    {
-//        let cell = self.cellForRow(at: indexPath) as! CellVaucher
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         if(self.blockTableViewDidSelectAtIndexPath != nil){
             self.blockTableViewDidSelectAtIndexPath!(indexPath)
         }
-        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -104,15 +112,18 @@ class TableViewStatestic: BaseTableView,UITableViewDelegate,UITableViewDataSourc
         cell.lblTitle.text = "Other Stores Spending".uppercased()
         return cell
     }
+    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if section == 0 {
             return 0
         } else {
             return getProportionalWidth(width: 51.7)
         }
-        
     }
     
+    @objc func btnNextPreviousPress(sender:UIButton) {
+        self.blockTableViebtnNextPreviousAtIndexPath!(sender.tag)
+    }
 }
 
 

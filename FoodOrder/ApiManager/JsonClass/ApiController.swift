@@ -41,7 +41,7 @@ class ApiController {
     func forgotPassword(email: String, completionHandler:@escaping (_ result: Bool, _ message: String, _ returnData: JSONDICTIONARY?) -> Void)
     {
         
-        callWebservice(url: URLClass.kForgotPassword, methodType: .post, parameter: ["email":email], encoding: JSONEncoding.default, header: false) { (result, message, response) in
+        callWebservice(url: URLClass.kForgotPassword, methodType: .post, parameter: ["email":email,"user_type":"user"], encoding: JSONEncoding.default, header: false) { (result, message, response) in
             completionHandler(result, message, response as? JSONDICTIONARY)
         }
     }
@@ -180,9 +180,7 @@ class ApiController {
     //MARK: Place Order
     //MARK: ----------------
     
-    func sendOrder(cart:JSONDICTIONARY,completionHandler:@escaping (_ result: Bool, _ message: String, _ returnData: JSONDICTIONARY?) -> Void)
-    {
-        
+    func sendOrder(cart:JSONDICTIONARY,completionHandler:@escaping (_ result: Bool, _ message: String, _ returnData: JSONDICTIONARY?) -> Void){
         Alamofire.request(URLClass.korder, method: .post, parameters: cart, encoding: JSONEncoding.prettyPrinted, headers: LoggedinUser.shared.getAuth()).responseJSON { (response) in
             DispatchQueue.main.async {
                 
@@ -214,7 +212,7 @@ class ApiController {
     }
     
     //MARK: ----------------
-    //MARK: Order api
+    //MARK: Order & rating review api
     //MARK: ----------------
 
     func getmyOrders(completionHandler:@escaping (_ result: Bool, _ message: String, _ returnData: JSONDICTIONARY?) -> Void)
@@ -238,13 +236,27 @@ class ApiController {
         }
     }
     
+    func ratingReview(Params:JSONDICTIONARY, completionHandler:@escaping (_ result: Bool, _ message: String, _ returnData: JSONDICTIONARY?) -> Void)
+    {
+        callWebservice(url: URLClass.kratingreview, methodType: .post, parameter: Params, encoding: JSONEncoding.default, header: true) { (result, message, response) in
+            completionHandler(result, message, response as? JSONDICTIONARY)
+        }
+    }
+    
+    func getStatisticsData(Params: JSONDICTIONARY, completionHandler:@escaping (_ result: Bool, _ message: String, _ returnData: JSONDICTIONARY?) -> Void)
+    {
+        callWebservice(url: URLClass.kgetStatistics, methodType: .post, parameter: Params, encoding: JSONEncoding.default, header: true) { (result, message, response) in
+            completionHandler(result, message, response as? JSONDICTIONARY)
+        }
+    }
+    
     //MARK: ----------------
     //MARK: Alamofire api controls app api
     //MARK: ----------------
 
     func callWebservice(url: String, methodType: HTTPMethod, parameter: JSONDICTIONARY?, encoding: ParameterEncoding, header: Bool = true, completion: @escaping (_ result: Bool, _ message: String, _ returnData: Any?) -> ()) {
         
-        print("Request -> \(parameter)")
+        print("Request -> \(String(describing: parameter))")
         
         Alamofire.upload(multipartFormData:{ multipartFormData in
             
@@ -271,7 +283,7 @@ class ApiController {
                             case .success(let upload, _, _):
                                 upload.responseJSON { response in
                                     DispatchQueue.main.async {
-                                        print(response.result.value)
+                                        print(response.result.value ?? "")
                                         if let data = response.result.value as? JSONDICTIONARY {
                                             
                                             print("Response = \(data)")
@@ -287,8 +299,8 @@ class ApiController {
                                             }
                                             
                                         } else {
-                                            completion(false,"Something went wrong!",nil)
-                                            TOAST.showToast(str: "Something went wrong!")
+                                            completion(false,response.error?.localizedDescription ?? "",nil)
+                                            TOAST.showToast(str: response.error?.localizedDescription ?? "")
                                         }
                                     }
                                 }

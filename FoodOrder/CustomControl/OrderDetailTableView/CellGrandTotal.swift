@@ -33,9 +33,9 @@ class CellGrandTotal: UITableViewCell {
     
     func CellGrandTotal(GT:OrderDetails){
        
-        self.lblItemTotal.text = GT.grandTotal.add$Tag()
+        self.lblItemTotal.text = GT.subTotal.add$Tag()
         self.lblTax.text = GT.tax.add$Tag()
-        self.lblSubTotal.text = GT.subTotal.add$Tag()
+        self.lblSubTotal.text = GT.grandTotal.add$Tag()
         self.lblPaymentMethod.text = GT.paymentMethod
     }
     

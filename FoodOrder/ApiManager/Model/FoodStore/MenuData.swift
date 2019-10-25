@@ -24,6 +24,7 @@ class MenuData : NSObject, NSCoding{
     var addedInCartValue: Int! = 0
     var totalPrice: Double! = 0
     var customizeOptions: AddOns!
+    var isrecommended: String!
     /**
      * Instantiate the instance using the passed dictionary values to set the properties values
      */
@@ -43,6 +44,7 @@ class MenuData : NSObject, NSCoding{
         restaurentId = dictionary["restaurent_id"] as? String
         updateAt = dictionary["update_at"] as? String
         customizeOption = dictionary["customize_option"] as? Bool
+        isrecommended = dictionary["is_recommended"] as? String
         
         if let totalPrice = dictionary["totalPrice"] as? Double {
             self.totalPrice = totalPrice
@@ -112,6 +114,10 @@ class MenuData : NSObject, NSCoding{
         
         if customizeOptions != nil {
             dictionary["customizeOptions"] = customizeOptions.toDictionary()
+        }
+        
+        if isrecommended != nil{
+            dictionary["is_recommended"] = isrecommended
         }
         
         return dictionary

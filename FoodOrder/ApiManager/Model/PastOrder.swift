@@ -19,7 +19,8 @@ class PastOrder : NSObject{
     var orderQueue : String!
     var orderStatus : String!
     var picture : String!
-    var ratings : Int!
+    var ratings : String!
+    var isRate : String!
     var restaurantName : String!
     var restaurentId : String!
     var restaurentAddress : String!
@@ -35,7 +36,8 @@ class PastOrder : NSObject{
         orderQueue = dictionary["order_queue"] as? String
         orderStatus = dictionary["order_status"] as? String
         picture = dictionary["picture"] as? String
-        ratings = dictionary["ratings"] as? Int
+        ratings = dictionary["rating"] as? String
+        isRate = dictionary["is_rate"] as? String
         restaurantName = dictionary["restaurant_name"] as? String
         restaurentId = dictionary["restaurent_id"] as? String
         restaurentAddress = dictionary["address"] as? String
@@ -76,7 +78,7 @@ class PastOrder : NSObject{
             dictionary["picture"] = picture
         }
         if ratings != nil{
-            dictionary["ratings"] = ratings
+            dictionary["rating"] = ratings
         }
         if restaurantName != nil{
             dictionary["restaurant_name"] = restaurantName
@@ -86,6 +88,9 @@ class PastOrder : NSObject{
         }
         if restaurentAddress != nil{
             dictionary["address"] = restaurentAddress
+        }
+        if isRate != nil{
+            dictionary["is_rate"] = isRate
         }
         if orderItems != nil{
             var dictionaryElements = [[String:Any]]()

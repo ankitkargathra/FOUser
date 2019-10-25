@@ -17,7 +17,7 @@ class StoreData : NSObject, NSCoding{
     var isOpen : String!
     var menu = Menu()
     var picture : String!
-    var ratings : Int!
+    var ratings : String!
     var restaurantAddress : String!
     var restaurantCity : String!
     var restaurantCountry : String!
@@ -28,7 +28,7 @@ class StoreData : NSObject, NSCoding{
     var selfService : String!
     var updatedAt : String!
     var userId : String!
-
+    var restaurant_id : String!
 
     /**
      * Instantiate the instance using the passed dictionary values to set the properties values
@@ -44,7 +44,7 @@ class StoreData : NSObject, NSCoding{
         id = dictionary["id"] as? String
         isOpen = dictionary["is_open"] as? String
         picture = dictionary["picture"] as? String
-        ratings = dictionary["ratings"] as? Int
+        ratings = dictionary["ratings"] as? String
         restaurantAddress = dictionary["restaurant_address"] as? String
         restaurantCity = dictionary["restaurant_city"] as? String
         restaurantCountry = dictionary["restaurant_country"] as? String
@@ -55,6 +55,8 @@ class StoreData : NSObject, NSCoding{
         selfService = dictionary["self_service"] as? String
         updatedAt = dictionary["updated_at"] as? String
         userId = dictionary["user_id"] as? String
+        restaurant_id = dictionary["restaurant_id"] as? String
+        
         if let menuData = dictionary["menu"] as? [String:Any]{
             menu = Menu(fromDictionary: menuData)
         }
@@ -133,6 +135,9 @@ class StoreData : NSObject, NSCoding{
         if userId != nil{
             dictionary["user_id"] = userId
         }
+        if restaurant_id != nil{
+            dictionary["restaurant_id"] = restaurant_id
+        }
         if menu != nil{
             dictionary["menu"] = menu.toDictionary()
         }
@@ -167,7 +172,7 @@ class StoreData : NSObject, NSCoding{
         isOpen = aDecoder.decodeObject(forKey: "is_open") as? String
         menu = aDecoder.decodeObject(forKey: "menu") as! Menu
         picture = aDecoder.decodeObject(forKey: "picture") as? String
-        ratings = aDecoder.decodeObject(forKey: "ratings") as? Int
+        ratings = aDecoder.decodeObject(forKey: "ratings") as? String
         restaurantAddress = aDecoder.decodeObject(forKey: "restaurant_address") as? String
         restaurantCity = aDecoder.decodeObject(forKey: "restaurant_city") as? String
         restaurantCountry = aDecoder.decodeObject(forKey: "restaurant_country") as? String

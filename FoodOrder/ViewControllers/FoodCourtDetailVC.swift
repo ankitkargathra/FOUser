@@ -15,7 +15,7 @@ enum CellStoreType {
 }
 
 class FoodCourtDetailVC: BaseVC, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UIScrollViewDelegate {
-
+    
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var catView: UIView!
     @IBOutlet var fullCatView: UIView!
@@ -41,7 +41,7 @@ class FoodCourtDetailVC: BaseVC, UICollectionViewDataSource, UICollectionViewDel
         collectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 100, right: 0)
         collectionView.register(UINib(nibName: "CellFoodCourtItem" , bundle: nil), forCellWithReuseIdentifier: "CellFoodCourtItem")
         collectionView.register(UICollectionReusableView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "collectionHeaderID")
-
+        
         //
         // Do any additional setup after loading the view.
         
@@ -51,10 +51,10 @@ class FoodCourtDetailVC: BaseVC, UICollectionViewDataSource, UICollectionViewDel
         catView.layer.shadowOpacity = 0.7
         catView.layer.shadowOffset = CGSize.init(width: 0, height: 3)
         catView.layer.shadowRadius = 6
-//        catView.layer.shadowPath = UIBezierPath(roundedRect: catView.bounds, cornerRadius: 19).cgPath
+        //        catView.layer.shadowPath = UIBezierPath(roundedRect: catView.bounds, cornerRadius: 19).cgPath
         catView.layer.cornerRadius = 19
         //catView.
-//        catView.clipsToBounds = true
+        //        catView.clipsToBounds = true
         fullCatView.frame = kDeviceFrame
         fullCatView.isHidden = true
         self.navigationController?.view.addSubview(fullCatView)
@@ -82,15 +82,18 @@ class FoodCourtDetailVC: BaseVC, UICollectionViewDataSource, UICollectionViewDel
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if section == 0{
+            print(self.storeData.menu.searchFoodType[section].count)
+        }
         return self.storeData.menu.searchFoodType[section].count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         if indexPath.section == 0 {
-            if indexPath.row == 0 {
+          if indexPath.row == 0 {
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CellMainHeader", for: indexPath)  as! CellMainHeader
-                cell.lblRate.text = "\(self.storeData.ratings!)"
+                cell.lblRate.text = checkNULL(str: "\(self.storeData.ratings!)")
                 cell.lblReasturantName.text = checkNULL(str: self.storeData.restaurantName)
                 cell.lblCategories.text = checkNULL(str: self.storeData.categoriesString)
                 cell.setBannerData(baner: self.storeData.banners)
@@ -118,13 +121,13 @@ class FoodCourtDetailVC: BaseVC, UICollectionViewDataSource, UICollectionViewDel
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CellFoodCourtItem", for: indexPath)  as! CellFoodCourtItem
             cell.menuData = menu
             if menu.customizeOption! == true {
-                cell.lblName.text = checkNULL(str: menu.itemName + " (c)")
+                cell.lblName.text = checkNULL(str: menu.itemName + " (custom)")
                 if let itemCount = CartData.shared.items.filter({ (menuData) -> Bool in
                     return "\(menu.id!)" == "\(menuData.id!)"
                 }) as [MenuData]? {
                     var count = 0
                     for itemObj in itemCount{
-                            count = count + itemObj.addedInCartValue
+                        count = count + itemObj.addedInCartValue
                     }
                     cell.valueSteper.valueLabel.text = "\(count)"
                     menu.addedInCartValue = count
@@ -146,7 +149,7 @@ class FoodCourtDetailVC: BaseVC, UICollectionViewDataSource, UICollectionViewDel
             cell.lblPrice.text = checkNULL(str: menu.itemPrice).add$Tag()
             cell.imgVagNonVeg.image = menu.isVeg == "1" ? UIImage.init(named: "veg") : UIImage.init(named: "non_veg")
             
-        
+            
             if cell.valueSteper.valueLabel.text == "0" {
                 cell.btnAdd.isHidden = false
                 cell.valueSteper.value = Double.init(cell.valueSteper.valueLabel.text!)!
@@ -179,7 +182,7 @@ class FoodCourtDetailVC: BaseVC, UICollectionViewDataSource, UICollectionViewDel
                 CartData.shared.address = self.storeData.restaurantAddress!
                 CartData.shared.name = self.storeData.restaurantName!
                 CartData.shared.image = self.storeData.picture!
-                CartData.shared.restaurent_id = self.storeData.foodCourtId!
+                CartData.shared.restaurent_id = self.storeData.restaurant_id!//self.storeData.foodCourtId!
                 
                 self.constraintHeightCartView.constant = 57.7
                 
@@ -209,30 +212,30 @@ class FoodCourtDetailVC: BaseVC, UICollectionViewDataSource, UICollectionViewDel
                 
                 if menu.addedInCartValue! != Int.init(steper.value) {
                     
-                        if let cItem = CartData.shared.items.first(where: { (itemOBj) -> Bool in
-                            return "\(menu.id!)" == "\(itemOBj.id!)"
-                        }) {
-                            if menu.customizeOption! == false {
-                                cItem.addedInCartValue = Int.init(steper.value)
-                                if steper.value == 0 {
-                                    if let index = CartData.shared.items.firstIndex(where: { (itemData) -> Bool in
-                                        return "\(itemData.id!)" == "\(cItem.id!)"
-                                    }) {
-                                        CartData.shared.items.remove(at: index)
-                                    }
+                    if let cItem = CartData.shared.items.first(where: { (itemOBj) -> Bool in
+                        return "\(menu.id!)" == "\(itemOBj.id!)"
+                    }) {
+                        if menu.customizeOption! == false {
+                            cItem.addedInCartValue = Int.init(steper.value)
+                            if steper.value == 0 {
+                                if let index = CartData.shared.items.firstIndex(where: { (itemData) -> Bool in
+                                    return "\(itemData.id!)" == "\(cItem.id!)"
+                                }) {
+                                    CartData.shared.items.remove(at: index)
                                 }
-                            } else {
-                                getAddOnsData()
                             }
-                            
                         } else {
-                            if menu.customizeOption! == false {
-                                menu.addedInCartValue = Int.init(steper.value)
-                                CartData.shared.items.append(menu)
-                            } else {
-                                getAddOnsData()
-                            }
+                            getAddOnsData()
                         }
+                        
+                    } else {
+                        if menu.customizeOption! == false {
+                            menu.addedInCartValue = Int.init(steper.value)
+                            CartData.shared.items.append(menu)
+                        } else {
+                            getAddOnsData()
+                        }
+                    }
                 }
                 self.setupCart()
             }
@@ -270,7 +273,7 @@ class FoodCourtDetailVC: BaseVC, UICollectionViewDataSource, UICollectionViewDel
             
             return cell
         }
-    
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -347,7 +350,7 @@ class FoodCourtDetailVC: BaseVC, UICollectionViewDataSource, UICollectionViewDel
                     isWhiteNav = true
                 }
                 setheader(vc: vc)
-//                self.addTitleView(title: "Domino’s Pizza", subtitle: "")
+                //                self.addTitleView(title: "Domino’s Pizza", subtitle: "")
                 
             } else {
                 vc.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
@@ -380,7 +383,7 @@ class FoodCourtDetailVC: BaseVC, UICollectionViewDataSource, UICollectionViewDel
         }
         self.navigationController?.pushViewController(cartVC, animated: true)
     }
-
+    
     func getFoodCourtMenu() {
         UtilityClass.showHUD()//
         ApiController.shared.getFoodStoreDetail(restaurant_id: "\(foodCourt.id!)") { (success, message, response) in
@@ -390,6 +393,8 @@ class FoodCourtDetailVC: BaseVC, UICollectionViewDataSource, UICollectionViewDel
                     self.storeData = StoreData.init(fromDictionary: response!)
                     self.storeData.menu.searchHeader = self.storeData.menu.foodHeader
                     self.storeData.menu.searchFoodType = self.storeData.menu.foodType
+                    print(self.storeData.menu.searchFoodType)
+                    print(self.storeData.menu.searchFoodType.count)
                     self.collectionView.reloadData()
                     
                     if self.storeData.categories != nil {

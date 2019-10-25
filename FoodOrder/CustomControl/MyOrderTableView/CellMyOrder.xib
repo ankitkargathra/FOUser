@@ -175,6 +175,7 @@
                 <outlet property="lblAmount" destination="Szk-Gy-aSk" id="GEK-bv-h9G"/>
                 <outlet property="lblItemName" destination="Oc1-Dh-DMm" id="gFt-jy-3uL"/>
                 <outlet property="lblOrderStatus" destination="LUz-cM-Pkp" id="3KJ-PW-5fY"/>
+                <outlet property="lblRate" destination="77t-Vw-en5" id="8Ji-3T-7F0"/>
                 <outlet property="lblTime" destination="5BT-H4-ipw" id="mMc-u9-alx"/>
                 <outlet property="restrutantName" destination="zRG-ld-BtM" id="0bK-S2-r1Y"/>
                 <outlet property="viewRated" destination="Vgj-nW-n84" id="v4a-fR-TBV"/>

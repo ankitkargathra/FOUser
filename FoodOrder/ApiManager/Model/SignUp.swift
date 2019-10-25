@@ -17,7 +17,7 @@ class SignUp {
     var phone: String!
     var dob: String!
     var device_id: String! = "\(Devices.uuid)"
-    var fcm_token: String! = "\(AppDel.deviceToken!)"
+    var fcm_token: String! = "\(FCM_TOKEN)"
     var usertype: String?
     var facebook_id: String?
     func toJsonDictionary() -> JSONDICTIONARY {

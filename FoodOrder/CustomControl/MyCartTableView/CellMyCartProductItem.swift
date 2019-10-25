@@ -43,9 +43,7 @@ class CellMyCartProductItem: UITableViewCell {
     
     func setCellData(menu: MenuData) {
         
-        
-        
-        if menu.customizeOptions != nil {
+    if menu.customizeOptions != nil {
             var addonsValue: Double! = 0
             for addONs in menu.customizeOptions.customizeOptions {
                 for addon in addONs {

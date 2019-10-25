@@ -14,13 +14,13 @@ class CellMyOrder: BaseTableViewCell {
     @IBOutlet weak var viewRated: UIView!
     @IBOutlet weak var lblOrderStatus: LabelAveNirNextProBlackGreen!
     @IBOutlet weak var btnRateNow: ButtonAveNirNextProMediumGray!
-    
     @IBOutlet weak var restrutantName: LabelAveNirNextProBlackMeduim!
     @IBOutlet weak var lblTime: LabelAveNirNextProGrayMedium!
     @IBOutlet weak var lblAmount: LabelAveNirNextProBlackDemi!
     @IBOutlet weak var lblAddress: LabelAveNirNextProGrayMedium!
     @IBOutlet weak var lblItemName: LabelAveNirNextProBlackMeduim!
     @IBOutlet weak var imgRestarutantProPic: RoundImageView!
+    @IBOutlet weak var lblRate: LabelAveNirNextProBlackMeduim!
     
     
     override func awakeFromNib() {
@@ -37,9 +37,16 @@ class CellMyOrder: BaseTableViewCell {
     
     func setCellDataCurrentOrder(C:CurrentOrder) {
       
-        self.viewRated.isHidden = true
+        if C.isRate == "0"{
+            self.viewRated.isHidden = true
+            self.btnRateNow.isHidden = false
+        }else{
+            self.viewRated.isHidden = false
+            self.btnRateNow.isHidden = true
+            self.lblRate.text = C.ratings
+        }
         self.lblOrderStatus.textColor = UIColor.appGreenColor()
-        self.lblOrderStatus.text = "Order is being prepared"
+        self.lblOrderStatus.text = C.orderStatus//"Order is being prepared"
         self.restrutantName.text = checkNULL(str: C.restaurantName)
         self.lblAddress.text = checkNULL(str: C.restaurentAddress)
         self.lblAmount.text = checkNULL(str: C.grandTotal).add$Tag()
@@ -58,9 +65,16 @@ class CellMyOrder: BaseTableViewCell {
     
     func setCellDataPastOrder(P:PastOrder){
         
-        self.viewRated.isHidden = false
+        if P.isRate == "0"{
+            self.viewRated.isHidden = true
+            self.btnRateNow.isHidden = false
+        }else{
+            self.viewRated.isHidden = false
+            self.btnRateNow.isHidden = true
+            self.lblRate.text = P.ratings
+        }
         self.lblOrderStatus.textColor = UIColor.colorRed()
-        self.lblOrderStatus.text = "Order is delivered"
+        self.lblOrderStatus.text = P.orderStatus//"Order is delivered"
         self.restrutantName.text = checkNULL(str: P.restaurantName)
         self.lblAddress.text = checkNULL(str: P.restaurentAddress)
         self.lblAmount.text = checkNULL(str: P.grandTotal).add$Tag()
@@ -80,11 +94,16 @@ class CellMyOrder: BaseTableViewCell {
     func setCellDataRecentOrder(RO:DSActivity){
         
         self.lblOrderStatus.textColor = UIColor.colorRed()
-        self.viewRated.isHidden = false
+        if RO.isRate == "0"{
+            self.viewRated.isHidden = true
+        }else{
+            self.viewRated.isHidden = false
+            self.lblRate.text = String(describing: RO.rating)
+        }
         self.lblOrderStatus.text = "Order is delivered"
         self.restrutantName.text = checkNULL(str: RO.restaurantName)
-//        self.lblAddress.text = checkNULL(str: RO.restaurentAddress)
-        self.lblAmount.text = checkNULL(str: "30").add$Tag()
+        self.lblAddress.text = checkNULL(str: RO.restaurantAddress)
+        self.lblAmount.text = checkNULL(str: RO.grandTotal).add$Tag()
         self.lblTime.text = Date.convertDate(date: RO.orderDate!)
         let arr:NSMutableArray = []
         var joined:String!

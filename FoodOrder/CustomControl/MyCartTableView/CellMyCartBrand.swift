@@ -27,13 +27,12 @@ class CellMyCartBrand: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        
         lblAddress.text = checkNULL(str: CartData.shared.address)
         lblBrandName.text = checkNULL(str: CartData.shared.name)
         if CartData.shared.image != nil {
             imgView.kf.setImage(with: URL.init(string: CartData.shared.image!))
         }
-        
+        CartData.shared.order_type = "1"
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -51,14 +50,15 @@ class CellMyCartBrand: UITableViewCell {
         if sender.tag == 0 {
             imgTakeAwayRadio.image = UIImage.init(named: "radio_on")
             imgDineInRadio.image = UIImage.init(named: "radio_off")
-            btnTakeAway.setTitleColor(UIColor.setButtonColor(), for: .normal)
+            btnTakeAway.setTitleColor(UIColor.setGreenColor(), for: .normal)
             btnDineIn.setTitleColor(UIColor.colorGray(), for: .normal)
         } else {
             imgTakeAwayRadio.image = UIImage.init(named: "radio_off")
             imgDineInRadio.image = UIImage.init(named: "radio_on")
             btnTakeAway.setTitleColor(UIColor.colorGray(), for: .normal)
-            btnDineIn.setTitleColor(UIColor.setButtonColor(), for: .normal)
+            btnDineIn.setTitleColor(UIColor.setGreenColor(), for: .normal)
         }
+        
         CartData.shared.order_type = "\(sender.tag)"
         
     }

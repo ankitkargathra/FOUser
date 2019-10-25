@@ -18,6 +18,56 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cPq-cf-kke">
+                                <rect key="frame" x="0.0" y="32" width="375" height="603"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_notifications" translatesAutoresizingMaskIntoConstraints="NO" id="PHA-42-98s">
+                                        <rect key="frame" x="120.5" y="128.5" width="148" height="175"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="PHA-42-98s" secondAttribute="height" multiplier="148:175" id="7T0-cm-cKi"/>
+                                        </constraints>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Eeb-d4-qs5">
+                                        <rect key="frame" x="-26.5" y="337.5" width="428" height="79"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You haven’t got any notifications" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vb0-Aq-o3Y" customClass="LabelAveNirNextProBlackMeduim" customModule="FoodOrder" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="428" height="26"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="26" id="eWp-fQ-mb0"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                                        <real key="value" value="17.800000000000001"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A2d-59-T2a" customClass="LabelAveNirNextProGrayMedium" customModule="FoodOrder" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="36" width="428" height="43"/>
+                                                <string key="text">Pick the right place using trusted ratings and reviewsand order your favorite food</string>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                                        <real key="value" value="15.199999999999999"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="PHA-42-98s" firstAttribute="width" secondItem="cPq-cf-kke" secondAttribute="width" multiplier="148:414" constant="13.94202898550725" id="1Wn-YN-aI9"/>
+                                    <constraint firstItem="Eeb-d4-qs5" firstAttribute="top" secondItem="PHA-42-98s" secondAttribute="bottom" constant="34" id="8Li-y8-nM6"/>
+                                    <constraint firstItem="Eeb-d4-qs5" firstAttribute="centerX" secondItem="PHA-42-98s" secondAttribute="centerX" constant="-7" id="BBk-1L-mbE"/>
+                                    <constraint firstItem="PHA-42-98s" firstAttribute="centerY" secondItem="cPq-cf-kke" secondAttribute="centerY" constant="-85.5" id="aXF-2X-BeY"/>
+                                    <constraint firstItem="PHA-42-98s" firstAttribute="centerX" secondItem="cPq-cf-kke" secondAttribute="centerX" constant="7" id="deT-EU-1fW"/>
+                                </constraints>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="R7T-rU-CQ5" customClass="TableViewNotification" customModule="FoodOrder" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="22" width="375" height="645"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -27,6 +77,10 @@
                         <constraints>
                             <constraint firstItem="C8p-Np-ZIK" firstAttribute="bottom" secondItem="R7T-rU-CQ5" secondAttribute="bottom" id="4fU-Ui-eHs"/>
                             <constraint firstItem="R7T-rU-CQ5" firstAttribute="leading" secondItem="C8p-Np-ZIK" secondAttribute="leading" id="Avf-3a-H85"/>
+                            <constraint firstItem="cPq-cf-kke" firstAttribute="leading" secondItem="R7T-rU-CQ5" secondAttribute="leading" id="Ipd-ft-Dde"/>
+                            <constraint firstItem="cPq-cf-kke" firstAttribute="width" secondItem="cPq-cf-kke" secondAttribute="height" multiplier="125:201" id="Jvo-Kl-zZm"/>
+                            <constraint firstItem="cPq-cf-kke" firstAttribute="centerY" secondItem="9gM-ls-qRj" secondAttribute="centerY" id="LUb-TZ-gs2"/>
+                            <constraint firstItem="cPq-cf-kke" firstAttribute="trailing" secondItem="R7T-rU-CQ5" secondAttribute="trailing" id="qUe-DA-0Qk"/>
                             <constraint firstItem="C8p-Np-ZIK" firstAttribute="trailing" secondItem="R7T-rU-CQ5" secondAttribute="trailing" id="sHc-JN-Y3e"/>
                             <constraint firstItem="R7T-rU-CQ5" firstAttribute="top" secondItem="C8p-Np-ZIK" secondAttribute="top" constant="2" id="vi6-nI-BGv"/>
                         </constraints>
@@ -41,4 +95,7 @@
             <point key="canvasLocation" x="9" y="-39"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="no_notifications" width="311" height="367"/>
+    </resources>
 </document>

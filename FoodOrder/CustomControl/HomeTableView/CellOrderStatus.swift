@@ -19,10 +19,16 @@ class CellOrderStatus: UITableViewCell {
     @IBOutlet weak var btnViewDetails: UIButton!
     @IBOutlet weak var imgHot_pot: UIImageView!
     @IBOutlet weak var imgChef: UIImageView!
+    @IBOutlet weak var collectionView: UICollectionView!
+    
+    var arrRecentScan = [RecentScan]()
     
     override func awakeFromNib() {
         super.awakeFromNib()
         self.selectionStyle = .none
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.register(UINib(nibName:"CellRecentScan", bundle: nil), forCellWithReuseIdentifier: "cellrecent")
         // Initialization code
     }
 
@@ -52,7 +58,23 @@ class CellOrderStatus: UITableViewCell {
             imgChef.isHidden = false
             imgHot_pot.isHidden = true
         }
-        
     }
-    
+}
+
+extension CellOrderStatus:UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
+
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.arrRecentScan.count
+    }
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+      let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellrecent", for: indexPath)  as! CellRecentScan
+        cell.cellData(RS: self.arrRecentScan[indexPath.row], Index:indexPath.row)
+        return cell
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 0.54*self.frame.size.width, height: 0.67*self.frame.size.height)
+    }
 }

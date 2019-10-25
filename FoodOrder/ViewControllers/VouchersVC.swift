@@ -43,9 +43,11 @@ class VouchersVC: BaseVC {
                         }
                     }
                 }
-            }
-            DispatchQueue.main.async {
-                self.tbtVaucher.reloadData()
+                DispatchQueue.main.async {
+                    self.tbtVaucher.reloadData()
+                }
+            }else{
+                self.tbtVaucher.isHidden = true
             }
         }
         

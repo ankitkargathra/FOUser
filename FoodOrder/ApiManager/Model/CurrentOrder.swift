@@ -16,7 +16,8 @@ class CurrentOrder : NSObject{
     var orderQueue : String!
     var orderStatus : String!
     var picture : String!
-    var ratings : Int!
+    var isRate : String!
+    var ratings : String!
     var restaurantName : String!
     var restaurentId : String!
     var restaurentAddress : String!
@@ -32,7 +33,8 @@ class CurrentOrder : NSObject{
         orderQueue = dictionary["order_queue"] as? String
         orderStatus = dictionary["order_status"] as? String
         picture = dictionary["picture"] as? String
-        ratings = dictionary["ratings"] as? Int
+        ratings = dictionary["rating"] as? String
+        isRate = dictionary["is_rate"] as? String
         restaurantName = dictionary["restaurant_name"] as? String
         restaurentAddress = dictionary["address"] as? String
         restaurentId = dictionary["restaurent_id"] as? String
@@ -73,7 +75,7 @@ class CurrentOrder : NSObject{
             dictionary["picture"] = picture
         }
         if ratings != nil{
-            dictionary["ratings"] = ratings
+            dictionary["rating"] = ratings
         }
         if restaurantName != nil{
             dictionary["restaurant_name"] = restaurantName
@@ -83,6 +85,9 @@ class CurrentOrder : NSObject{
         }
         if restaurentAddress != nil{
             dictionary["address"] = restaurentAddress
+        }
+        if isRate != nil{
+            dictionary["is_rate"] = isRate
         }
         if orderItems != nil{
             var dictionaryElements = [[String:Any]]()

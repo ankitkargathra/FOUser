@@ -36,6 +36,8 @@ class NotificationVC: BaseVC {
                     }
                 }
                 self.tableViewNotificaiton.reloadData()
+            }else{
+                self.tableViewNotificaiton.isHidden = true
             }
         }
     }

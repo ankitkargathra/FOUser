@@ -26,6 +26,7 @@ class CartData {
     var discount: String? = "0"
     var grand_total: String?
     var table_number: String?
+    var payment_method:String?
     var items = [MenuData]()
     var orderItems = [OrderItem]()
     var itemsAddOn = [AddOn]()
@@ -45,6 +46,7 @@ class CartData {
         if let discount = discount { dict["discount"] = discount }
         if let grand_total = grand_total { dict["grand_total"] = grand_total }
         if let table_number = table_number { dict["table_number"] = table_number }
+        if let payment_method = payment_method { dict["payment_method"] = payment_method }
         
         
         var orders = [JSONDICTIONARY]()
@@ -108,6 +110,7 @@ class CartData {
         discount = "0"
         grand_total = nil
         table_number = nil
+        payment_method = nil
         self.items.removeAll()
         orderItems = [OrderItem]()
         itemsAddOn = [AddOn]()

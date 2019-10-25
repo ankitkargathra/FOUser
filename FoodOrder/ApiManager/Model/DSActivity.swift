@@ -14,8 +14,11 @@ class DSActivity : NSObject, NSCoding{
     var orderStatus : String!
     var picture : String!
     var restaurantName : String!
+    var restaurantAddress : String!
     var restaurentId : String!
-
+    var isRate : String!
+    var rating : Float!
+    var grandTotal : String!
 
     /**
      * Instantiate the instance using the passed dictionary values to set the properties values
@@ -26,7 +29,11 @@ class DSActivity : NSObject, NSCoding{
         orderStatus = dictionary["order_status"] as? String
         picture = dictionary["picture"] as? String
         restaurantName = dictionary["restaurant_name"] as? String
+        restaurantAddress = dictionary["restaurant_address"] as? String
         restaurentId = dictionary["restaurent_id"] as? String
+        isRate = dictionary["is_rate"] as? String
+        rating = dictionary["rating"] as? Float
+        grandTotal = dictionary["grand_total"] as? String
         items = [DSOrderItem]()
         if let itemsArray = dictionary["items"] as? [[String:Any]]{
             for dic in itemsArray{
@@ -39,8 +46,7 @@ class DSActivity : NSObject, NSCoding{
     /**
      * Returns all the available property values in the form of [String:Any] object where the key is the approperiate json key and the value is the value of the corresponding property
      */
-    func toDictionary() -> [String:Any]
-    {
+    func toDictionary() -> [String:Any]{
         var dictionary = [String:Any]()
         if orderDate != nil{
             dictionary["order_date"] = orderDate
@@ -66,6 +72,18 @@ class DSActivity : NSObject, NSCoding{
                 dictionaryElements.append(itemsElement.toDictionary())
             }
             dictionary["items"] = dictionaryElements
+        }
+        if isRate != nil{
+            dictionary["is_rate"] = isRate
+        }
+        if rating != nil{
+            dictionary["rating"] = rating
+        }
+        if grandTotal != nil{
+            dictionary["grand_total"] = grandTotal
+        }
+        if restaurantAddress != nil{
+            dictionary["restaurant_address"] = restaurantAddress
         }
         return dictionary
     }

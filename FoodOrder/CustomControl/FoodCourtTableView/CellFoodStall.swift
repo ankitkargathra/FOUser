@@ -9,7 +9,7 @@
 import UIKit
 
 class CellFoodStall: BaseTableViewCell {
-
+    
     @IBOutlet weak var imgStore: RoundImageView!
     @IBOutlet weak var lblStoreName: LabelAveNirNextProBlackMeduim!
     @IBOutlet weak var lblStoreCategories: LabelAveNirNextProGrayMedium!
@@ -21,10 +21,10 @@ class CellFoodStall: BaseTableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
     
@@ -39,8 +39,5 @@ class CellFoodStall: BaseTableViewCell {
         if let img = store.item_picture {
             self.imgStore.kf.setImage(with: URL.init(string: img))
         }
-        
     }
-    
-
 }

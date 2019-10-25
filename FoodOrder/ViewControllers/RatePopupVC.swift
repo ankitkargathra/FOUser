@@ -9,64 +9,80 @@
 import UIKit
 
 class RatePopupVC: BaseVC {
-
+    
     
     @IBOutlet var bottomConstrint: NSLayoutConstraint!
     @IBOutlet var btnRates: [UIButton]!
-    
     @IBOutlet var viewRate: UIView!
     @IBOutlet var viewSize: UIView!
-    
-    var isRate: Bool = true
-    
     @IBOutlet var tableView: TableViewFoodSize!
-    var addOn: AddOns!
-    var item: MenuData!
     @IBOutlet var imgVeg: UIImageView!
     @IBOutlet var lblName: UILabel!
     @IBOutlet var lblPrice: UILabel!
     @IBOutlet var lblPricePlusAddonPrice: UILabel!
     @IBOutlet var lblAddItem: LabelAveNirNextProDemiWhite!
+    @IBOutlet weak var txtViewReview: UITextView!
+    @IBOutlet weak var imgRestautant: RoundImageView!
+    @IBOutlet weak var lblRestautantName: LabelAveNirNextProBlackMeduim!
+    @IBOutlet weak var lblRestautantAddress: LabelAveNirNextProGrayMedium!
+    
+    var isRate: Bool = true
+    var addOn: AddOns!
+    var item: MenuData!
     var isUpdate = false
+    var isFromList = false
+    var orderId:String!
+    var restautantId:String!
+    var restautantName:String!
+    var picture:String!
+    var restaurantAddress:String!
+    var rate:Int!
+    var placeholdertextview = "Your review will impact the restaurant's overall rating and will help others make better choice."
+    var delegatemyOrder:MyOrderVC!
+    var delegatemyHome:HomeVC!
+    
+    
     override func viewDidLoad() {
         self.view.backgroundColor = UIColor.clear
         super.viewDidLoad()
         self.setViewHidden(rate: !isRate)
         
-        if isUpdate == false {
-            lblAddItem.text = "Add Item"
-            self.lblPricePlusAddonPrice.text = item.itemPrice.add$Tag()
-        } else {
-            lblAddItem.text = "Update"
-            
-            var addonsValue: Double! = 0
-            if item.customizeOptions != nil {
-                for addONs in item.customizeOptions.customizeOptions {
-                    for addon in addONs {
-                        if addon.selected == true {
-                            addonsValue = addonsValue + (Double.init(addon.price!)! * Double.init(item.addedInCartValue))
+        if !isFromList{
+            if isUpdate == false {
+                lblAddItem.text = "Add Item"
+                self.lblPricePlusAddonPrice.text = item.itemPrice.add$Tag()
+            } else {
+                lblAddItem.text = "Update"
+                var addonsValue: Double! = 0
+                if item.customizeOptions != nil {
+                    for addONs in item.customizeOptions.customizeOptions {
+                        for addon in addONs {
+                            if addon.selected == true {
+                                addonsValue = addonsValue + (Double.init(addon.price!)! * Double.init(item.addedInCartValue))
+                            }
                         }
                     }
                 }
+                
+                self.lblPricePlusAddonPrice.text = "\(String.init(format: "%.2f", (Double.init(item.itemPrice!)! * Double.init(item.addedInCartValue)) + addonsValue))".add$Tag()
             }
-            
-            self.lblPricePlusAddonPrice.text = "\(String.init(format: "%.2f", (Double.init(item.itemPrice!)! * Double.init(item.addedInCartValue)) + addonsValue))".add$Tag()
+        }else{
+            txtViewReview.delegate = self
+            lblRestautantName.text = restautantName
+            lblRestautantAddress.text = restaurantAddress
+            if let img = picture {
+                self.imgRestautant.kf.setImage(with: URL.init(string: img))
+            }
         }
-        
         if isRate == false {
             tableView.addOn = self.addOn
             tableView.reloadData()
             lblName.text = item.itemName!
             lblPrice.text = checkNULL(str: item.itemPrice).add$Tag()
             imgVeg.image = item.isVeg == "1" ? UIImage.init(named: "veg") : UIImage.init(named: "non_veg")
-            
         }
         
-        
-        
         self.tableView.blockTableViewDidSelectAtIndexPath = { (indexPath) in
-            
-            
             
             if self.isUpdate == true {
                 var addonsValue: Double! = 0
@@ -172,38 +188,36 @@ class RatePopupVC: BaseVC {
         }
         self.btnDismissPress()
         
-//        if let cItem = CartData.shared.items.first(where: { (data) -> Bool in
-//            return "\(self.item.id!)" == "\(data.id!)"
-//        }) {
-//
-//            for ad in cItem.customizeOptions {
-//                if addOn == ad {
-//                    print("Same")
-//                } else {
-//                    print("Not")
-//                }
-//            }
-//
-//
-//
-//        } else {
-//            item.customizeOptions.append(addOn)
-//            item.addedInCartValue = item.addedInCartValue + 1
-//            CartData.shared.items.append(item)
-//        }
+        //        if let cItem = CartData.shared.items.first(where: { (data) -> Bool in
+        //            return "\(self.item.id!)" == "\(data.id!)"
+        //        }) {
+        //
+        //            for ad in cItem.customizeOptions {
+        //                if addOn == ad {
+        //                    print("Same")
+        //                } else {
+        //                    print("Not")
+        //                }
+        //            }
+        //
+        //
+        //
+        //        } else {
+        //            item.customizeOptions.append(addOn)
+        //            item.addedInCartValue = item.addedInCartValue + 1
+        //            CartData.shared.items.append(item)
+        //        }
         
         
     }
     
     @IBAction func btnRatePress(sender: UIButton) {
         let stackView = sender.superview as! UIStackView
-        
+        rate = sender.tag
         for viewObj in stackView.arrangedSubviews {
             
             if viewObj.isKind(of: UIButton.classForCoder()) {
-                
                 let button = viewObj as! UIButton
-                
                 if button.tag <= sender.tag {
                     button.isSelected = true
                 } else {
@@ -211,22 +225,47 @@ class RatePopupVC: BaseVC {
                 }
             }
         }
-        
+    }
+    @IBAction func btnSubmitPress(_ sender: GreenBGButton) {
+        if txtViewReview.text == placeholdertextview{
+            txtViewReview.text = ""
+        }
+        UtilityClass.showHUD()
+        let params = ["order_id":orderId!,"restaurent_id":restautantId!,"review":txtViewReview.text!,"ratings":String(rate)] as JSONDICTIONARY
+        ApiController.shared.ratingReview(Params: params) { (success, message, response) in
+        UtilityClass.hideHUD()
+            if success {
+                if let dele = self.delegatemyOrder{
+                    dele.getmyorderData()
+                }
+                if let dele = self.delegatemyHome{
+                    dele.getDashboardDetails()
+                }
+                self.dismiss(animated: true, completion: nil)
+            }
+        }
     }
     
     func setViewHidden(rate: Bool) {
         self.viewRate.isHidden = rate
         self.viewSize.isHidden = !rate
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+}
+extension RatePopupVC:UITextViewDelegate{
+    
+    func textViewDidBeginEditing(_ textView: UITextView)
+    {
+        if textView.text.trim() == placeholdertextview{
+            textView.text = ""
+            textView.textColor = .black
+        }
     }
-    */
-
+    
+    func textViewDidEndEditing(_ textView: UITextView){
+        if textView.text.trim() == ""
+        {
+            textView.text = placeholdertextview
+            textView.textColor = UIColor.colorGray()
+        }
+    }
 }

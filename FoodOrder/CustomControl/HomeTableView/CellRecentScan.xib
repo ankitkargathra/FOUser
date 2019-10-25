@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="AvenirNextLTPro-Bold.otf">
+            <string>AvenirNextLTPro-Bold</string>
+        </array>
+        <array key="AvenirNextLTPro-Regular.otf">
+            <string>AvenirNextLTPro-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cellrecent" id="nmv-0Z-5xD" customClass="CellRecentScan" customModule="FoodOrder" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="227.5" height="128.5"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                <rect key="frame" x="0.0" y="0.0" width="227.5" height="128.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c4z-a7-2za">
+                        <rect key="frame" x="0.0" y="0.0" width="228" height="128"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" red="0.98431372549999996" green="0.098039215690000001" blue="0.098039215690000001" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CAv-mr-hna">
+                        <rect key="frame" x="17" y="20" width="176" height="20"/>
+                        <fontDescription key="fontDescription" name="AvenirNextLTPro-Bold" family="Avenir Next LT Pro" pointSize="20"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MdR-75-dp7">
+                        <rect key="frame" x="17" y="55" width="105" height="35"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.20488556338028169" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="105" id="GRT-LX-Df9"/>
+                            <constraint firstAttribute="height" constant="35" id="Jyu-KX-0KJ"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="AvenirNextLTPro-Regular" family="Avenir Next LT Pro" pointSize="13"/>
+                        <state key="normal" title="Order Now">
+                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </state>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                        <connections>
+                            <action selector="btnOrderNowPressed:" destination="nmv-0Z-5xD" eventType="touchUpInside" id="a91-6l-G7e"/>
+                        </connections>
+                    </button>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="MdR-75-dp7" firstAttribute="leading" secondItem="CAv-mr-hna" secondAttribute="leading" id="Dj6-7h-7UC"/>
+                <constraint firstItem="CAv-mr-hna" firstAttribute="leading" secondItem="nmv-0Z-5xD" secondAttribute="leading" constant="17" id="WmU-cO-dRQ"/>
+                <constraint firstAttribute="trailing" secondItem="CAv-mr-hna" secondAttribute="trailing" constant="34.5" id="YTm-VI-ojm"/>
+                <constraint firstItem="CAv-mr-hna" firstAttribute="top" secondItem="nmv-0Z-5xD" secondAttribute="top" constant="20" id="Yaf-bW-Qfp"/>
+                <constraint firstItem="MdR-75-dp7" firstAttribute="top" secondItem="CAv-mr-hna" secondAttribute="bottom" constant="15" id="dFH-Gx-Vw6"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="aoM-3R-Cjh"/>
+            <size key="customSize" width="325" height="133"/>
+            <connections>
+                <outlet property="btnOrderNow" destination="MdR-75-dp7" id="tSB-FU-niP"/>
+                <outlet property="lblRestautantName" destination="CAv-mr-hna" id="DJo-Ea-ZAE"/>
+                <outlet property="viewCellBackground" destination="c4z-a7-2za" id="bJf-GA-Z7C"/>
+            </connections>
+            <point key="canvasLocation" x="725" y="-64"/>
+        </collectionViewCell>
+    </objects>
+</document>

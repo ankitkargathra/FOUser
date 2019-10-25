@@ -10,12 +10,13 @@ import UIKit
 
 class TableViewMyOrder: BaseTableView,UITableViewDelegate,UITableViewDataSource {
 
-    var blockTableViewDidSelectAtIndexPath:((IndexPath)->Void)?
-    var blockTableViewRateNowIndexPath:(()->Void)?
+    var blockTableViewDidSelectAtIndexPath:((IndexPath, Int)->Void)?
+    var blockTableViewRateNowIndexPath:((Int, Int)->Void)?
     
     var sectionArray = ["Active Orders", "Past Orders"]
     var arrCurrentOrder = [CurrentOrder]()
     var arrPastOrder = [PastOrder]()
+    var sectionIndex:Int!
     
     override init(frame: CGRect, style: UITableViewStyle) {
         super.init(frame: frame, style: style)
@@ -67,13 +68,19 @@ class TableViewMyOrder: BaseTableView,UITableViewDelegate,UITableViewDataSource 
         return arrPastOrder.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
-    {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let cell = self.dequeueReusableCell(withIdentifier: "CellMyOrder", for:indexPath) as! CellMyOrder
         if indexPath.section == 0 {
+            if self.arrCurrentOrder[indexPath.row].isRate == "0"{
+                cell.btnRateNow.tag = indexPath.row
+                cell.btnRateNow.addTarget(self, action: #selector(self.btnRateNowPress(sender:)), for: .touchUpInside)
+            }
             cell.setCellDataCurrentOrder(C: self.arrCurrentOrder[indexPath.row])
-            cell.btnRateNow.addTarget(self, action: #selector(self.btnRateNowPress), for: .touchUpInside)
         } else {
+            if self.arrPastOrder[indexPath.row].isRate == "0"{
+                cell.btnRateNow.tag = indexPath.row
+                cell.btnRateNow.addTarget(self, action: #selector(self.btnRateNowPress(sender:)), for: .touchUpInside)
+            }
             cell.setCellDataPastOrder(P: self.arrPastOrder[indexPath.row])
         }
         return cell
@@ -89,7 +96,7 @@ class TableViewMyOrder: BaseTableView,UITableViewDelegate,UITableViewDataSource 
     {
         self.deselectRow(at: indexPath, animated: true)
         if(self.blockTableViewDidSelectAtIndexPath != nil){
-            self.blockTableViewDidSelectAtIndexPath!(indexPath)
+            self.blockTableViewDidSelectAtIndexPath!(indexPath, indexPath.section)
         }        
     }
     
@@ -103,10 +110,12 @@ class TableViewMyOrder: BaseTableView,UITableViewDelegate,UITableViewDataSource 
         return getProportionalWidth(width: 50)
     }
     
-    @objc func btnRateNowPress() {
-//        if(self.blockTableViewRateNowIndexPath != nil){
-//            self.blockTableViewRateNowIndexPath!()
-//        }
+    @objc func btnRateNowPress(sender:UIButton) {
+        if(self.blockTableViewRateNowIndexPath != nil){
+            let touchPoint = sender.convert(CGPoint.zero, to: self)
+            let clickedButtonIndexPath = self.indexPathForRow(at: touchPoint)
+            self.blockTableViewRateNowIndexPath!(sender.tag, (clickedButtonIndexPath?.section)!)
+        }
     }
     
 }

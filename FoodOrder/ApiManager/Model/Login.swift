@@ -16,7 +16,7 @@ class Login {
     var password: String!
     var usertype: String! = "user"
     var device_id: String! = "\(Devices.uuid)"
-    var fcm_token: String! = "\(AppDel.deviceToken!)"
+    var fcm_token: String! = "\(FCM_TOKEN)"
     
     init(email: String, password: String) {
         self.email = email
